@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVators - Agri-Expert Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/teacher.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../assets/logo.webp" alt="EcoVators Logo">
+                <h1>EcoVators</h1>
+            </div>
+            <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#dashboard">Dashboard</a>
+                <a href="#farmers">Farmers</a>
+                <a href="#challenges">Challenges</a>
+                <a href="#content">Content</a>
+                <a href="#analytics">Analytics</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="../index.html" class="login-btn">Home</a>
+                <a href="../index.html" class="get-started-btn">Logout</a>
+            </div>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#farmers">Farmers</a>
+            <a href="#challenges">Challenges</a>
+            <a href="#content">Content</a>
+            <a href="#analytics">Analytics</a>
+            <a href="../index.html" class="login-btn">Home</a>
+            <a href="../index.html" class="get-started-btn">Logout</a>
+        </div>
+
+        <main class="teacher-layout">
+            <aside class="sidebar">
+                <div class="teacher-card">
+                    <div class="avatar">👨‍🏫</div>
+                    <div class="teacher-info">
+                        <h2 id="teacher-name">Dr. Sarah Johnson</h2>
+                        <p id="teacher-meta">Environmental Science • PHD in Science</p>
+                        <p id="teacher-location">Eranakulam, Kerala</p>
+                    </div>
+                    <div class="class-selector">
+                        <label for="class-select">Select Crop:</label>
+                        <select id="class-select">
+                            <option value="class-8">Cereals</option>
+                            <option value="class-9" selected>Pulses</option>
+                            <option value="class-10">Vegetables</option>
+                            <option value="class-11">Fruits</option>
+                            <option value="class-12">Cash crops</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card quick-stats">
+                    <h3>Quick Stats</h3>
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-students">47</span>
+                        <span class="stat-label">Total Farmers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="active-students">42</span>
+                        <span class="stat-label">Active Farmers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="pending-reviews">8</span>
+                        <span class="stat-label">Pending Reviews</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="avg-completion">78%</span>
+                        <span class="stat-label">Avg Completion</span>
+                    </div>
+                </div>
+
+                <div class="card quick-actions">
+                    <h3>Quick Actions</h3>
+                    <button class="btn-primary" id="create-challenge">Create Challenge</button>
+                    <button class="btn-outline" id="add-news">Add News</button>
+                    <button class="btn-outline" id="create-event">Create Event</button>
+                    <button class="btn-outline" id="add-microcourse">Add Micro-Course</button>
+                </div>
+            </aside>
+
+            <section class="content">
+                <section class="cards-row" id="dashboard">
+                    <div class="card overview">
+                        <h3>Environmental Impact Overview</h3>
+                        <div class="impact-grid">
+                            <div class="impact-metric">
+                                <div class="metric-icon">🌳</div>
+                                <div class="metric-info">
+                                    <span class="metric-value">156</span>
+                                    <span class="metric-label">Trees Planted</span>
+                                </div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-icon">♻️</div>
+                                <div class="metric-info">
+                                    <span class="metric-value">89.5</span>
+                                    <span class="metric-label">Waste Reduced (kg)</span>
+                                </div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-icon">💧</div>
+                                <div class="metric-info">
+                                    <span class="metric-value">2,340</span>
+                                    <span class="metric-label">Water Saved (L)</span>
+                                </div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-icon">🌿</div>
+                                <div class="metric-info">
+                                    <span class="metric-value">1,245</span>
+                                    <span class="metric-label">CO₂ Offset (kg)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card recent-activity">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">✅</div>
+                                <div class="activity-content">
+                                    <span class="activity-text">Approved Arjun's tree planting proof</span>
+                                    <span class="activity-time">2 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">📝</div>
+                                <div class="activity-content">
+                                    <span class="activity-text">Created new water conservation challenge</span>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">📊</div>
+                                <div class="activity-content">
+                                    <span class="activity-text">Weekly analytics report generated</span>
+                                    <span class="activity-time">3 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid-2" id="students">
+                    <div class="card pending-reviews">
+                        <h3><i class="fas fa-clipboard-check"></i> Pending Reviews</h3>
+                        <div class="review-list">
+                            <div class="review-item">
+                                <div class="student-info">
+                                    <div class="student-avatar">🌟</div>
+                                    <div>
+                                        <h4>Arjun Patel</h4>
+                                        <p>Tree Planting Challenge</p>
+                                        <span class="submission-time">Submitted 2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="proof-preview">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iI0Y5RkFGQiIvPgo8cGF0aCBkPSJNMTIgMTZIMjhWMjRIMTJWMTZaIiBmaWxsPSIjRTVFN0VCIi8+CjxwYXRoIGQ9Ik0xNiAyMEgyNFYyMkgxNlYyMFoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+"
+                                        alt="Proof">
+                                </div>
+                                <div class="review-actions">
+                                    <button class="btn-approve" onclick="reviewSubmission(1, 'approve')">
+                                        <i class="fas fa-check"></i> Approve
+                                    </button>
+                                    <button class="btn-reject" onclick="reviewSubmission(1, 'reject')">
+                                        <i class="fas fa-times"></i> Reject
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="review-item">
+                                <div class="student-info">
+                                    <div class="student-avatar">⭐</div>
+                                    <div>
+                                        <h4>Priya Sharma</h4>
+                                        <p>Water Conservation Challenge</p>
+                                        <span class="submission-time">Submitted 4 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="proof-preview">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iI0Y5RkFGQiIvPgo8cGF0aCBkPSJNMTIgMTZIMjhWMjRIMTJWMTZaIiBmaWxsPSIjRTVFN0VCIi8+CjxwYXRoIGQ9Ik0xNiAyMEgyNFYyMkgxNlYyMFoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+"
+                                        alt="Proof">
+                                </div>
+                                <div class="review-actions">
+                                    <button class="btn-approve" onclick="reviewSubmission(2, 'approve')">
+                                        <i class="fas fa-check"></i> Approve
+                                    </button>
+                                    <button class="btn-reject" onclick="reviewSubmission(2, 'reject')">
+                                        <i class="fas fa-times"></i> Reject
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="review-item">
+                                <div class="student-info">
+                                    <div class="student-avatar">🎯</div>
+                                    <div>
+                                        <h4>Raj Kumar</h4>
+                                        <p>Plastic Reduction Challenge</p>
+                                        <span class="submission-time">Submitted 6 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="proof-preview">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iI0Y5RkFGQiIvPgo8cGF0aCBkPSJNMTIgMTZIMjhWMjRIMTJWMTZaIiBmaWxsPSIjRTVFN0VCIi8+CjxwYXRoIGQ9Ik0xNiAyMEgyNFYyMkgxNlYyMFoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+"
+                                        alt="Proof">
+                                </div>
+                                <div class="review-actions">
+                                    <button class="btn-approve" onclick="reviewSubmission(3, 'approve')">
+                                        <i class="fas fa-check"></i> Approve
+                                    </button>
+                                    <button class="btn-reject" onclick="reviewSubmission(3, 'reject')">
+                                        <i class="fas fa-times"></i> Reject
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bulk-actions">
+                            <button class="btn-outline" id="bulk-approve">Bulk Approve All</button>
+                            <button class="btn-outline" id="ai-review">AI Review</button>
+                        </div>
+                    </div>
+
+                    <div class="card student-analytics">
+                        <h3><i class="fas fa-chart-line"></i> Farmers Analytics</h3>
+                        <div class="analytics-grid">
+                            <div class="analytics-item">
+                                <div class="analytics-label">Active Farmers</div>
+                                <div class="analytics-value">42/47</div>
+                                <div class="analytics-bar">
+                                    <div class="bar-fill" style="width: 89%"></div>
+                                </div>
+                            </div>
+                            <div class="analytics-item">
+                                <div class="analytics-label">Avg Completion Rate</div>
+                                <div class="analytics-value">78%</div>
+                                <div class="analytics-bar">
+                                    <div class="bar-fill" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            <div class="analytics-item">
+                                <div class="analytics-label">Time Spent (avg/day)</div>
+                                <div class="analytics-value">45 min</div>
+                                <div class="analytics-bar">
+                                    <div class="bar-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="analytics-item">
+                                <div class="analytics-label">Submissions This Week</div>
+                                <div class="analytics-value">23</div>
+                                <div class="analytics-bar">
+                                    <div class="bar-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-performers">
+                            <h4>Top Performers</h4>
+                            <div class="performer-list">
+                                <div class="performer">
+                                    <span class="rank">1</span>
+                                    <span class="name">Priya Sharma</span>
+                                    <span class="score">2,450 XP</span>
+                                </div>
+                                <div class="performer">
+                                    <span class="rank">2</span>
+                                    <span class="name">Arjun Patel</span>
+                                    <span class="score">1,350 XP</span>
+                                </div>
+                                <div class="performer">
+                                    <span class="rank">3</span>
+                                    <span class="name">Raj Kumar</span>
+                                    <span class="score">1,280 XP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid-2" id="challenges">
+                    <div class="card challenge-management">
+                        <h3><i class="fas fa-tasks"></i> Challenge Management</h3>
+                        <div class="challenge-form">
+                            <div class="form-group">
+                                <label for="challenge-title">Challenge Title</label>
+                                <input type="text" id="challenge-title" placeholder="Enter challenge title">
+                            </div>
+                            <div class="form-group">
+                                <label for="challenge-description">Description</label>
+                                <textarea id="challenge-description"
+                                    placeholder="Enter challenge description"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="xp-reward">XP Reward</label>
+                                    <input type="number" id="xp-reward" placeholder="50">
+                                </div>
+                                <div class="form-group">
+                                    <label for="carbon-credits">Carbon Credits</label>
+                                    <input type="number" id="carbon-credits" placeholder="20">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="challenge-deadline">Deadline</label>
+                                <input type="datetime-local" id="challenge-deadline">
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn-primary" id="create-challenge-btn">Create Challenge</button>
+                                <button class="btn-outline" id="save-draft">Save as Draft</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card daily-tasks">
+                        <h3><i class="fas fa-calendar-day"></i> Daily Tasks</h3>
+                        <div class="task-form">
+                            <div class="form-group">
+                                <label for="task-title">Task Title</label>
+                                <input type="text" id="task-title" placeholder="Enter daily task">
+                            </div>
+                            <div class="form-group">
+                                <label for="task-date">Date & Time</label>
+                                <input type="datetime-local" id="task-date">
+                            </div>
+                            <div class="form-group">
+                                <label for="task-description">Description</label>
+                                <textarea id="task-description" placeholder="Enter task description"></textarea>
+                            </div>
+                            <button class="btn-primary" id="create-task-btn">Create Daily Task</button>
+                        </div>
+                        <div class="existing-tasks">
+                            <h4>Today's Tasks</h4>
+                            <div class="task-list">
+                                <div class="task-item">
+                                    <div class="task-info">
+                                        <h5>Plant a Tree</h5>
+                                        <p>Plant a tree in your neighborhood</p>
+                                    </div>
+                                    <div class="task-actions">
+                                        <button class="btn-edit">Edit</button>
+                                        <button class="btn-delete">Delete</button>
+                                    </div>
+                                </div>
+                                <div class="task-item">
+                                    <div class="task-info">
+                                        <h5>Water Conservation</h5>
+                                        <p>Save 50 liters of water today</p>
+                                    </div>
+                                    <div class="task-actions">
+                                        <button class="btn-edit">Edit</button>
+                                        <button class="btn-delete">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid-2" id="content">
+                    <div class="card content-management">
+                        <h3><i class="fas fa-newspaper"></i> News & Events</h3>
+                        <div class="content-tabs">
+                            <button class="tab-btn active" data-tab="news">News</button>
+                            <button class="tab-btn" data-tab="events">Events</button>
+                            <button class="tab-btn" data-tab="microcourses">Micro-Courses</button>
+                        </div>
+
+                        <div class="tab-content active" id="news-tab">
+                            <div class="content-form">
+                                <div class="form-group">
+                                    <label for="news-title">News Title</label>
+                                    <input type="text" id="news-title" placeholder="Enter news title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="news-content">Content</label>
+                                    <textarea id="news-content" placeholder="Enter news content"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="news-date">Publish Date</label>
+                                    <input type="datetime-local" id="news-date">
+                                </div>
+                                <button class="btn-primary" id="publish-news">Publish News</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="events-tab">
+                            <div class="content-form">
+                                <div class="form-group">
+                                    <label for="event-title">Event Title</label>
+                                    <input type="text" id="event-title" placeholder="Enter event title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="event-venue">Venue</label>
+                                    <input type="text" id="event-venue" placeholder="Enter venue">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="event-date">Date</label>
+                                        <input type="date" id="event-date">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="event-time">Time</label>
+                                        <input type="time" id="event-time">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="event-description">Description</label>
+                                    <textarea id="event-description" placeholder="Enter event description"></textarea>
+                                </div>
+                                <button class="btn-primary" id="create-event-btn">Create Event</button>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="microcourses-tab">
+                            <div class="content-form">
+                                <div class="form-group">
+                                    <label for="course-title">Course Title</label>
+                                    <input type="text" id="course-title" placeholder="Enter course title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="course-description">Description</label>
+                                    <textarea id="course-description" placeholder="Enter course description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="course-duration">Duration (minutes)</label>
+                                    <input type="number" id="course-duration" placeholder="30">
+                                </div>
+                                <div class="form-group">
+                                    <label for="course-content">Course Content</label>
+                                    <textarea id="course-content" placeholder="Enter course content"></textarea>
+                                </div>
+                                <button class="btn-primary" id="create-course">Create Micro-Course</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card notifications">
+                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        <div class="notification-list">
+                            <div class="notification-item">
+                                <div class="notification-icon">📊</div>
+                                <div class="notification-content">
+                                    <span class="notification-text">Weekly analytics report is ready</span>
+                                    <span class="notification-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">👥</div>
+                                <div class="notification-content">
+                                    <span class="notification-text">5 new farmers submissions pending review</span>
+                                    <span class="notification-time">4 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">🎯</div>
+                                <div class="notification-content">
+                                    <span class="notification-text">Challenge deadline approaching: Water
+                                        Conservation</span>
+                                    <span class="notification-time">6 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">📢</div>
+                                <div class="notification-content">
+                                    <span class="notification-text">FPO notification: Agri-Expert environmental impact
+                                        report</span>
+                                    <span class="notification-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../assets/logo.webp" alt="EcoVators Logo">
+                    <h2>EcoVators</h2>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Agri-Expert</h3>
+                        <a href="#students">Farmers</a>
+                        <a href="#challenges">Challenges</a>
+                        <a href="#analytics">Analytics</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Management</h3>
+                        <a href="#content">Content</a>
+                        <a href="#reviews">Reviews</a>
+                        <a href="#">Support</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <a href="#">Terms</a>
+                        <a href="#">Privacy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EcoVators. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Rejection Modal -->
+    <div id="rejection-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Reject Submission</h2>
+            <p>Please provide a reason for rejection:</p>
+            <textarea id="rejection-reason" placeholder="Enter reason for rejection..."></textarea>
+            <div class="modal-actions">
+                <button class="btn-outline" id="cancel-rejection">Cancel</button>
+                <button class="btn-primary" id="confirm-rejection">Confirm Rejection</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">✅ Challenge created successfully!</div>
+
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (toggleBtn && mobileNav) {
+            toggleBtn.addEventListener('click', () => {
+                const isOpen = mobileNav.classList.toggle('open');
+                toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+        }
+
+        const toast = document.getElementById('toast');
+        const showToast = (msg) => {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        };
+
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab + '-tab').classList.add('active');
+            });
+        });
+
+        // Class selection
+        document.getElementById('class-select').addEventListener('change', (e) => {
+            showToast(`Switched to ${e.target.value.replace('-', ' ').toUpperCase()}`);
+        });
+
+        // Challenge creation
+        document.getElementById('create-challenge-btn').addEventListener('click', () => {
+            const title = document.getElementById('challenge-title').value;
+            const description = document.getElementById('challenge-description').value;
+            if (title && description) {
+                showToast('✅ Challenge created successfully!');
+                document.getElementById('challenge-title').value = '';
+                document.getElementById('challenge-description').value = '';
+                document.getElementById('xp-reward').value = '';
+                document.getElementById('carbon-credits').value = '';
+                document.getElementById('challenge-deadline').value = '';
+            } else {
+                showToast('⚠️ Please fill in all required fields');
+            }
+        });
+
+        // Daily task creation
+        document.getElementById('create-task-btn').addEventListener('click', () => {
+            const title = document.getElementById('task-title').value;
+            const date = document.getElementById('task-date').value;
+            if (title && date) {
+                showToast('✅ Daily task created successfully!');
+                document.getElementById('task-title').value = '';
+                document.getElementById('task-date').value = '';
+                document.getElementById('task-description').value = '';
+            } else {
+                showToast('⚠️ Please fill in all required fields');
+            }
+        });
+
+        // News publishing
+        document.getElementById('publish-news').addEventListener('click', () => {
+            const title = document.getElementById('news-title').value;
+            const content = document.getElementById('news-content').value;
+            if (title && content) {
+                showToast('📰 News published successfully!');
+                document.getElementById('news-title').value = '';
+                document.getElementById('news-content').value = '';
+                document.getElementById('news-date').value = '';
+            } else {
+                showToast('⚠️ Please fill in all required fields');
+            }
+        });
+
+        // Event creation
+        document.getElementById('create-event-btn').addEventListener('click', () => {
+            const title = document.getElementById('event-title').value;
+            const venue = document.getElementById('event-venue').value;
+            if (title && venue) {
+                showToast('📅 Event created successfully!');
+                document.getElementById('event-title').value = '';
+                document.getElementById('event-venue').value = '';
+                document.getElementById('event-date').value = '';
+                document.getElementById('event-time').value = '';
+                document.getElementById('event-description').value = '';
+            } else {
+                showToast('⚠️ Please fill in all required fields');
+            }
+        });
+
+        // Micro-course creation
+        document.getElementById('create-course').addEventListener('click', () => {
+            const title = document.getElementById('course-title').value;
+            const description = document.getElementById('course-description').value;
+            if (title && description) {
+                showToast('📚 Micro-course created successfully!');
+                document.getElementById('course-title').value = '';
+                document.getElementById('course-description').value = '';
+                document.getElementById('course-duration').value = '';
+                document.getElementById('course-content').value = '';
+            } else {
+                showToast('⚠️ Please fill in all required fields');
+            }
+        });
+
+        // Review submission
+        let currentSubmissionId = null;
+        function reviewSubmission(id, action) {
+            currentSubmissionId = id;
+            if (action === 'approve') {
+                showToast('✅ Submission approved successfully!');
+                // Remove the review item from the list
+                event.target.closest('.review-item').remove();
+            } else if (action === 'reject') {
+                document.getElementById('rejection-modal').style.display = 'block';
+            }
+        }
+
+        // Rejection modal
+        document.getElementById('confirm-rejection').addEventListener('click', () => {
+            const reason = document.getElementById('rejection-reason').value;
+            if (reason) {
+                showToast('❌ Submission rejected with reason provided');
+                document.getElementById('rejection-modal').style.display = 'none';
+                document.getElementById('rejection-reason').value = '';
+                // Remove the review item from the list
+                document.querySelector('.review-item').remove();
+            } else {
+                showToast('⚠️ Please provide a reason for rejection');
+            }
+        });
+
+        document.getElementById('cancel-rejection').addEventListener('click', () => {
+            document.getElementById('rejection-modal').style.display = 'none';
+            document.getElementById('rejection-reason').value = '';
+        });
+
+        document.querySelector('.close-modal').addEventListener('click', () => {
+            document.getElementById('rejection-modal').style.display = 'none';
+            document.getElementById('rejection-reason').value = '';
+        });
+
+        // Bulk approve
+        document.getElementById('bulk-approve').addEventListener('click', () => {
+            showToast('✅ All pending submissions approved!');
+            document.querySelectorAll('.review-item').forEach(item => item.remove());
+        });
+
+        // AI review
+        document.getElementById('ai-review').addEventListener('click', () => {
+            showToast('🤖 AI review completed! 3 approved, 1 rejected');
+        });
+
+        // Quick actions
+        document.getElementById('create-challenge').addEventListener('click', () => {
+            document.getElementById('challenge-title').focus();
+            showToast('📝 Challenge form ready for input');
+        });
+
+        document.getElementById('add-news').addEventListener('click', () => {
+            document.querySelector('[data-tab="news"]').click();
+            showToast('📰 News form ready for input');
+        });
+
+        document.getElementById('create-event').addEventListener('click', () => {
+            document.querySelector('[data-tab="events"]').click();
+            showToast('📅 Event form ready for input');
+        });
+
+        document.getElementById('add-microcourse').addEventListener('click', () => {
+            document.querySelector('[data-tab="microcourses"]').click();
+            showToast('📚 Micro-course form ready for input');
+        });
+    </script>
+</body>
+
+</html>

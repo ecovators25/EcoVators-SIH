@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVators - Gamified Sustainable Farming</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="assets/logo.webp" alt="EcoVators Logo">
+                <h1>EcoVators</h1>
+            </div>
+            <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#impact">Impact</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <button class="login-btn">Login</button>
+                <button class="get-started-btn">Get Started</button>
+            </div>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#impact">Impact</a>
+            <a href="#contact">Contact</a>
+            <button class="login-btn">Login</button>
+            <button class="get-started-btn">Get Started</button>
+        </div>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Make Sustainable Farming Fun, Rewarding & Engaging</h1>
+                <p>Join EcoVators to learn, contribute, and make a real impact on our planet through gamified challenges, community actions, and real-time tracking.</p>
+                <button id="get-started" class="cta-button">Let's Get Started</button>
+            </div>
+            <div class="hero-image">
+                <img src="assets/IMG-20241118-WA0008-removebg-preview.png" alt="Environmental Education">
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>About EcoVators</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>EcoVators is a gamified digital platform designed to inspire farmers to adopt eco-friendly practices through play, challenges and rewards. EcoVators motivates farmers - especially youth - to transition from unsustainable habits to progressive farming.</p>
+                    <p>Our goal is to make Sustainable Agriculture not just necessity but an engaging journey - transforming it into a game, movement, and lifestyle.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>10,000+</h3>
+                        <p>Active Farmers</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-school"></i>
+                        <h3>500+</h3>
+                        <p>Agri-Experts</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-tree"></i>
+                        <h3>50,000+</h3>
+                        <p>Trees Planted</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-award"></i>
+                        <h3>100,000+</h3>
+                        <p>Challenges Completed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <h2>Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Gamified Learning</h3>
+                    <p>Earn XP, badges, and climb leaderboards while learning about environmental issues.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Community Chat</h3>
+                    <p>Connect with peers through real-time messaging with support for text, images, audio, and video.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Environmental Challenges</h3>
+                    <p>Participate in quizzes, activities, and real-world environmental actions.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-book-reader"></i>
+                    <h3>Micro-Courses</h3>
+                    <p>Learn through bite-sized courses with progress tracking and certificates.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Events</h3>
+                    <p>Join environmental events organized by Cooperative Societies, NGOs, and community partners.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Geotag Uploads</h3>
+                    <p>Document your environmental actions with location-based verification.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="impact-section">
+            <h2>Our Environmental Impact</h2>
+            <div class="impact-metrics">
+                <div class="metric">
+                    <div class="metric-value">25,000</div>
+                    <div class="metric-label">Tons of CO₂ Offset</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">75,000</div>
+                    <div class="metric-label">Kg of Waste Recycled</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">120,000</div>
+                    <div class="metric-label">Liters of Water Saved</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roles" class="roles-section">
+            <h2>Who Can Join EcoVators?</h2>
+            <div class="roles-container">
+                <div class="role-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Farmers</h3>
+                    <p>Learn, participate in challenges, earn rewards, and make a real impact.</p>
+                </div>
+                <div class="role-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Agri-Experts</h3>
+                    <p>Create challenges, monitor farmers progress, and facilitate environmental activities.</p>
+                </div>
+                <div class="role-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Cooperative Society Admin</h3>
+                    <p>Manage your society's environmental initiatives and track overall impact.</p>
+                </div>
+                <div class="role-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>NGOs</h3>
+                    <p>Organize events, collaborate with farmers, and expand your environmental impact.</p>
+                </div>
+                <div class="role-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Companies</h3>
+                    <p>Support environmental education through carbon credits and advertising partnerships.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>ecovators.sih@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 8141829957</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Ahmedabad</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Subject">
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/logo.webp" alt="EcoVators Logo">
+                    <h2>EcoVators</h2>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Platform</h3>
+                        <a href="#">Features</a>
+                        <a href="#">How It Works</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <a href="#">Blog</a>
+                        <a href="#">Guides</a>
+                        <a href="#">Events</a>
+                        <a href="#">Support</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <a href="#">About Us</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Partners</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">GDPR</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EcoVators. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Role Selection Modal -->
+    <div id="role-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Select Your Role</h2>
+            <p>Choose your role to continue to the appropriate registration page.</p>
+            <div class="role-selection">
+                <div class="role-option" data-role="student">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Farmer</h3>
+                    <p>Join challenges, earn rewards, track your environmental impact</p>
+                </div>
+                <div class="role-option" data-role="teacher">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Agri-Expert</h3>
+                    <p>Create challenges, monitor farmer progress, facilitate learning</p>
+                </div>
+                <div class="role-option" data-role="admin">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Cooperative Society</h3>
+                    <p>Manage your society's environmental initiatives and track impact</p>
+                </div>
+                <div class="role-option" data-role="ngo">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>NGO</h3>
+                    <p>Organize events, collaborate with farmers, expand your impact</p>
+                </div>
+                <div class="role-option" data-role="company">
+                    <i class="fas fa-building"></i>
+                    <h3>Company</h3>
+                    <p>Support environmental sustainability through partnerships</p>
+                </div>
+                <div class="role-option" data-role="government">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Government</h3>
+                    <p>Monitor environmental initiatives and regulate carbon credit programs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-close="login">&times;</span>
+            <h2>Login</h2>
+            <p>Sign in with your email and password</p>
+            <form id="login-form" class="contact-form" style="max-width: 520px; margin: 0 auto;">
+                <input id="login-email" type="email" placeholder="Email" required>
+                <input id="login-password" type="password" placeholder="Password" required>
+                <label style="display:flex;align-items:center;gap:8px;margin-top:-6px;">
+                    <input id="remember-me" type="checkbox"> Remember me
+                </label>
+                <button type="submit">Login</button>
+                <div id="login-error" style="color:#EF5350;font-weight:600;display:none;"></div>
+                
+                <div style="margin-top: 20px; text-align: center;">
+                    <p style="margin-bottom: 15px; color: #666;">Or login with</p>
+                    <div style="display: flex; gap: 10px; justify-content: center;">
+                        <button type="button" id="google-login-btn" style="background: #db4437; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" id="facebook-login-btn" style="background: #3b5998; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+        import * as Auth from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+        import * as Firestore from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCtcRnhpx55hFmuKKE8fbhOkZWaTu0lnKY",
+            authDomain: "ecovators-53cc3.firebaseapp.com",
+            projectId: "ecovators-53cc3",
+            storageBucket: "ecovators-53cc3.firebasestorage.app",
+            messagingSenderId: "218954591970",
+            appId: "1:218954591970:web:f5e95829aeafa8f960f8bb"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = Auth.getAuth(app);
+        const db = Firestore.getFirestore(app);
+        
+        // Initialize providers
+        const googleProvider = new Auth.GoogleAuthProvider();
+        const facebookProvider = new Auth.FacebookAuthProvider();
+        
+        // Expose for any non-module scripts (defensive)
+        window.firebaseAuth = auth;
+        window.firebaseDb = db;
+        window.googleProvider = googleProvider;
+        window.facebookProvider = facebookProvider;
+
+        // Open/close modals
+        const loginModal = document.getElementById('login-modal');
+        const roleModal = document.getElementById('role-modal');
+        const loginButtons = document.querySelectorAll('.login-btn');
+        const registerButtons = document.querySelectorAll('.get-started-btn');
+        const closeLogin = document.querySelector('.close-modal[data-close="login"]');
+        const closeRole = document.querySelector('.close-modal');
+        
+        // Login modal handlers
+        loginButtons.forEach(btn => btn.addEventListener('click', () => {
+            loginModal.style.display = 'block';
+        }));
+        if (closeLogin) {
+            closeLogin.addEventListener('click', () => loginModal.style.display = 'none');
+        }
+        
+        // Role selection modal handlers
+        registerButtons.forEach(btn => btn.addEventListener('click', () => {
+            roleModal.style.display = 'block';
+        }));
+        
+        // Hero "Get Started" button handler
+        const heroGetStartedBtn = document.getElementById('get-started');
+        if (heroGetStartedBtn) {
+            heroGetStartedBtn.addEventListener('click', () => {
+                roleModal.style.display = 'block';
+            });
+        }
+        
+        // Role selection handlers
+        document.querySelectorAll('.role-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const role = this.getAttribute('data-role');
+                console.log("Role selected:", role);
+                // Redirect to the appropriate dashboard based on role
+                switch(role) {
+                    case 'student':
+                        window.location.href = './htmls/student.html';
+                        break;
+                    case 'teacher':
+                        window.location.href = './htmls/teacher.html';
+                        break;
+                    case 'admin':
+                        window.location.href = './htmls/Admin.html';
+                        break;
+                    case 'company':
+                        window.location.href = './htmls/Company.html';
+                        break;
+                    case 'ngo':
+                        window.location.href = './htmls/ngo.html';
+                        break;
+                    case 'government':
+                        window.location.href = './htmls/government.html';
+                        break;
+                    default:
+                        console.error("Unknown role:", role);
+                }
+                roleModal.style.display = 'none';
+            });
+        });
+        
+        // Close modals
+        if (closeRole) {
+            closeRole.addEventListener('click', () => {
+                roleModal.style.display = 'none';
+            });
+        }
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) loginModal.style.display = 'none';
+            if (e.target === roleModal) roleModal.style.display = 'none';
+        });
+
+        // Handle login submit
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        if (loginForm) {
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                loginError.style.display = 'none';
+                const email = document.getElementById('login-email').value.trim();
+                const password = document.getElementById('login-password').value;
+                const remember = document.getElementById('remember-me').checked;
+                try {
+                    await Auth.setPersistence(auth, remember ? Auth.browserLocalPersistence : Auth.browserSessionPersistence);
+                    const userCredential = await Auth.signInWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+                    
+                    // Fetch user data from Firestore to get their role
+                    const userDoc = await Firestore.getDoc(Firestore.doc(db, "users", user.uid));
+                    
+                    if (userDoc.exists()) {
+                        const userData = userDoc.data();
+                        const userRole = userData.role;
+                        
+                        // Redirect based on user role
+                        switch (userRole) {
+                            case 'student':
+                                window.location.href = './htmls/student.html';
+                                break;
+                            case 'teacher':
+                                window.location.href = './htmls/teacher.html';
+                                break;
+                            case 'admin':
+                                // For now, redirect admin to teacher dashboard
+                                // You can create a dedicated admin dashboard later
+                                window.location.href = './htmls/teacher.html';
+                                break;
+                            case 'ngo':
+                                // For now, redirect NGO to teacher dashboard
+                                // You can create a dedicated NGO dashboard later
+                                window.location.href = './htmls/teacher.html';
+                                break;
+                            case 'company':
+                                // For now, redirect company to teacher dashboard
+                                // You can create a dedicated company dashboard later
+                                window.location.href = './htmls/teacher.html';
+                                break;
+                            default:
+                                // Default fallback to student dashboard
+                                window.location.href = './htmls/student.html';
+                        }
+                    } else {
+                        // If user document doesn't exist, redirect to student dashboard as fallback
+                        window.location.href = './htmls/student.html';
+                    }
+                } catch (err) {
+                    loginError.textContent = err.message || 'Login failed';
+                    loginError.style.display = 'block';
+                }
+            });
+        }
+
+    </script>
+    <script src="js/main.js"></script>
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (toggleBtn && mobileNav) {
+            toggleBtn.addEventListener('click', () => {
+                const isOpen = mobileNav.classList.toggle('open');
+                toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+        }
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,963 @@
+/* Government Dashboard Styles */
+/* .government-layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.government-card {
+    background: linear-gradient(135deg, #1a5276, #2874a6);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.government-card .avatar {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.government-info h2 {
+    margin: 0 0 5px;
+    font-size: 1.5rem;
+}
+
+.government-info p {
+    margin: 0;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quick-links h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #2874a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #1a5276;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #2874a6;
+    border: 1px solid #2874a6;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: #2874a6;
+    color: white;
+}
+
+.btn-small {
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-small:hover {
+    background-color: #e0e0e0;
+}
+
+.overview h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat .label {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.stat .value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2874a6;
+}
+
+.section-container {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.regional-performance {
+    padding-bottom: 20px;
+}
+
+.map-placeholder {
+    background-color: #f5f5f5;
+    height: 250px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.region-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.region-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.region-name {
+    flex: 0 0 100px;
+    font-size: 0.9rem;
+}
+
+.region-bar {
+    flex: 1;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background-color: #2874a6;
+}
+
+.region-value {
+    flex: 0 0 40px;
+    text-align: right;
+    font-weight: 500;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.filters input, .filters select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.transactions-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.pagination button {
+    background-color: #f1f1f1;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.analytics-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.analytics-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.chart-container {
+    flex: 1;
+    min-height: 200px;
+}
+
+.chart-placeholder {
+    background-color: #f5f5f5;
+    height: 200px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+}
+
+.time-filters {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.time-filters button {
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.time-filters button.active {
+    background-color: #2874a6;
+    color: white;
+}
+
+.impact-metrics, .budget-breakdown {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.metric {
+    display: flex;
+    justify-content: space-between;
+}
+
+.budget-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.budget-bar {
+    flex: 1;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.report-options {
+    margin-bottom: 30px;
+}
+
+.report-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.form-group select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.report-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.report-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.report-item i {
+    font-size: 1.5rem;
+    color: #2874a6;
+}
+
+.report-info {
+    flex: 1;
+}
+
+.report-info h4 {
+    margin: 0 0 5px;
+}
+
+.report-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+@media (max-width: 992px) {
+    .government-layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+    
+    .filters input, .filters select {
+        width: 100%;
+    }
+    
+    .report-form {
+        grid-template-columns: 1fr;
+    }
+} */
+
+/* Government Dashboard Styles - follows index.html theme */
+:root {
+    --primary-color: #4CAF50;
+    --primary-dark: #388E3C;
+    --primary-light: #A5D6A7;
+    --secondary-color: #2196F3;
+    --accent-color: #FFC107;
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+    --background-light: #F5F5F5;
+    --background-dark: #263238;
+    --success-color: #66BB6A;
+    --warning-color: #FFA726;
+    --error-color: #EF5350;
+    --border-radius: 12px;
+    --card-radius: 16px;
+    --box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    --transition: all 0.25s ease;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 100%;
+    background: var(--background-light);
+    box-sizing: border-box;
+}
+
+/* Force hamburger icon to black on government dashboard */
+.hamburger span {
+    background: #000 !important;
+}
+
+/* Hide hamburger on desktop and tablet, show only on mobile */
+@media (min-width: 769px) {
+    .hamburger { 
+        display: none !important; 
+    }
+    .mobile-nav {
+        display: none !important;
+    }
+}
+
+.government-layout {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 5%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.government-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--text-light);
+    border-radius: var(--card-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.government-card .avatar {
+    width: 72px;
+    height: 72px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.government-info h2 {
+    margin: 0 0 0.25rem;
+    font-size: 1.25rem;
+}
+
+.government-info p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+.card {
+    background-color: var(--text-light);
+    border-radius: var(--card-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.25rem;
+}
+
+.quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.quick-links h3 {
+    margin-top: 0;
+    margin-bottom: 0.9rem;
+    color: var(--text-dark);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-light);
+}
+
+.btn-small {
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-small:hover {
+    background-color: #e0e0e0;
+}
+
+.overview h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-dark);
+}
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat .label {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.stat .value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.section-container {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+}
+
+.regional-performance {
+    padding-bottom: 20px;
+}
+
+.region-map {
+    width: 100%;
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    margin-bottom: 20px;
+}
+
+.map-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.map-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: var(--card-radius);
+    background-color: white;
+}
+
+.region-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.region-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.region-name {
+    flex: 0 0 100px;
+    font-size: 0.9rem;
+}
+
+.region-bar {
+    flex: 1;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+.region-value {
+    flex: 0 0 40px;
+    text-align: right;
+    font-weight: 500;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.filters input, .filters select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.transactions-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.pagination button {
+    background-color: #f1f1f1;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.analytics-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.analytics-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.chart-container {
+    flex: 1;
+    min-height: 200px;
+}
+
+.chart-placeholder {
+    background-color: #f5f5f5;
+    height: 200px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+}
+
+.time-filters {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.time-filters button {
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.time-filters button.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.impact-metrics, .budget-breakdown {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.metric {
+    display: flex;
+    justify-content: space-between;
+}
+
+.budget-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.budget-bar {
+    flex: 1;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.report-options {
+    margin-bottom: 30px;
+}
+
+.report-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.form-group select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.report-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.report-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.report-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.report-info {
+    flex: 1;
+}
+
+.report-info h4 {
+    margin: 0 0 5px;
+}
+
+.report-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .government-layout {
+        padding: 1.5rem 3%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .government-layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .government-layout {
+        padding: 1rem 3%;
+        gap: 1rem;
+    }
+    
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+    
+    .filters input, .filters select {
+        width: 100%;
+    }
+    
+    .report-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        order: 2;
+    }
+    
+    .content {
+        order: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .government-layout {
+        padding: 0.5rem 2%;
+    }
+    
+    .card {
+        padding: 1rem;
+    }
+    
+    .government-card {
+        padding: 1rem;
+    }
+}

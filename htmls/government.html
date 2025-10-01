@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" cnt="width=device-width, initial-scale=1.0" />
+    <title>EcoVators - Government Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/government.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <nav class="navbar">
+        <div class="logo">
+          <img src="../assets/logo.webp" alt="EcoVators Logo" />
+          <h1>EcoVators</h1>
+        </div>
+        <button
+          class="hamburger"
+          id="menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="nav-links">
+          <a href="#dashboard">Dashboard</a>
+          <a href="#transactions">Transactions</a>
+          <a href="#analytics">Analytics</a>
+          <a href="#reports">Reports</a>
+        </div>
+        <div class="auth-buttons">
+          <a href="../index.html" class="login-btn">Home</a>
+          <a href="../index.html" class="get-started-btn">Logout</a>
+        </div>
+      </nav>
+      <div class="mobile-nav" id="mobile-nav">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#transactions">Transactions</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#reports">Reports</a>
+        <a href="../index.html" class="login-btn">Home</a>
+        <button class="get-started-btn">Logout</button>
+      </div>
+
+      <main class="government-layout">
+        <aside class="sidebar">
+          <div class="government-card">
+            <div class="avatar"><i class="fas fa-landmark"></i></div>
+            <div class="government-info">
+              <h2 id="government-name">Ministry of Environment</h2>
+              <p id="government-meta">
+                National Environmental Education Division
+              </p>
+            </div>
+          </div>
+
+          <div class="card quick-links">
+            <h3>Quick Actions</h3>
+            <button class="btn-primary" id="view-reports">View Reports</button>
+            <button class="btn-outline" id="download-data">
+              Download Data
+            </button>
+            <button class="btn-outline" id="export-analytics">
+              Export Analytics
+            </button>
+          </div>
+
+          <div class="card overview">
+            <h3><i class="fas fa-chart-line"></i> Overview</h3>
+            <div class="overview-stats">
+              <div class="stat">
+                <span class="label">Villages</span>
+                <span class="value">1,250</span>
+              </div>
+              <div class="stat">
+                <span class="label">Active Farmers</span>
+                <span class="value">125,000</span>
+              </div>
+              <div class="stat">
+                <span class="label">Active Agri-Experts</span>
+                <span class="value">8,500</span>
+              </div>
+              <div class="stat">
+                <span class="label">NGO Partners</span>
+                <span class="value">350</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="content">
+          <section class="cards-row" id="dashboard">
+            <div class="card regional-performance">
+              <h3>Regional Performance Overview</h3>
+              <div class="region-map">
+                <div class="map-placeholder">
+                  <img src="../assets/regional_map.jpg" alt="Regional Map" />
+                </div>
+              </div>
+              <div class="region-stats">
+                <div class="region-item">
+                  <span class="region-name">North Region</span>
+                  <div class="region-bar">
+                    <div class="bar-fill" style="width: 75%"></div>
+                  </div>
+                  <span class="region-value">75%</span>
+                </div>
+                <div class="region-item">
+                  <span class="region-name">South Region</span>
+                  <div class="region-bar">
+                    <div class="bar-fill" style="width: 82%"></div>
+                  </div>
+                  <span class="region-value">82%</span>
+                </div>
+                <div class="region-item">
+                  <span class="region-name">East Region</span>
+                  <div class="region-bar">
+                    <div class="bar-fill" style="width: 68%"></div>
+                  </div>
+                  <span class="region-value">68%</span>
+                </div>
+                <div class="region-item">
+                  <span class="region-name">West Region</span>
+                  <div class="region-bar">
+                    <div class="bar-fill" style="width: 79%"></div>
+                  </div>
+                  <span class="region-value">79%</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-container" id="transactions">
+            <h2 class="section-title">Transactions</h2>
+            <div class="card transactions">
+              <div class="filters">
+                <input type="text" placeholder="Search transactions..." />
+                <select>
+                  <option>All Transactions</option>
+                  <option>Data Purchases</option>
+                  <option>Research Funding</option>
+                </select>
+                <input type="date" placeholder="From Date" />
+                <input type="date" placeholder="To Date" />
+              </div>
+              <div class="transactions-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Date & Time</th>
+                      <th>Villages</th>
+                      <th>Data Type</th>
+                      <th>Amount</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2023-05-15 14:30</td>
+                      <td>Perambra</td>
+                      <td>Environmental Impact Data</td>
+                      <td>₹25,000</td>
+                      <td>
+                        <button class="btn-small">
+                          <i class="fas fa-download"></i> Invoice
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2023-05-10 09:15</td>
+                      <td>Maranchery</td>
+                      <td>Carbon Reduction Metrics</td>
+                      <td>₹32,500</td>
+                      <td>
+                        <button class="btn-small">
+                          <i class="fas fa-download"></i> Invoice
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2023-05-05 11:45</td>
+                      <td>Nedumangad</td>
+                      <td>Water Conservation Data</td>
+                      <td>₹18,750</td>
+                      <td>
+                        <button class="btn-small">
+                          <i class="fas fa-download"></i> Invoice
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pagination">
+                <button><i class="fas fa-chevron-left"></i></button>
+                <span>Page 1 of 5</span>
+                <button><i class="fas fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-container" id="analytics">
+            <h2 class="section-title">Analytics</h2>
+            <div class="analytics-grid">
+              <div class="card analytics-card">
+                <h3>National Participation Change</h3>
+                <div class="chart-container">
+                  <!-- Chart visualization would go here -->
+                  <!-- <div class="chart-placeholder">Participation Trend Chart</div> -->
+                  <img src="../assets/participation.png" alt="Participation" class="chart-placeholder"/>
+                </div>
+                <div class="time-filters">
+                  <button class="active">Monthly</button>
+                  <button>Yearly</button>
+                  <button>All Time</button>
+                </div>
+              </div>
+              <div class="card analytics-card">
+                <h3>Environmental Impact</h3>
+                <div class="chart-container">
+                  <!-- Chart visualization would go here -->
+                  <!-- <div class="chart-placeholder">
+                    Environmental Impact Chart
+                  </div> -->
+                  <img src="../assets/enm.jpeg" alt="Participation" class="chart-placeholder" />
+                </div>
+                <div class="impact-metrics">
+                  <div class="metric">
+                    <span class="label">CO₂ Reduction</span>
+                    <span class="value">125,000 tons</span>
+                  </div>
+                  <div class="metric">
+                    <span class="label">Water Saved</span>
+                    <span class="value">2.5M liters</span>
+                  </div>
+                  <div class="metric">
+                    <span class="label">Trees Planted</span>
+                    <span class="value">85,000</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card analytics-card">
+                <h3>Budget Utilization</h3>
+                <div class="chart-container">
+                  <!-- Chart visualization would go here -->
+                  <!-- <div class="chart-placeholder">Budget Utilization Chart</div> -->
+                   <img src="../assets/budget.jpeg" alt="Participation" class="chart-placeholder" />
+                </div>
+                <div class="budget-breakdown">
+                  <div class="budget-item">
+                    <span class="label">Education Programs</span>
+                    <div class="budget-bar">
+                      <div class="bar-fill" style="width: 65%"></div>
+                    </div>
+                    <span class="value">65%</span>
+                  </div>
+                  <div class="budget-item">
+                    <span class="label">Research Grants</span>
+                    <div class="budget-bar">
+                      <div class="bar-fill" style="width: 82%"></div>
+                    </div>
+                    <span class="value">82%</span>
+                  </div>
+                  <div class="budget-item">
+                    <span class="label">Infrastructure</span>
+                    <div class="budget-bar">
+                      <div class="bar-fill" style="width: 45%"></div>
+                    </div>
+                    <span class="value">45%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-container" id="reports">
+            <h2 class="section-title">Reports</h2>
+            <div class="card reports">
+              <div class="report-options">
+                <h3>Download Customized Reports</h3>
+                <div class="report-form">
+                  <div class="form-group">
+                    <label>Report Type</label>
+                    <select>
+                      <option>Environmental Impact</option>
+                      <option>Participation Metrics</option>
+                      <option>Budget Allocation</option>
+                      <option>Regional Performance</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Time Period</label>
+                    <select>
+                      <option>Monthly</option>
+                      <option>Quarterly</option>
+                      <option>Yearly</option>
+                      <option>Custom Range</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Format</label>
+                    <select>
+                      <option>PDF</option>
+                      <option>Excel</option>
+                      <option>CSV</option>
+                    </select>
+                  </div>
+                  <button class="btn-primary">Generate Report</button>
+                </div>
+              </div>
+              <div class="recent-reports">
+                <h3>Recent Reports</h3>
+                <div class="report-list">
+                  <div class="report-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="report-info">
+                      <h4>Q2 2023 Environmental Impact</h4>
+                      <p>Generated on May 15, 2023</p>
+                    </div>
+                    <button class="btn-small">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+                  <div class="report-item">
+                    <i class="fas fa-file-excel"></i>
+                    <div class="report-info">
+                      <h4>Annual Participation Report 2022</h4>
+                      <p>Generated on Jan 10, 2023</p>
+                    </div>
+                    <button class="btn-small">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+                  <div class="report-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="report-info">
+                      <h4>Regional Performance Q1 2023</h4>
+                      <p>Generated on Apr 05, 2023</p>
+                    </div>
+                    <button class="btn-small">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>
+
+

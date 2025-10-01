@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVators - Company Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/company.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../assets/logo.webp" alt="EcoVators Logo">
+                <h1>EcoVators</h1>
+            </div>
+            <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#dashboard">Dashboard</a>
+                <a href="#marketplace">Carbon Marketplace</a>
+                <a href="#advertisement">Advertisement</a>
+                <a href="#transactions">Transactions</a>
+                <a href="#analytics">Analytics</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="../index.html" class="login-btn">Home</a>
+                <a href="../index.html" class="get-started-btn">Logout</a>
+            </div>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#marketplace">Carbon Marketplace</a>
+            <a href="#advertisement">Advertisement</a>
+            <a href="#transactions">Transactions</a>
+            <a href="#analytics">Analytics</a>
+            <a href="../index.html" class="login-btn">Home</a>
+            <a href="../index.html" class="get-started-btn">Logout</a>
+        </div>
+
+        <main class="company-layout">
+            <aside class="sidebar">
+                <div class="company-card">
+                    <div class="company-logo">�</div>
+                    <div class="company-info">
+                        <h2>GreenTech Solutions</h2>
+                        <p>Environmental Technology</p>
+                        <p>Mumbai, Maharashtra</p>
+                    </div>
+                    <div class="carbon-stats">
+                        <div class="carbon-stat">
+                            <span class="stat-value" id="total-credits">1,250</span>
+                            <span class="stat-label">Carbon Credits</span>
+                        </div>
+                        <div class="carbon-stat">
+                            <span class="stat-value" id="active-campaigns">8</span>
+                            <span class="stat-label">Active Campaigns</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card quick-actions">
+                    <h3>Quick Actions</h3>
+                    <button class="btn-primary" id="buy-credits">Buy Carbon Credits</button>
+                    <button class="btn-outline" id="create-campaign">Create Campaign</button>
+                    <button class="btn-outline" id="view-analytics">View Analytics</button>
+                    <button class="btn-outline" id="download-reports">Download Reports</button>
+                </div>
+
+                <div class="card impact-overview">
+                    <h3>🌿 Environmental Impact</h3>
+                    <div class="impact-stats">
+                        <div class="impact-stat">
+                            <span class="stat-label">CO₂ Offset</span>
+                            <span class="stat-value">850T</span>
+                        </div>
+                        <div class="impact-stat">
+                            <span class="stat-label">Trees Supported</span>
+                            <span class="stat-value">12,500</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="content">
+                <section class="cards-row" id="dashboard">
+                    <div class="card carbon-marketplace">
+                        <h3><i class="fas fa-leaf"></i> Featured Carbon Credits</h3>
+                        <div class="marketplace-grid">
+                            <div class="marketplace-card">
+                                <div class="institution-info">
+                                    <div class="institution-logo">🏫</div>
+                                    <div class="institution-details">
+                                        <h4>Rameshwar Farm</h4>
+                                        <p>Adiperanda, Palakkad</p>
+                                    </div>
+                                </div>
+                                <div class="credits-info">
+                                    <div class="credits-available">
+                                        <span class="credits-label">Available Credits</span>
+                                        <span class="credits-value">500</span>
+                                    </div>
+                                    <div class="price-per-credit">₹100/credit</div>
+                                </div>
+                                <button class="btn-primary">Purchase Credits</button>
+                            </div>
+
+                            <div class="marketplace-card">
+                                <div class="institution-info">
+                                    <div class="institution-logo">🏫</div>
+                                    <div class="institution-details">
+                                        <h4>St. Mary's Farm</h4>
+                                        <p>Vatakara, Kozhikode</p>
+                                    </div>
+                                </div>
+                                <div class="credits-info">
+                                    <div class="credits-available">
+                                        <span class="credits-label">Available Credits</span>
+                                        <span class="credits-value">750</span>
+                                    </div>
+                                    <div class="price-per-credit">₹95/credit</div>
+                                </div>
+                                <button class="btn-primary">Purchase Credits</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card regional-performance">
+                        <h3>Regional Performance</h3>
+                        <div class="region-list">
+                            <div class="region-item">
+                                <div class="region-info">
+                                    <h4>Mumbai Region</h4>
+                                    <p>450 villages • 125K Farmers</p>
+                                </div>
+                                <div class="region-score">
+                                    <span class="score excellent">9.2</span>
+                                </div>
+                            </div>
+                            <div class="region-item">
+                                <div class="region-info">
+                                    <h4>Pune Region</h4>
+                                    <p>380 villages • 98K Farmers</p>
+                                </div>
+                                <div class="region-score">
+                                    <span class="score good">8.7</span>
+                                </div>
+                            </div>
+                            <div class="region-item">
+                                <div class="region-info">
+                                    <h4>Nashik Region</h4>
+                                    <p>280 Villages • 75K Farmers</p>
+                                </div>
+                                <div class="region-score">
+                                    <span class="score average">7.8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid-2" id="institutions">
+                    <div class="card school-directory">
+                        <h3><i class="fas fa-school"></i> Village Directory</h3>
+                        <div class="search-filter">
+                            <input type="text" placeholder="Search villages..." class="search-input">
+                            <select class="filter-select">
+                                <option value="all">All Regions</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="pune">Pune</option>
+                                <option value="nashik">Nashik</option>
+                            </select>
+                        </div>
+                        <div class="school-list">
+                            <div class="school-item">
+                                <div class="school-info">
+                                    <h4>Kozhikode</h4>
+                                    <p>Kerala • 1,847 Farmers • 125 Agri-Experts</p>
+                                </div>
+                                <div class="school-metrics">
+                                    <span class="metric-badge">2,450 Credits</span>
+                                    <span class="performance-score">9.1</span>
+                                </div>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-info">
+                                    <h4>Palakkad</h4>
+                                    <p>Kerala • 1,200 Farmers • 95 Agri-Experts</p>
+                                </div>
+                                <div class="school-metrics">
+                                    <span class="metric-badge">1,850 Credits</span>
+                                    <span class="performance-score">8.8</span>
+                                </div>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-info">
+                                    <h4>Kottayam</h4>
+                                    <p>Kerala • 800 Farmers • 65 Agri-Experts</p>
+                                </div>
+                                <div class="school-metrics">
+                                    <span class="metric-badge">1,320 Credits</span>
+                                    <span class="performance-score">8.5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card teacher-directory">
+                        <h3><i class="fas fa-chalkboard-teacher"></i>Agri-Experts Analytics</h3>
+                        <div class="teacher-stats">
+                            <div class="teacher-stat">
+                                <div class="stat-icon">👨‍🏫</div>
+                                <div class="stat-info">
+                                    <span class="stat-value">18,450</span>
+                                    <span class="stat-label">Active Agri-Experts</span>
+                                </div>
+                            </div>
+                            <div class="teacher-stat">
+                                <div class="stat-icon">📚</div>
+                                <div class="stat-info">
+                                    <span class="stat-value">85%</span>
+                                    <span class="stat-label">Participation Rate</span>
+                                </div>
+                            </div>
+                            <div class="teacher-stat">
+                                <div class="stat-icon">⭐</div>
+                                <div class="stat-info">
+                                    <span class="stat-value">4.6/5</span>
+                                    <span class="stat-label">Avg Rating</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-teachers">
+                            <h4>Top Performing Agri-Experts</h4>
+                            <div class="teacher-list">
+                                <div class="teacher-item">
+                                    <span class="rank">1</span>
+                                    <span class="name">Dr. Sarah Johnson</span>
+                                    <span class="school">Kottayam</span>
+                                </div>
+                                <div class="teacher-item">
+                                    <span class="rank">2</span>
+                                    <span class="name">Prof. Rajesh Kumar</span>
+                                    <span class="school">Palakkad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid-2" id="analytics">
+                    <div class="card participation-analytics">
+                        <h3><i class="fas fa-chart-line"></i> Participation Analytics</h3>
+                        <div class="analytics-timeline">
+                            <div class="timeline-controls">
+                                <button class="timeline-btn active" data-period="monthly">Monthly</button>
+                                <button class="timeline-btn" data-period="quarterly">Quarterly</button>
+                                <button class="timeline-btn" data-period="yearly">Yearly</button>
+                            </div>
+                            <div class="analytics-grid">
+                                <div class="analytics-item">
+                                    <div class="analytics-label">Active Farmers</div>
+                                    <div class="analytics-value">42/47</div>
+                                    <div class="analytics-bar">
+                                        <div class="bar-fill" style="width: 89%"></div>
+                                    </div>
+                                </div>
+                                <div class="analytics-item">
+                                    <div class="analytics-label">Avg Completion Rate</div>
+                                    <div class="analytics-value">78%</div>
+                                    <div class="analytics-bar">
+                                        <div class="bar-fill" style="width: 78%"></div>
+                                        
