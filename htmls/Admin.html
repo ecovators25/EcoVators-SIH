@@ -1,886 +1,980 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EcoVators - Cooperative Society Dashboard</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../js/lang.js" defer></script>
+    <script src="../js/translate-helper.js" defer></script>
+  </head>
+  <body>
     <div class="dashboard-container">
-        <nav class="navbar">
-            <div class="logo">
-                <img src="../assets/logo.webp" alt="EcoVators Logo">
-                <h1>EcoVators</h1>
-            </div>
-            <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="#dashboard">Dashboard</a>
-                <a href="#analytics">Analytics</a>
-                <a href="#transactions">Transactions</a>
-                <a href="#management">Management</a>
-                <a href="#approvals">Approvals</a>
-            </div>
-            <div class="auth-buttons">
-                <a href="../index.html" class="login-btn">Home</a>
-                <button class="get-started-btn" id="logout-btn">Logout</button>
-            </div>
-        </nav>
-        <div class="mobile-nav" id="mobile-nav">
-            <a href="#dashboard">Dashboard</a>
-            <a href="#analytics">Analytics</a>
-            <a href="#transactions">Transactions</a>
-            <a href="#management">Management</a>
-            <a href="#approvals">Approvals</a>
-            <a href="../index.html" class="login-btn">Home</a>
-            <button class="get-started-btn" id="mobile-logout-btn">Logout</button>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="../assets/logo.webp" alt="EcoVators Logo" />
+          <h1 data-i18n="nav.title">EcoVators</h1>
         </div>
+        <button
+          class="hamburger"
+          id="menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="nav-links">
+          <a href="#dashboard" data-i18n="admin.nav.dashboard">Dashboard</a>
+          <a href="#analytics" data-i18n="admin.nav.analytics">Analytics</a>
+          <a href="#transactions" data-i18n="admin.nav.transactions">Transactions</a>
+          <a href="#management" data-i18n="admin.nav.management">Management</a>
+          <a href="#approvals" data-i18n="admin.nav.approvals">Approvals</a>
+        </div>
+        <div class="auth-buttons">
+          <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
+          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout">Logout</a>
+        </div>
+      </nav>
+      <div class="mobile-nav" id="mobile-nav">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#transactions">Transactions</a>
+        <a href="#management">Management</a>
+        <a href="#approvals">Approvals</a>
+        <a href="../index.html" class="login-btn">Home</a>
+        <button class="get-started-btn" id="mobile-logout-btn">Logout</button>
+      </div>
 
-        <main class="admin-layout">
-            <aside class="sidebar">
-                <div class="admin-card">
-                    <div class="avatar">👨‍💼</div>
-                    <div class="admin-info">
-                        <h2 id="admin-name">Dr. Michael Green</h2>
-                        <p id="admin-meta">FPO Administrator</p>
-                        <p id="admin-org">Green Valley</p>
-                        <p id="admin-location">Kozhikode, Kerala</p>
-                    </div>
-                    <div class="org-stats">
-                        <span class="stat-pill">🏫 1,250 farmers</span>
-                        <span class="stat-pill">👨‍🏫 85 agri-experts</span>
-                        <span class="stat-pill">🌱 15 Departments</span>
-                    </div>
-                    <div class="quick-metrics">
-                        <div class="metric">
-                            <div class="metric-value">2,450</div>
-                            <div class="metric-label">Total XP</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">1,850</div>
-                            <div class="metric-label">Carbon Credits</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card quick-actions">
-                    <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
-                    <button class="btn-primary full" id="carbon-calculator">Carbon Calculator</button>
-                    <button class="btn-outline full" id="export-data">Export Data (PDF)</button>
-                    <button class="btn-outline full" id="add-teacher">Add Agri-Expert</button>
-                    <button class="btn-outline full" id="add-student">Add Farmer</button>
-                    <button class="btn-outline full" id="manage-content">Manage Content</button>
-                </div>
-
-                <div class="card recent-achievements">
-                    <h3><i class="fas fa-trophy"></i> Recent Achievements</h3>
-                    <div class="achievement-list">
-                        <div class="achievement">🏆 Village of the Month - Environmental Impact</div>
-                        <div class="achievement">📈 25% Increase in Farmer Participation</div>
-                        <div class="achievement">🌳 500+ Trees Planted This Month</div>
-                        <div class="achievement">♻️ Zero Waste Campus Achievement</div>
-                    </div>
-                </div>
-            </aside>
-
-            <section class="content">
-                <section class="cards-row" id="dashboard">
-                    <div class="card overview">
-                        <h3><i class="fas fa-chart-pie"></i> Organization Overview</h3>
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <div class="stat-number">1,250</div>
-                                <div class="stat-label">Total Farmers</div>
-                                <div class="stat-change positive">+5.2%</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-number">85</div>
-                                <div class="stat-label">Active Agri-Experts</div>
-                                <div class="stat-change positive">+2.1%</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-number">15</div>
-                                <div class="stat-label">Departments</div>
-                                <div class="stat-change">0%</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-number">92%</div>
-                                <div class="stat-label">Engagement Rate</div>
-                                <div class="stat-change positive">+3.8%</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card environmental-impact">
-                        <h3><i class="fas fa-leaf"></i> Environmental Impact</h3>
-                        <div class="impact-metrics">
-                            <div class="impact-item">
-                                <div class="impact-icon">🌳</div>
-                                <div>
-                                    <div class="impact-value">2,450</div>
-                                    <div class="impact-label">Trees Planted</div>
-                                </div>
-                            </div>
-                            <div class="impact-item">
-                                <div class="impact-icon">♻️</div>
-                                <div>
-                                    <div class="impact-value">1,850</div>
-                                    <div class="impact-label">Waste Reduced (kg)</div>
-                                </div>
-                            </div>
-                            <div class="impact-item">
-                                <div class="impact-icon">💧</div>
-                                <div>
-                                    <div class="impact-value">45,200</div>
-                                    <div class="impact-label">Water Saved (L)</div>
-                                </div>
-                            </div>
-                            <div class="impact-item">
-                                <div class="impact-icon">🌿</div>
-                                <div>
-                                    <div class="impact-value">12,500</div>
-                                    <div class="impact-label">CO₂ Offset (kg)</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="grid-2" id="analytics">
-                    <div class="card department-performance">
-                        <h3><i class="fas fa-building"></i> Crop Performance</h3>
-                        <div class="dept-list">
-                            <div class="dept-item">
-                                <div class="dept-info">
-                                    <div class="dept-name">Soil Health</div>
-                                    <div class="dept-stats">45 farmers • 95% completion</div>
-                                </div>
-                                <div class="dept-score">98</div>
-                            </div>
-                            <div class="dept-item">
-                                <div class="dept-info">
-                                    <div class="dept-name">Water Management</div>
-                                    <div class="dept-stats">38 farmers • 87% completion</div>
-                                </div>
-                                <div class="dept-score">92</div>
-                            </div>
-                            <div class="dept-item">
-                                <div class="dept-info">
-                                    <div class="dept-name">Organic Inputs</div>
-                                    <div class="dept-stats">42 farmers • 82% completion</div>
-                                </div>
-                                <div class="dept-score">89</div>
-                            </div>
-                            <div class="dept-item">
-                                <div class="dept-info">
-                                    <div class="dept-name">Crop Diversity</div>
-                                    <div class="dept-stats">35 farmers • 78% completion</div>
-                                </div>
-                                <div class="dept-score">85</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card analytics-overview">
-                        <h3><i class="fas fa-chart-line"></i> Analytics Overview</h3>
-                        <div class="analytics-grid">
-                            <div class="analytic-card">
-                                <div class="analytic-value">1,180</div>
-                                <div class="analytic-label">Active Farmers</div>
-                            </div>
-                            <div class="analytic-card">
-                                <div class="analytic-value">78%</div>
-                                <div class="analytic-label">Avg Completion</div>
-                            </div>
-                            <div class="analytic-card">
-                                <div class="analytic-value">45 min</div>
-                                <div class="analytic-label">Avg Time Spent</div>
-                            </div>
-                            <div class="analytic-card">
-                                <div class="analytic-value">156</div>
-                                <div class="analytic-label">Submissions</div>
-                            </div>
-                        </div>
-                        <div class="analytics-filters">
-                            <button class="tab active" data-period="weekly">Weekly</button>
-                            <button class="tab" data-period="monthly">Monthly</button>
-                            <button class="tab" data-period="yearly">Yearly</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="grid-2" id="transactions">
-                    <div class="card company-transactions">
-                        <h3><i class="fas fa-building"></i> Company Transactions</h3>
-                        <div class="transaction-filters">
-                            <select class="class-filter">
-                                <option>All Companies</option>
-                                <option>EcoTech Solutions</option>
-                                <option>Green Energy Corp</option>
-                                <option>Sustainable Future Ltd</option>
-                            </select>
-                            <select class="class-filter">
-                                <option>All Status</option>
-                                <option>Completed</option>
-                                <option>Pending</option>
-                                <option>Failed</option>
-                            </select>
-                        </div>
-                        <div class="transaction-list">
-                            <div class="transaction-item">
-                                <div class="transaction-info">
-                                    <h4>EcoTech Solutions</h4>
-                                    <p>Carbon Credit Purchase</p>
-                                    <p>Quantity: 500 credits • Quality: Premium</p>
-                                    <span class="date">Dec 15, 2024 • 2:30 PM</span>
-                                </div>
-                                <div class="transaction-amount">₹25,000</div>
-                                <div class="transaction-status completed">Completed</div>
-                            </div>
-                            <div class="transaction-item">
-                                <div class="transaction-info">
-                                    <h4>Green Energy Corp</h4>
-                                    <p>Carbon Credit Purchase</p>
-                                    <p>Quantity: 300 credits • Quality: Standard</p>
-                                    <span class="date">Dec 14, 2024 • 11:15 AM</span>
-                                </div>
-                                <div class="transaction-amount">₹12,000</div>
-                                <div class="transaction-status completed">Completed</div>
-                            </div>
-                            <div class="transaction-item">
-                                <div class="transaction-info">
-                                    <h4>Sustainable Future Ltd</h4>
-                                    <p>Advertisement Deal</p>
-                                    <p>Campaign: Eco Awareness • Duration: 30 days</p>
-                                    <span class="date">Dec 13, 2024 • 4:45 PM</span>
-                                </div>
-                                <div class="transaction-amount">₹8,500</div>
-                                <div class="transaction-status pending">Pending</div>
-                            </div>
-                        </div>
-                        <div class="transaction-summary">
-                            <div class="summary-item">
-                                <span>Total Revenue</span>
-                                <strong>₹45,500</strong>
-                            </div>
-                            <div class="summary-item">
-                                <span>This Month</span>
-                                <strong>₹18,200</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card government-transactions">
-                        <h3><i class="fas fa-landmark"></i> Government Transactions</h3>
-                        <div class="transaction-filters">
-                            <select class="class-filter">
-                                <option>All Departments</option>
-                                <option>Ministry of Environment</option>
-                                <option>Education Department</option>
-                                <option>Forest Department</option>
-                            </select>
-                        </div>
-                        <div class="transaction-list">
-                            <div class="transaction-item">
-                                <div class="transaction-info">
-                                    <h4>Ministry of Environment</h4>
-                                    <p>Environmental Data Purchase</p>
-                                    <p>Data Type: Carbon Footprint • Period: Q4 2024</p>
-                                    <span class="date">Dec 12, 2024 • 3:20 PM</span>
-                                </div>
-                                <div class="transaction-amount">₹15,000</div>
-                                <div class="transaction-status completed">Completed</div>
-                            </div>
-                            <div class="transaction-item">
-                                <div class="transaction-info">
-                                    <h4>Education Department</h4>
-                                    <p>Farmer Participation Data</p>
-                                    <p>Data Type: Engagement Metrics • Period: Nov 2024</p>
-                                    <span class="date">Dec 10, 2024 • 10:30 AM</span>
-                                </div>
-                                <div class="transaction-amount">₹8,000</div>
-                                <div class="transaction-status completed">Completed</div>
-                            </div>
-                        </div>
-                        <div class="transaction-summary">
-                            <div class="summary-item">
-                                <span>Total Revenue</span>
-                                <strong>₹23,000</strong>
-                            </div>
-                            <div class="summary-item">
-                                <span>This Month</span>
-                                <strong>₹15,000</strong>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="grid-2" id="management">
-                    <div class="card teacher-management">
-                        <h3><i class="fas fa-chalkboard-teacher"></i>Agri-Expert Management</h3>
-                        <div class="search-bar">
-                            <input type="text" placeholder="Search agri-experts...">
-                            <select class="class-filter">
-                                <option>All Departments</option>
-                                <option>Pest & Diesease control</option>
-                                <option>Soil Health</option>
-                                <option>Water Management</option>
-                                <option>Organic Inputs</option>
-                            </select>
-                        </div>
-                        <div class="teacher-list">
-                            <div class="teacher-item">
-                                <div class="teacher-avatar">👨‍🏫</div>
-                                <div class="teacher-info">
-                                    <h4>Dr. Sarah Johnson</h4>
-                                    <p>PHD in Science • Pulses, Cereals</p>
-                                </div>
-                                <div class="teacher-actions">
-                                    <button class="btn-outline sm">Edit</button>
-                                    <button class="btn-outline sm danger">Delete</button>
-                                </div>
-                            </div>
-                            <div class="teacher-item">
-                                <div class="teacher-avatar">👩‍🏫</div>
-                                <div class="teacher-info">
-                                    <h4>Prof. Michael Brown</h4>
-                                    <p>PHD in Pest Control • Vegetables & Fruits</p>
-                                </div>
-                                <div class="teacher-actions">
-                                    <button class="btn-outline sm">Edit</button>
-                                    <button class="btn-outline sm danger">Delete</button>
-                                </div>
-                            </div>
-                            <div class="teacher-item">
-                                <div class="teacher-avatar">👨‍🔬</div>
-                                <div class="teacher-info">
-                                    <h4>Dr. Emily Davis</h4>
-                                    <p>PHD in Irrigation </p>
-                                </div>
-                                <div class="teacher-actions">
-                                    <button class="btn-outline sm">Edit</button>
-                                    <button class="btn-outline sm danger">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card student-management">
-                        <h3><i class="fas fa-user-graduate"></i> Farmer Management</h3>
-                        <div class="search-bar">
-                            <input type="text" placeholder="Search farmers...">
-                            <select class="class-filter">
-                                <option>All Classes</option>
-                                <option>Pulses</option>
-                                <option>Pulses</option>
-                                <option>Fruits</option>
-                                <option>Vegetables</option>
-                                <option>Cash Crops</option>
-                            </select>
-                        </div>
-                        <div class="student-list">
-                            <div class="student-item">
-                                <div class="student-avatar">🌟</div>
-                                <div class="student-info">
-                                    <h4>Arjun Patel</h4>
-                                    <p>Groundnut • Tamil Nadu</p>
-                                </div>
-                                <div class="student-actions">
-                                    <span class="student-status active">Active</span>
-                                    <button class="btn-outline sm">Edit</button>
-                                </div>
-                            </div>
-                            <div class="student-item">
-                                <div class="student-avatar">⭐</div>
-                                <div class="student-info">
-                                    <h4>Priya Sharma</h4>
-                                    <p>Coconut • Kerala</p>
-                                </div>
-                                <div class="student-actions">
-                                    <span class="student-status active">Active</span>
-                                    <button class="btn-outline sm">Edit</button>
-                                </div>
-                            </div>
-                            <div class="student-item">
-                                <div class="student-avatar">🎯</div>
-                                <div class="student-info">
-                                    <h4>Raj Kumar</h4>
-                                    <p>Soyabean • Gujarat</p>
-                                </div>
-                                <div class="student-actions">
-                                    <span class="student-status active">Active</span>
-                                    <button class="btn-outline sm">Edit</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="grid-2" id="content-management">
-                    <div class="card content-management">
-                        <h3><i class="fas fa-cogs"></i> Content Management</h3>
-                        <div class="content-tabs">
-                            <button class="tab active" data-content="news">News</button>
-                            <button class="tab" data-content="events">Events</button>
-                            <button class="tab" data-content="microcourses">Micro-Courses</button>
-                        </div>
-                        <div class="content-panel active" id="news-panel">
-                            <div class="content-item">
-                                <div>
-                                    <h4>Climate Change Awareness Week</h4>
-                                    <p>Published: Dec 10, 2024</p>
-                                </div>
-                                <div class="content-actions">
-                                    <button class="btn-outline xs">Edit</button>
-                                    <button class="btn-outline xs danger">Delete</button>
-                                </div>
-                            </div>
-                            <div class="content-item">
-                                <div>
-                                    <h4>Tree Plantation Drive Results</h4>
-                                    <p>Published: Dec 8, 2024</p>
-                                </div>
-                                <div class="content-actions">
-                                    <button class="btn-outline xs">Edit</button>
-                                    <button class="btn-outline xs danger">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-panel" id="events-panel">
-                            <div class="content-item">
-                                <div>
-                                    <h4>Green Run Marathon</h4>
-                                    <p>Date: Dec 20, 2024 • Venue: Eco Park</p>
-                                </div>
-                                <div class="content-actions">
-                                    <button class="btn-outline xs">Edit</button>
-                                    <button class="btn-outline xs danger">Delete</button>
-                                </div>
-                            </div>
-                            <div class="content-item">
-                                <div>
-                                    <h4>Waste Management Workshop</h4>
-                                    <p>Date: Dec 18, 2024 • Venue: School Auditorium</p>
-                                </div>
-                                <div class="content-actions">
-                                    <button class="btn-outline xs">Edit</button>
-                                    <button class="btn-outline xs danger">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-panel" id="microcourses-panel">
-                            <div class="content-item">
-                                <div>
-                                    <h4>Climate Basics</h4>
-                                    <p>Duration: 30 min • Completion: 78%</p>
-                                </div>
-                                <div class="content-actions">
-                                    <button class="btn-outline xs">Edit</button>
-                                    <button class="btn-outline xs danger">Delete</button>
-                                </div>
-                            </div>
-                            <div class="content-item">
-                                <div>
-                                    <h4>Water Conservation</h4>
-                                    <p>Duration: 25 min • Completion: 65%</p>
-                                </div>
-                                <div class="content-actions">
-                                    <button class="btn-outline xs">Edit</button>
-                                    <button class="btn-outline xs danger">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card notifications">
-                        <h3><i class="fas fa-bell"></i> Notifications</h3>
-                        <div class="notification-tabs">
-                            <button class="tab active" data-notif="all">All</button>
-                            <button class="tab" data-notif="government">Government</button>
-                            <button class="tab" data-notif="teacher">Teacher</button>
-                            <button class="tab" data-notif="ngo">NGO</button>
-                        </div>
-                        <ul class="notif-list">
-                            <li>🏛️ Government: Environmental impact report due <span>2 hours ago</span></li>
-                            <li>👨‍🏫 Agri-Expert: 5 new submissions pending review <span>4 hours ago</span></li>
-                            <li>🤝 NGO: Event approval request for tree plantation <span>6 hours ago</span></li>
-                            <li>📊 System: Weekly analytics report generated <span>1 day ago</span></li>
-                            <li>🏛️ Government: Carbon credit verification completed <span>2 days ago</span></li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="grid-2" id="approvals">
-                    <div class="card ngo-approvals">
-                        <h3><i class="fas fa-hands-helping"></i> NGO Event Approvals</h3>
-                        <div class="approval-list">
-                            <div class="approval-item">
-                                <div class="approval-info">
-                                    <h4>Green Earth Foundation</h4>
-                                    <p>Tree Plantation Drive</p>
-                                    <p class="venue">Venue: Central Park • Date: Dec 22, 2024</p>
-                                </div>
-                                <div class="approval-actions">
-                                    <button class="btn-primary sm">Approve</button>
-                                    <button class="btn-outline sm danger">Reject</button>
-                                </div>
-                            </div>
-                            <div class="approval-item">
-                                <div class="approval-info">
-                                    <h4>Eco Warriors</h4>
-                                    <p>Waste Management Workshop</p>
-                                    <p class="venue">Venue: School Campus • Date: Dec 20, 2024</p>
-                                </div>
-                                <div class="approval-actions">
-                                    <button class="btn-primary sm">Approve</button>
-                                    <button class="btn-outline sm danger">Reject</button>
-                                </div>
-                            </div>
-                            <div class="approval-item">
-                                <div class="approval-info">
-                                    <h4>Climate Action Group</h4>
-                                    <p>Environmental Awareness Campaign</p>
-                                    <p class="venue">Venue: Multiple Locations • Date: Dec 25, 2024</p>
-                                </div>
-                                <div class="approval-actions">
-                                    <button class="btn-primary sm">Approve</button>
-                                    <button class="btn-outline sm danger">Reject</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                </section>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="../assets/logo.webp" alt="EcoVators Logo">
-                    <h2>EcoVators</h2>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3>FPO</h3>
-                        <a href="#analytics">Analytics</a>
-                        <a href="#transactions">Transactions</a>
-                        <a href="#management">Management</a>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Organization</h3>
-                        <a href="#approvals">Approvals</a>
-                        <a href="#content">Content</a>
-                        <a href="#">Support</a>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Legal</h3>
-                        <a href="#">Terms</a>
-                        <a href="#">Privacy</a>
-                    </div>
-                </div>
+      <main class="admin-layout">
+        <aside class="sidebar">
+          <div class="admin-card">
+            <div class="avatar">👨‍💼</div>
+            <div class="admin-info">
+              <h2 id="admin-name">Dr. Michael Green</h2>
+              <p id="admin-meta">FPO Administrator</p>
+              <p id="admin-org">Green Valley</p>
+              <p id="admin-location">Kozhikode, Kerala</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EcoVators. All rights reserved.</p>
+            <div class="org-stats">
+              <span class="stat-pill">🏫 1,250 farmers</span>
+              <span class="stat-pill">👨‍🏫 85 agri-experts</span>
+              <span class="stat-pill">🌱 15 Departments</span>
             </div>
-        </footer>
+            <div class="quick-metrics">
+              <div class="metric">
+                <div class="metric-value">2,450</div>
+                <div class="metric-label">Total XP</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">1,850</div>
+                <div class="metric-label">Carbon Credits</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card quick-actions">
+            <h3 data-i18n="admin.quick_actions"><i class="fas fa-bolt"></i> Quick Actions</h3>
+            <button class="btn-primary full" id="carbon-calculator" data-i18n="admin.quick_actions.carbon_calculator">Carbon Calculator</button>
+            <button class="btn-outline full" id="export-data" data-i18n="admin.quick_actions.export_data">Export Data (PDF)</button>
+            <button class="btn-outline full" id="add-teacher" data-i18n="admin.quick_actions.add_agri_expert">Add Agri-Expert</button>
+            <button class="btn-outline full" id="add-student" data-i18n="admin.quick_actions.add_farmer">Add Farmer</button>
+            <button class="btn-outline full" id="manage-content" data-i18n="admin.quick_actions.manage_content">Manage Content</button>
+          </div>
+
+          <div class="card recent-achievements">
+            <h3 data-i18n="admin.recent_achievements"><i class="fas fa-trophy"></i> Recent Achievements</h3>
+            <div class="achievement-list">
+              <div class="achievement">
+                🏆 Village of the Month - Environmental Impact
+              </div>
+              <div class="achievement">
+                📈 25% Increase in Farmer Participation
+              </div>
+              <div class="achievement">🌳 500+ Trees Planted This Month</div>
+              <div class="achievement">♻️ Zero Waste Campus Achievement</div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="content">
+          <section class="cards-row" id="dashboard">
+            <div class="card overview">
+              <h3 data-i18n="admin.overview"><i class="fas fa-chart-pie"></i> Organization Overview</h3>
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-number">1,250</div>
+                  <div class="stat-label" data-i18n="admin.stats.total_farmers">Total Farmers</div>
+                  <div class="stat-change positive">+5.2%</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">85</div>
+                  <div class="stat-label" data-i18n="admin.stats.active_agri_experts">Active Agri-Experts</div>
+                  <div class="stat-change positive">+2.1%</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">15</div>
+                  <div class="stat-label" data-i18n="admin.stats.departments">Departments</div>
+                  <div class="stat-change">0%</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">92%</div>
+                  <div class="stat-label" data-i18n="admin.stats.engagement_rate">Engagement Rate</div>
+                  <div class="stat-change positive">+3.8%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card environmental-impact">
+              <h3 data-i18n="admin.environmental_impact"><i class="fas fa-leaf"></i> Environmental Impact</h3>
+              <div class="impact-metrics">
+                <div class="impact-item">
+                  <div class="impact-icon">🌳</div>
+                  <div>
+                    <div class="impact-value">2,450</div>
+                    <div class="impact-label" data-i18n="admin.impact.trees_planted">Trees Planted</div>
+                  </div>
+                </div>
+                <div class="impact-item">
+                  <div class="impact-icon">♻️</div>
+                  <div>
+                    <div class="impact-value">1,850</div>
+                    <div class="impact-label" data-i18n="admin.impact.waste_reduced">Waste Reduced (kg)</div>
+                  </div>
+                </div>
+                <div class="impact-item">
+                  <div class="impact-icon">💧</div>
+                  <div>
+                    <div class="impact-value">45,200</div>
+                    <div class="impact-label" data-i18n="admin.impact.water_saved">Water Saved (L)</div>
+                  </div>
+                </div>
+                <div class="impact-item">
+                  <div class="impact-icon">🌿</div>
+                  <div>
+                    <div class="impact-value">12,500</div>
+                    <div class="impact-label" data-i18n="admin.impact.co2_offset">CO₂ Offset (kg)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="grid-2" id="analytics">
+            <div class="card department-performance">
+              <h3 data-i18n="admin.department_performance"><i class="fas fa-building"></i> Crop Performance</h3>
+              <div class="dept-list">
+                <div class="dept-item">
+                  <div class="dept-info">
+                    <div class="dept-name">Soil Health</div>
+                    <div class="dept-stats">45 farmers • 95% completion</div>
+                  </div>
+                  <div class="dept-score">98</div>
+                </div>
+                <div class="dept-item">
+                  <div class="dept-info">
+                    <div class="dept-name">Water Management</div>
+                    <div class="dept-stats">38 farmers • 87% completion</div>
+                  </div>
+                  <div class="dept-score">92</div>
+                </div>
+                <div class="dept-item">
+                  <div class="dept-info">
+                    <div class="dept-name">Organic Inputs</div>
+                    <div class="dept-stats">42 farmers • 82% completion</div>
+                  </div>
+                  <div class="dept-score">89</div>
+                </div>
+                <div class="dept-item">
+                  <div class="dept-info">
+                    <div class="dept-name">Crop Diversity</div>
+                    <div class="dept-stats">35 farmers • 78% completion</div>
+                  </div>
+                  <div class="dept-score">85</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card analytics-overview">
+              <h3 data-i18n="admin.analytics_overview"><i class="fas fa-chart-line"></i> Analytics Overview</h3>
+              <div class="analytics-grid">
+                <div class="analytic-card">
+                  <div class="analytic-value">1,180</div>
+                  <div class="analytic-label" data-i18n="admin.analytics.active_farmers">Active Farmers</div>
+                </div>
+                <div class="analytic-card">
+                  <div class="analytic-value">78%</div>
+                  <div class="analytic-label" data-i18n="admin.analytics.avg_completion">Avg Completion</div>
+                </div>
+                <div class="analytic-card">
+                  <div class="analytic-value">45 min</div>
+                  <div class="analytic-label" data-i18n="admin.analytics.avg_time_spent">Avg Time Spent</div>
+                </div>
+                <div class="analytic-card">
+                  <div class="analytic-value">156</div>
+                  <div class="analytic-label" data-i18n="admin.analytics.submissions">Submissions</div>
+                </div>
+              </div>
+              <div class="analytics-filters">
+                <button class="tab active" data-period="weekly">Weekly</button>
+                <button class="tab" data-period="monthly">Monthly</button>
+                <button class="tab" data-period="yearly">Yearly</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="grid-2" id="transactions">
+            <div class="card company-transactions">
+              <h3 data-i18n="admin.company_transactions"><i class="fas fa-building"></i> Company Transactions</h3>
+              <div class="transaction-filters">
+                <select class="class-filter">
+                  <option>All Companies</option>
+                  <option>EcoTech Solutions</option>
+                  <option>Green Energy Corp</option>
+                  <option>Sustainable Future Ltd</option>
+                </select>
+                <select class="class-filter">
+                  <option>All Status</option>
+                  <option>Completed</option>
+                  <option>Pending</option>
+                  <option>Failed</option>
+                </select>
+              </div>
+              <div class="transaction-list">
+                <div class="transaction-item">
+                  <div class="transaction-info">
+                    <h4>EcoTech Solutions</h4>
+                    <p>Carbon Credit Purchase</p>
+                    <p>Quantity: 500 credits • Quality: Premium</p>
+                    <span class="date">Dec 15, 2024 • 2:30 PM</span>
+                  </div>
+                  <div class="transaction-amount">₹25,000</div>
+                  <div class="transaction-status completed">Completed</div>
+                </div>
+                <div class="transaction-item">
+                  <div class="transaction-info">
+                    <h4>Green Energy Corp</h4>
+                    <p>Carbon Credit Purchase</p>
+                    <p>Quantity: 300 credits • Quality: Standard</p>
+                    <span class="date">Dec 14, 2024 • 11:15 AM</span>
+                  </div>
+                  <div class="transaction-amount">₹12,000</div>
+                  <div class="transaction-status completed">Completed</div>
+                </div>
+                <div class="transaction-item">
+                  <div class="transaction-info">
+                    <h4>Sustainable Future Ltd</h4>
+                    <p>Advertisement Deal</p>
+                    <p>Campaign: Eco Awareness • Duration: 30 days</p>
+                    <span class="date">Dec 13, 2024 • 4:45 PM</span>
+                  </div>
+                  <div class="transaction-amount">₹8,500</div>
+                  <div class="transaction-status pending">Pending</div>
+                </div>
+              </div>
+              <div class="transaction-summary">
+                <div class="summary-item">
+                  <span>Total Revenue</span>
+                  <strong>₹45,500</strong>
+                </div>
+                <div class="summary-item">
+                  <span>This Month</span>
+                  <strong>₹18,200</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="card government-transactions">
+              <h3 data-i18n="admin.government_transactions"><i class="fas fa-landmark"></i> Government Transactions</h3>
+              <div class="transaction-filters">
+                <select class="class-filter">
+                  <option>All Departments</option>
+                  <option>Ministry of Environment</option>
+                  <option>Education Department</option>
+                  <option>Forest Department</option>
+                </select>
+              </div>
+              <div class="transaction-list">
+                <div class="transaction-item">
+                  <div class="transaction-info">
+                    <h4>Ministry of Environment</h4>
+                    <p>Environmental Data Purchase</p>
+                    <p>Data Type: Carbon Footprint • Period: Q4 2024</p>
+                    <span class="date">Dec 12, 2024 • 3:20 PM</span>
+                  </div>
+                  <div class="transaction-amount">₹15,000</div>
+                  <div class="transaction-status completed">Completed</div>
+                </div>
+                <div class="transaction-item">
+                  <div class="transaction-info">
+                    <h4>Education Department</h4>
+                    <p>Farmer Participation Data</p>
+                    <p>Data Type: Engagement Metrics • Period: Nov 2024</p>
+                    <span class="date">Dec 10, 2024 • 10:30 AM</span>
+                  </div>
+                  <div class="transaction-amount">₹8,000</div>
+                  <div class="transaction-status completed">Completed</div>
+                </div>
+              </div>
+              <div class="transaction-summary">
+                <div class="summary-item">
+                  <span>Total Revenue</span>
+                  <strong>₹23,000</strong>
+                </div>
+                <div class="summary-item">
+                  <span>This Month</span>
+                  <strong>₹15,000</strong>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="grid-2" id="management">
+            <div class="card teacher-management">
+              <h3 data-i18n="admin.teacher_management"><i class="fas fa-chalkboard-teacher"></i>Agri-Expert Management</h3>
+              <div class="search-bar">
+                <input type="text" placeholder="Search agri-experts..." />
+                <select class="class-filter">
+                  <option>All Departments</option>
+                  <option>Pest & Diesease control</option>
+                  <option>Soil Health</option>
+                  <option>Water Management</option>
+                  <option>Organic Inputs</option>
+                </select>
+              </div>
+              <div class="teacher-list">
+                <div class="teacher-item">
+                  <div class="teacher-avatar">👨‍🏫</div>
+                  <div class="teacher-info">
+                    <h4>Dr. Sarah Johnson</h4>
+                    <p>PHD in Science • Pulses, Cereals</p>
+                  </div>
+                  <div class="teacher-actions">
+                    <button class="btn-outline sm">Edit</button>
+                    <button class="btn-outline sm danger">Delete</button>
+                  </div>
+                </div>
+                <div class="teacher-item">
+                  <div class="teacher-avatar">👩‍🏫</div>
+                  <div class="teacher-info">
+                    <h4>Prof. Michael Brown</h4>
+                    <p>PHD in Pest Control • Vegetables & Fruits</p>
+                  </div>
+                  <div class="teacher-actions">
+                    <button class="btn-outline sm">Edit</button>
+                    <button class="btn-outline sm danger">Delete</button>
+                  </div>
+                </div>
+                <div class="teacher-item">
+                  <div class="teacher-avatar">👨‍🔬</div>
+                  <div class="teacher-info">
+                    <h4>Dr. Emily Davis</h4>
+                    <p>PHD in Irrigation</p>
+                  </div>
+                  <div class="teacher-actions">
+                    <button class="btn-outline sm">Edit</button>
+                    <button class="btn-outline sm danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card student-management">
+              <h3 data-i18n="admin.farmer_management"><i class="fas fa-user-graduate"></i> Farmer Management</h3>
+              <div class="search-bar">
+                <input type="text" placeholder="Search farmers..." />
+                <select class="class-filter">
+                  <option>All Classes</option>
+                  <option>Pulses</option>
+                  <option>Pulses</option>
+                  <option>Fruits</option>
+                  <option>Vegetables</option>
+                  <option>Cash Crops</option>
+                </select>
+              </div>
+              <div class="student-list">
+                <div class="student-item">
+                  <div class="student-avatar">🌟</div>
+                  <div class="student-info">
+                    <h4>Arjun Patel</h4>
+                    <p>Groundnut • Tamil Nadu</p>
+                  </div>
+                  <div class="student-actions">
+                    <span class="student-status active">Active</span>
+                    <button class="btn-outline sm">Edit</button>
+                  </div>
+                </div>
+                <div class="student-item">
+                  <div class="student-avatar">⭐</div>
+                  <div class="student-info">
+                    <h4>Priya Sharma</h4>
+                    <p>Coconut • Kerala</p>
+                  </div>
+                  <div class="student-actions">
+                    <span class="student-status active">Active</span>
+                    <button class="btn-outline sm">Edit</button>
+                  </div>
+                </div>
+                <div class="student-item">
+                  <div class="student-avatar">🎯</div>
+                  <div class="student-info">
+                    <h4>Raj Kumar</h4>
+                    <p>Soyabean • Gujarat</p>
+                  </div>
+                  <div class="student-actions">
+                    <span class="student-status active">Active</span>
+                    <button class="btn-outline sm">Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="grid-2" id="content-management">
+            <div class="card content-management">
+              <h3 data-i18n="admin.content_management"><i class="fas fa-cogs"></i> Content Management</h3>
+              <div class="content-tabs">
+                <button class="tab active" data-content="news">News</button>
+                <button class="tab" data-content="events">Events</button>
+                <button class="tab" data-content="microcourses">
+                  Micro-Courses
+                </button>
+              </div>
+              <div class="content-panel active" id="news-panel">
+                <div class="content-item">
+                  <div>
+                    <h4>Climate Change Awareness Week</h4>
+                    <p>Published: Dec 10, 2024</p>
+                  </div>
+                  <div class="content-actions">
+                    <button class="btn-outline xs">Edit</button>
+                    <button class="btn-outline xs danger">Delete</button>
+                  </div>
+                </div>
+                <div class="content-item">
+                  <div>
+                    <h4>Tree Plantation Drive Results</h4>
+                    <p>Published: Dec 8, 2024</p>
+                  </div>
+                  <div class="content-actions">
+                    <button class="btn-outline xs">Edit</button>
+                    <button class="btn-outline xs danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+              <div class="content-panel" id="events-panel">
+                <div class="content-item">
+                  <div>
+                    <h4>Green Run Marathon</h4>
+                    <p>Date: Dec 20, 2024 • Venue: Eco Park</p>
+                  </div>
+                  <div class="content-actions">
+                    <button class="btn-outline xs">Edit</button>
+                    <button class="btn-outline xs danger">Delete</button>
+                  </div>
+                </div>
+                <div class="content-item">
+                  <div>
+                    <h4>Waste Management Workshop</h4>
+                    <p>Date: Dec 18, 2024 • Venue: School Auditorium</p>
+                  </div>
+                  <div class="content-actions">
+                    <button class="btn-outline xs">Edit</button>
+                    <button class="btn-outline xs danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+              <div class="content-panel" id="microcourses-panel">
+                <div class="content-item">
+                  <div>
+                    <h4>Climate Basics</h4>
+                    <p>Duration: 30 min • Completion: 78%</p>
+                  </div>
+                  <div class="content-actions">
+                    <button class="btn-outline xs">Edit</button>
+                    <button class="btn-outline xs danger">Delete</button>
+                  </div>
+                </div>
+                <div class="content-item">
+                  <div>
+                    <h4>Water Conservation</h4>
+                    <p>Duration: 25 min • Completion: 65%</p>
+                  </div>
+                  <div class="content-actions">
+                    <button class="btn-outline xs">Edit</button>
+                    <button class="btn-outline xs danger">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card notifications">
+              <h3 data-i18n="admin.notifications"><i class="fas fa-bell"></i> Notifications</h3>
+              <div class="notification-tabs">
+                <button class="tab active" data-notif="all">All</button>
+                <button class="tab" data-notif="government">Government</button>
+                <button class="tab" data-notif="teacher">Teacher</button>
+                <button class="tab" data-notif="ngo">NGO</button>
+              </div>
+              <ul class="notif-list">
+                <li>
+                  🏛️ Government: Environmental impact report due
+                  <span>2 hours ago</span>
+                </li>
+                <li>
+                  👨‍🏫 Agri-Expert: 5 new submissions pending review
+                  <span>4 hours ago</span>
+                </li>
+                <li>
+                  🤝 NGO: Event approval request for tree plantation
+                  <span>6 hours ago</span>
+                </li>
+                <li>
+                  📊 System: Weekly analytics report generated
+                  <span>1 day ago</span>
+                </li>
+                <li>
+                  🏛️ Government: Carbon credit verification completed
+                  <span>2 days ago</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="grid-2" id="approvals">
+            <div class="card ngo-approvals">
+              <h3 data-i18n="admin.ngo_event_approvals"><i class="fas fa-hands-helping"></i> NGO Event Approvals</h3>
+              <div class="approval-list">
+                <div class="approval-item">
+                  <div class="approval-info">
+                    <h4>Green Earth Foundation</h4>
+                    <p>Tree Plantation Drive</p>
+                    <p class="venue">
+                      Venue: Central Park • Date: Dec 22, 2024
+                    </p>
+                  </div>
+                  <div class="approval-actions">
+                    <button class="btn-primary sm">Approve</button>
+                    <button class="btn-outline sm danger">Reject</button>
+                  </div>
+                </div>
+                <div class="approval-item">
+                  <div class="approval-info">
+                    <h4>Eco Warriors</h4>
+                    <p>Waste Management Workshop</p>
+                    <p class="venue">
+                      Venue: School Campus • Date: Dec 20, 2024
+                    </p>
+                  </div>
+                  <div class="approval-actions">
+                    <button class="btn-primary sm">Approve</button>
+                    <button class="btn-outline sm danger">Reject</button>
+                  </div>
+                </div>
+                <div class="approval-item">
+                  <div class="approval-info">
+                    <h4>Climate Action Group</h4>
+                    <p>Environmental Awareness Campaign</p>
+                    <p class="venue">
+                      Venue: Multiple Locations • Date: Dec 25, 2024
+                    </p>
+                  </div>
+                  <div class="approval-actions">
+                    <button class="btn-primary sm">Approve</button>
+                    <button class="btn-outline sm danger">Reject</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="../assets/logo.webp" alt="EcoVators Logo" />
+            <h2>EcoVators</h2>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3>FPO</h3>
+              <a href="#analytics">Analytics</a>
+              <a href="#transactions">Transactions</a>
+              <a href="#management">Management</a>
+            </div>
+            <div class="footer-column">
+              <h3>Organization</h3>
+              <a href="#approvals">Approvals</a>
+              <a href="#content">Content</a>
+              <a href="#">Support</a>
+            </div>
+            <div class="footer-column">
+              <h3>Legal</h3>
+              <a href="#">Terms</a>
+              <a href="#">Privacy</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 EcoVators. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
 
     <!-- Carbon Calculator Modal -->
     <div id="carbon-calculator-modal" class="modal-overlay">
-        <div class="modal carbon-calculator-modal">
-            <div class="modal-header">
-                <div class="modal-title">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Carbon Credit Calculator</h3>
-                </div>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-content">
-                <div class="calc-intro">
-                    <p>Calculate your organization's carbon credits based on environmental activities. This tool helps you track and quantify your environmental impact.</p>
-                </div>
-                
-                <div class="calc-form">
-                    <div class="form-section">
-                        <h4><i class="fas fa-tree"></i> Tree Planting</h4>
-                        <div class="input-group">
-                            <label for="trees-planted">Number of Trees Planted</label>
-                            <input type="number" id="trees-planted" placeholder="Enter number of trees" min="0">
-                            <span class="input-hint">1 tree = 10 carbon credits</span>
-                        </div>
-                    </div>
-                    
-                    <div class="form-section">
-                        <h4><i class="fas fa-recycle"></i> Waste Management</h4>
-                        <div class="input-group">
-                            <label for="waste-reduced">Waste Reduced (kg)</label>
-                            <input type="number" id="waste-reduced" placeholder="Enter waste reduced in kg" min="0">
-                            <span class="input-hint">1 kg = 2 carbon credits</span>
-                        </div>
-                    </div>
-                    
-                    <div class="form-section">
-                        <h4><i class="fas fa-tint"></i> Water Conservation</h4>
-                        <div class="input-group">
-                            <label for="water-saved">Water Saved (liters)</label>
-                            <input type="number" id="water-saved" placeholder="Enter water saved in liters" min="0">
-                            <span class="input-hint">1 liter = 0.1 carbon credits</span>
-                        </div>
-                    </div>
-                    
-                    <div class="form-section">
-                        <h4><i class="fas fa-bolt"></i> Energy Conservation</h4>
-                        <div class="input-group">
-                            <label for="energy-saved">Energy Saved (kWh)</label>
-                            <input type="number" id="energy-saved" placeholder="Enter energy saved in kWh" min="0">
-                            <span class="input-hint">1 kWh = 5 carbon credits</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="calc-result">
-                    <div class="result-header">
-                        <i class="fas fa-calculator"></i>
-                        <h4>Total Carbon Credits Earned</h4>
-                    </div>
-                    <div class="result-value">
-                        <span id="carbon-result">0</span>
-                        <span class="result-unit">Credits</span>
-                    </div>
-                    <div class="result-breakdown" id="result-breakdown">
-                        <div class="breakdown-item">
-                            <span class="breakdown-label">Trees:</span>
-                            <span class="breakdown-value" id="trees-credits">0</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span class="breakdown-label">Waste:</span>
-                            <span class="breakdown-value" id="waste-credits">0</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span class="breakdown-label">Water:</span>
-                            <span class="breakdown-value" id="water-credits">0</span>
-                        </div>
-                        <div class="breakdown-item">
-                            <span class="breakdown-label">Energy:</span>
-                            <span class="breakdown-value" id="energy-credits">0</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="modal-actions">
-                    <button class="btn-outline" id="close-calculator">
-                        <i class="fas fa-times"></i>
-                        Close
-                    </button>
-                    <button class="btn-primary" id="export-calculator">
-                        <i class="fas fa-download"></i>
-                        Export Report
-                    </button>
-                </div>
-            </div>
+      <div class="modal carbon-calculator-modal">
+        <div class="modal-header">
+          <div class="modal-title">
+            <i class="fas fa-leaf"></i>
+            <h3>Carbon Credit Calculator</h3>
+          </div>
+          <button class="modal-close">&times;</button>
         </div>
+        <div class="modal-content">
+          <div class="calc-intro">
+            <p>
+              Calculate your organization's carbon credits based on
+              environmental activities. This tool helps you track and quantify
+              your environmental impact.
+            </p>
+          </div>
+
+          <div class="calc-form">
+            <div class="form-section">
+              <h4><i class="fas fa-tree"></i> Tree Planting</h4>
+              <div class="input-group">
+                <label for="trees-planted">Number of Trees Planted</label>
+                <input
+                  type="number"
+                  id="trees-planted"
+                  placeholder="Enter number of trees"
+                  min="0"
+                />
+                <span class="input-hint">1 tree = 10 carbon credits</span>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4><i class="fas fa-recycle"></i> Waste Management</h4>
+              <div class="input-group">
+                <label for="waste-reduced">Waste Reduced (kg)</label>
+                <input
+                  type="number"
+                  id="waste-reduced"
+                  placeholder="Enter waste reduced in kg"
+                  min="0"
+                />
+                <span class="input-hint">1 kg = 2 carbon credits</span>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4><i class="fas fa-tint"></i> Water Conservation</h4>
+              <div class="input-group">
+                <label for="water-saved">Water Saved (liters)</label>
+                <input
+                  type="number"
+                  id="water-saved"
+                  placeholder="Enter water saved in liters"
+                  min="0"
+                />
+                <span class="input-hint">1 liter = 0.1 carbon credits</span>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4><i class="fas fa-bolt"></i> Energy Conservation</h4>
+              <div class="input-group">
+                <label for="energy-saved">Energy Saved (kWh)</label>
+                <input
+                  type="number"
+                  id="energy-saved"
+                  placeholder="Enter energy saved in kWh"
+                  min="0"
+                />
+                <span class="input-hint">1 kWh = 5 carbon credits</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <div class="result-header">
+              <i class="fas fa-calculator"></i>
+              <h4>Total Carbon Credits Earned</h4>
+            </div>
+            <div class="result-value">
+              <span id="carbon-result">0</span>
+              <span class="result-unit">Credits</span>
+            </div>
+            <div class="result-breakdown" id="result-breakdown">
+              <div class="breakdown-item">
+                <span class="breakdown-label">Trees:</span>
+                <span class="breakdown-value" id="trees-credits">0</span>
+              </div>
+              <div class="breakdown-item">
+                <span class="breakdown-label">Waste:</span>
+                <span class="breakdown-value" id="waste-credits">0</span>
+              </div>
+              <div class="breakdown-item">
+                <span class="breakdown-label">Water:</span>
+                <span class="breakdown-value" id="water-credits">0</span>
+              </div>
+              <div class="breakdown-item">
+                <span class="breakdown-label">Energy:</span>
+                <span class="breakdown-value" id="energy-credits">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button class="btn-outline" id="close-calculator">
+              <i class="fas fa-times"></i>
+              Close
+            </button>
+            <button class="btn-primary" id="export-calculator">
+              <i class="fas fa-download"></i>
+              Export Report
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="toast" id="toast">✅ Action completed successfully!</div>
 
     <script src="../js/auth.js"></script>
     <script>
-        // Get logout buttons
-        const logoutBtn = document.getElementById('logout-btn');
-        const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
-        
-        // Handle logout
-        async function handleLogout() {
-            try {
-                await signOut(auth);
-                window.location.href = '../index.html';
-            } catch (error) {
-                console.error('Error logging out:', error);
-            }
-        }
-
-        // Add click listeners
-        logoutBtn.addEventListener('click', handleLogout);
-        mobileLogoutBtn.addEventListener('click', handleLogout);
-
-        const toggleBtn = document.getElementById('menu-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
-        if (toggleBtn && mobileNav) {
-            toggleBtn.addEventListener('click', () => {
-                const isOpen = mobileNav.classList.toggle('open');
-                toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            });
-        }
-
-        const toast = document.getElementById('toast');
-        const showToast = (msg) => {
-            toast.textContent = msg;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        };
-
-        // Content tabs switching
-        document.querySelectorAll('[data-content]').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('[data-content]').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
-                tab.classList.add('active');
-                document.getElementById(tab.dataset.content + '-panel').classList.add('active');
-            });
-        });
-
-        // Notification tabs switching
-        document.querySelectorAll('[data-notif]').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('[data-notif]').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                showToast(`Filtered by ${tab.dataset.notif} notifications`);
-            });
-        });
-
-        // Analytics period switching
-        document.querySelectorAll('[data-period]').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('[data-period]').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                showToast(`Analytics updated for ${tab.dataset.period} period`);
-            });
-        });
-
-        // Carbon Calculator
-        const carbonModal = document.getElementById('carbon-calculator-modal');
-        const carbonCalculator = document.getElementById('carbon-calculator');
-        const closeCalculator = document.getElementById('close-calculator');
-        const modalClose = document.querySelector('.modal-close');
-
-        carbonCalculator.addEventListener('click', () => {
-            carbonModal.style.display = 'flex';
-        });
-
-        closeCalculator.addEventListener('click', () => {
-            carbonModal.style.display = 'none';
-        });
-
-        modalClose.addEventListener('click', () => {
-            carbonModal.style.display = 'none';
-        });
-
-        // Calculate carbon credits
-        function calculateCarbonCredits() {
-            const trees = parseInt(document.getElementById('trees-planted').value) || 0;
-            const waste = parseInt(document.getElementById('waste-reduced').value) || 0;
-            const water = parseInt(document.getElementById('water-saved').value) || 0;
-            const energy = parseInt(document.getElementById('energy-saved').value) || 0;
-            
-            // Calculate individual credits
-            const treesCredits = trees * 10;
-            const wasteCredits = waste * 2;
-            const waterCredits = water * 0.1;
-            const energyCredits = energy * 5;
-            
-            // Total credits
-            const totalCredits = treesCredits + wasteCredits + waterCredits + energyCredits;
-            
-            // Update display
-            document.getElementById('carbon-result').textContent = Math.round(totalCredits);
-            document.getElementById('trees-credits').textContent = Math.round(treesCredits);
-            document.getElementById('waste-credits').textContent = Math.round(wasteCredits);
-            document.getElementById('water-credits').textContent = Math.round(waterCredits);
-            document.getElementById('energy-credits').textContent = Math.round(energyCredits);
-        }
-
-        document.querySelectorAll('.calc-form input').forEach(input => {
-            input.addEventListener('input', calculateCarbonCredits);
-        });
-
-        // Export data
-        document.getElementById('export-data').addEventListener('click', () => {
-            showToast('📊 Data export initiated. PDF will be downloaded shortly.');
-        });
-
-        // Quick actions
-        document.getElementById('add-teacher').addEventListener('click', () => {
-            showToast('👨‍🏫 Add teacher form opened');
-        });
-
-        document.getElementById('add-student').addEventListener('click', () => {
-            showToast('👨‍🎓 Add student form opened');
-        });
-
-        document.getElementById('manage-content').addEventListener('click', () => {
-            showToast('📝 Content management panel opened');
-        });
-
-        // Transaction filters
-        document.querySelectorAll('.transaction-filters select').forEach(select => {
-            select.addEventListener('change', () => {
-                showToast('🔍 Transaction list filtered');
-            });
-        });
-
-        // Search functionality
-        document.querySelectorAll('.search-bar input').forEach(input => {
-            input.addEventListener('input', () => {
-                showToast('🔍 Search results updated');
-            });
-        });
-
-        // Approval actions
-        document.querySelectorAll('.approval-actions button').forEach(button => {
-            button.addEventListener('click', () => {
-                if (button.textContent.includes('Approve')) {
-                    showToast('✅ Event approved successfully');
-                } else {
-                    showToast('❌ Event rejected');
-                }
-                button.closest('.approval-item').remove();
-            });
-        });
-
-        // Content management actions
-        document.querySelectorAll('.content-actions button').forEach(button => {
-            button.addEventListener('click', () => {
-                if (button.textContent.includes('Edit')) {
-                    showToast('✏️ Edit form opened');
-                } else {
-                    showToast('🗑️ Content deleted');
-                    button.closest('.content-item').remove();
-                }
-            });
-        });
-
-        // Teacher/Student management actions
-        document.querySelectorAll('.teacher-actions button, .student-actions button').forEach(button => {
-            button.addEventListener('click', () => {
-                if (button.textContent.includes('Edit')) {
-                    showToast('✏️ Edit form opened');
-                } else {
-                    showToast('🗑️ User deleted');
-                    button.closest('.teacher-item, .student-item').remove();
-                }
-            });
-        });
-
-        // Export calculator report
-        document.getElementById('export-calculator').addEventListener('click', () => {
-            showToast('📊 Carbon credit report exported');
-            carbonModal.style.display = 'none';
-        });
-
-        // Close modal when clicking outside
-        carbonModal.addEventListener('click', (e) => {
-            if (e.target === carbonModal) {
-                carbonModal.style.display = 'none';
-            }
-        });
+      document.addEventListener('DOMContentLoaded', function() {
+        updateTranslations();
+      });
     </script>
-</body>
-</html>
+    <script>
+      // Get logout buttons
+      const logoutBtn = document.getElementById("logout-btn");
+      const mobileLogoutBtn = document.getElementById("mobile-logout-btn");
 
+      // Handle logout
+      async function handleLogout() {
+        try {
+        } catch (error) {
+          console.error("Error logging out:", error);
+        }
+      }
+
+      // Add click listeners
+      logoutBtn.addEventListener("click", handleLogout);
+      mobileLogoutBtn.addEventListener("click", handleLogout);
+
+      const toggleBtn = document.getElementById("menu-toggle");
+      const mobileNav = document.getElementById("mobile-nav");
+      if (toggleBtn && mobileNav) {
+        toggleBtn.addEventListener("click", () => {
+          const isOpen = mobileNav.classList.toggle("open");
+          toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      }
+
+      const toast = document.getElementById("toast");
+      const showToast = (msg) => {
+        toast.textContent = msg;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2500);
+      };
+
+      // Content tabs switching
+      document.querySelectorAll("[data-content]").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-content]")
+            .forEach((t) => t.classList.remove("active"));
+          document
+            .querySelectorAll(".content-panel")
+            .forEach((p) => p.classList.remove("active"));
+          tab.classList.add("active");
+          document
+            .getElementById(tab.dataset.content + "-panel")
+            .classList.add("active");
+        });
+      });
+
+      // Notification tabs switching
+      document.querySelectorAll("[data-notif]").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-notif]")
+            .forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          showToast(`Filtered by ${tab.dataset.notif} notifications`);
+        });
+      });
+
+      // Analytics period switching
+      document.querySelectorAll("[data-period]").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-period]")
+            .forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          showToast(`Analytics updated for ${tab.dataset.period} period`);
+        });
+      });
+
+      // Carbon Calculator
+      const carbonModal = document.getElementById("carbon-calculator-modal");
+      const carbonCalculator = document.getElementById("carbon-calculator");
+      const closeCalculator = document.getElementById("close-calculator");
+      const modalClose = document.querySelector(".modal-close");
+
+      carbonCalculator.addEventListener("click", () => {
+        carbonModal.style.display = "flex";
+      });
+
+      closeCalculator.addEventListener("click", () => {
+        carbonModal.style.display = "none";
+      });
+
+      modalClose.addEventListener("click", () => {
+        carbonModal.style.display = "none";
+      });
+
+      // Calculate carbon credits
+      function calculateCarbonCredits() {
+        const trees =
+          parseInt(document.getElementById("trees-planted").value) || 0;
+        const waste =
+          parseInt(document.getElementById("waste-reduced").value) || 0;
+        const water =
+          parseInt(document.getElementById("water-saved").value) || 0;
+        const energy =
+          parseInt(document.getElementById("energy-saved").value) || 0;
+
+        // Calculate individual credits
+        const treesCredits = trees * 10;
+        const wasteCredits = waste * 2;
+        const waterCredits = water * 0.1;
+        const energyCredits = energy * 5;
+
+        // Total credits
+        const totalCredits =
+          treesCredits + wasteCredits + waterCredits + energyCredits;
+
+        // Update display
+        document.getElementById("carbon-result").textContent =
+          Math.round(totalCredits);
+        document.getElementById("trees-credits").textContent =
+          Math.round(treesCredits);
+        document.getElementById("waste-credits").textContent =
+          Math.round(wasteCredits);
+        document.getElementById("water-credits").textContent =
+          Math.round(waterCredits);
+        document.getElementById("energy-credits").textContent =
+          Math.round(energyCredits);
+      }
+
+      document.querySelectorAll(".calc-form input").forEach((input) => {
+        input.addEventListener("input", calculateCarbonCredits);
+      });
+
+      // Export data
+      document.getElementById("export-data").addEventListener("click", () => {
+        showToast("📊 Data export initiated. PDF will be downloaded shortly.");
+      });
+
+      // Quick actions
+      document.getElementById("add-teacher").addEventListener("click", () => {
+        showToast("👨‍🏫 Add teacher form opened");
+      });
+
+      document.getElementById("add-student").addEventListener("click", () => {
+        showToast("👨‍🎓 Add student form opened");
+      });
+
+      document
+        .getElementById("manage-content")
+        .addEventListener("click", () => {
+          showToast("📝 Content management panel opened");
+        });
+
+      // Transaction filters
+      document
+        .querySelectorAll(".transaction-filters select")
+        .forEach((select) => {
+          select.addEventListener("change", () => {
+            showToast("🔍 Transaction list filtered");
+          });
+        });
+
+      // Search functionality
+      document.querySelectorAll(".search-bar input").forEach((input) => {
+        input.addEventListener("input", () => {
+          showToast("🔍 Search results updated");
+        });
+      });
+
+      // Approval actions
+      document
+        .querySelectorAll(".approval-actions button")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            if (button.textContent.includes("Approve")) {
+              showToast("✅ Event approved successfully");
+            } else {
+              showToast("❌ Event rejected");
+            }
+            button.closest(".approval-item").remove();
+          });
+        });
+
+      // Content management actions
+      document.querySelectorAll(".content-actions button").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.textContent.includes("Edit")) {
+            showToast("✏️ Edit form opened");
+          } else {
+            showToast("🗑️ Content deleted");
+            button.closest(".content-item").remove();
+          }
+        });
+      });
+
+      // Teacher/Student management actions
+      document
+        .querySelectorAll(".teacher-actions button, .student-actions button")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            if (button.textContent.includes("Edit")) {
+              showToast("✏️ Edit form opened");
+            } else {
+              showToast("🗑️ User deleted");
+              button.closest(".teacher-item, .student-item").remove();
+            }
+          });
+        });
+
+      // Export calculator report
+      document
+        .getElementById("export-calculator")
+        .addEventListener("click", () => {
+          showToast("📊 Carbon credit report exported");
+          carbonModal.style.display = "none";
+        });
+
+      // Close modal when clicking outside
+      carbonModal.addEventListener("click", (e) => {
+        if (e.target === carbonModal) {
+          carbonModal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

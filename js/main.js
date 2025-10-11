@@ -13,11 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     getStartedBtn.addEventListener('click', openRoleModal);
     navGetStartedBtn.addEventListener('click', openRoleModal);
     
-    // Event listener for login button
-    loginBtn.addEventListener('click', () => {
-        window.location.href = 'auth/login.html';
-    });
-
     // Event listener for logout button
     document.querySelectorAll('.get-started-btn').forEach(btn => {
         if (btn.textContent.trim() === 'Logout') {

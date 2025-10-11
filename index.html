@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="modulepreload" href="js/lang-en.js">
+    <link rel="modulepreload" href="js/lang-hi.js">
+    <script src="js/translate-helper.js" defer></script>
 </head>
 <body>
     <div class="landing-container">
@@ -19,30 +22,30 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
             <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#features">Features</a>
-                <a href="#impact">Impact</a>
-                <a href="#contact">Contact</a>
+                <a href="#about" data-i18n="nav.about">About</a>
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#impact" data-i18n="nav.impact">Impact</a>
+                <a href="#contact" data-i18n="nav.contact">Contact</a>
             </div>
             <div class="auth-buttons">
-                <button class="login-btn">Login</button>
-                <button class="get-started-btn">Get Started</button>
+                <button class="login-btn" data-i18n="nav.login" id="login-btn">Login</button>
+                <button class="get-started-btn" data-i18n="nav.get_started">Get Started</button>
             </div>
         </nav>
         <div class="mobile-nav" id="mobile-nav">
-            <a href="#about">About</a>
-            <a href="#features">Features</a>
-            <a href="#impact">Impact</a>
-            <a href="#contact">Contact</a>
-            <button class="login-btn">Login</button>
-            <button class="get-started-btn">Get Started</button>
+            <a href="#about" data-i18n="nav.about">About</a>
+            <a href="#features" data-i18n="nav.features">Features</a>
+            <a href="#impact" data-i18n="nav.impact">Impact</a>
+            <a href="#contact" data-i18n="nav.contact">Contact</a>
+            <button class="login-btn" data-i18n="nav.login">Login</button>
+            <button class="get-started-btn" data-i18n="nav.get_started">Get Started</button>
         </div>
 
         <section class="hero">
             <div class="hero-content">
-                <h1>Make Sustainable Farming Fun, Rewarding & Engaging</h1>
-                <p>Join EcoVators to learn, contribute, and make a real impact on our planet through gamified challenges, community actions, and real-time tracking.</p>
-                <button id="get-started" class="cta-button">Let's Get Started</button>
+                <h1 data-i18n="hero.title">Make Sustainable Farming Fun, Rewarding & Engaging</h1>
+                <p data-i18n="hero.description">Join EcoVators to learn, contribute, and make a real impact on our planet through gamified challenges, community actions, and real-time tracking.</p>
+                <button id="get-started" class="cta-button" data-i18n="hero.button">Let's Get Started</button>
             </div>
             <div class="hero-image">
                 <img src="assets/IMG-20241118-WA0008-removebg-preview.png" alt="Environmental Education">
@@ -50,137 +53,137 @@
         </section>
 
         <section id="about" class="about-section">
-            <h2>About EcoVators</h2>
+            <h2 data-i18n="about.title">About EcoVators</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>EcoVators is a gamified digital platform designed to inspire farmers to adopt eco-friendly practices through play, challenges and rewards. EcoVators motivates farmers - especially youth - to transition from unsustainable habits to progressive farming.</p>
-                    <p>Our goal is to make Sustainable Agriculture not just necessity but an engaging journey - transforming it into a game, movement, and lifestyle.</p>
+                    <p data-i18n="about.description">EcoVators is a gamified digital platform designed to inspire farmers to adopt eco-friendly practices through play, challenges and rewards. EcoVators motivates farmers - especially youth - to transition from unsustainable habits to progressive farming.</p>
+                    <p data-i18n="about.goal">Our goal is to make Sustainable Agriculture not just necessity but an engaging journey - transforming it into a game, movement, and lifestyle.</p>
                 </div>
                 <div class="about-stats">
                     <div class="stat-card">
                         <i class="fas fa-users"></i>
-                        <h3>10,000+</h3>
-                        <p>Active Farmers</p>
+                        <h3 data-i18n="about.stats.active_farmers">10,000+</h3>
+                        <p data-i18n="about.stats.active_farmers_label">Active Farmers</p>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-school"></i>
-                        <h3>500+</h3>
-                        <p>Agri-Experts</p>
+                        <h3 data-i18n="about.stats.agri_experts">500+</h3>
+                        <p data-i18n="about.stats.agri_experts_label">Agri-Experts</p>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-tree"></i>
-                        <h3>50,000+</h3>
-                        <p>Trees Planted</p>
+                        <h3 data-i18n="about.stats.trees_planted">50,000+</h3>
+                        <p data-i18n="about.stats.trees_planted_label">Trees Planted</p>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-award"></i>
-                        <h3>100,000+</h3>
-                        <p>Challenges Completed</p>
+                        <h3 data-i18n="about.stats.challenges_completed">100,000+</h3>
+                        <p data-i18n="about.stats.challenges_completed_label">Challenges Completed</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="features" class="features-section">
-            <h2>Platform Features</h2>
+            <h2 data-i18n="features.title">Platform Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <i class="fas fa-gamepad"></i>
-                    <h3>Gamified Learning</h3>
-                    <p>Earn XP, badges, and climb leaderboards while learning about environmental issues.</p>
+                    <h3 data-i18n="features.gamified_learning">Gamified Learning</h3>
+                    <p data-i18n="features.gamified_learning_description">Earn XP, badges, and climb leaderboards while learning about environmental issues.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-comments"></i>
-                    <h3>Community Chat</h3>
-                    <p>Connect with peers through real-time messaging with support for text, images, audio, and video.</p>
+                    <h3 data-i18n="features.community_chat">Community Chat</h3>
+                    <p data-i18n="features.community_chat_description">Connect with peers through real-time messaging with support for text, images, audio, and video.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-tasks"></i>
-                    <h3>Environmental Challenges</h3>
-                    <p>Participate in quizzes, activities, and real-world environmental actions.</p>
+                    <h3 data-i18n="features.environmental_challenges">Environmental Challenges</h3>
+                    <p data-i18n="features.environmental_challenges_description">Participate in quizzes, activities, and real-world environmental actions.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-book-reader"></i>
-                    <h3>Micro-Courses</h3>
-                    <p>Learn through bite-sized courses with progress tracking and certificates.</p>
+                    <h3 data-i18n="features.micro_courses">Micro-Courses</h3>
+                    <p data-i18n="features.micro_courses_description">Learn through bite-sized courses with progress tracking and certificates.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-calendar-alt"></i>
-                    <h3>Events</h3>
-                    <p>Join environmental events organized by Cooperative Societies, NGOs, and community partners.</p>
+                    <h3 data-i18n="features.events">Events</h3>
+                    <p data-i18n="features.events_description">Join environmental events organized by Cooperative Societies, NGOs, and community partners.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-map-marker-alt"></i>
-                    <h3>Geotag Uploads</h3>
-                    <p>Document your environmental actions with location-based verification.</p>
+                    <h3 data-i18n="features.geotag_uploads">Geotag Uploads</h3>
+                    <p data-i18n="features.geotag_uploads_description">Document your environmental actions with location-based verification.</p>
                 </div>
             </div>
         </section>
 
         <section id="impact" class="impact-section">
-            <h2>Our Environmental Impact</h2>
+            <h2 data-i18n="impact.title">Our Environmental Impact</h2>
             <div class="impact-metrics">
                 <div class="metric">
-                    <div class="metric-value">25,000</div>
-                    <div class="metric-label">Tons of CO₂ Offset</div>
+                    <div class="metric-value" data-i18n="impact.metrics.co2_offset">25,000</div>
+                    <div class="metric-label" data-i18n="impact.metrics.co2_offset_label">Tons of CO₂ Offset</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-value">75,000</div>
-                    <div class="metric-label">Kg of Waste Recycled</div>
+                    <div class="metric-value" data-i18n="impact.metrics.waste_recycled">75,000</div>
+                    <div class="metric-label" data-i18n="impact.metrics.waste_recycled_label">Kg of Waste Recycled</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-value">120,000</div>
-                    <div class="metric-label">Liters of Water Saved</div>
+                    <div class="metric-value" data-i18n="impact.metrics.water_saved">120,000</div>
+                    <div class="metric-label" data-i18n="impact.metrics.water_saved_label">Liters of Water Saved</div>
                 </div>
             </div>
         </section>
 
         <section id="roles" class="roles-section">
-            <h2>Who Can Join EcoVators?</h2>
+            <h2 data-i18n="roles.title">Who Can Join EcoVators?</h2>
             <div class="roles-container">
                 <div class="role-card">
                     <i class="fas fa-user-graduate"></i>
-                    <h3>Farmers</h3>
-                    <p>Learn, participate in challenges, earn rewards, and make a real impact.</p>
+                    <h3 data-i18n="roles.farmer">Farmers</h3>
+                    <p data-i18n="roles.farmer_description">Learn, participate in challenges, earn rewards, and make a real impact.</p>
                 </div>
                 <div class="role-card">
                     <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>Agri-Experts</h3>
-                    <p>Create challenges, monitor farmers progress, and facilitate environmental activities.</p>
+                    <h3 data-i18n="roles.agri_expert">Agri-Experts</h3>
+                    <p data-i18n="roles.agri_expert_description">Create challenges, monitor farmers progress, and facilitate environmental activities.</p>
                 </div>
                 <div class="role-card">
                     <i class="fas fa-user-shield"></i>
-                    <h3>Cooperative Society Admin</h3>
-                    <p>Manage your society's environmental initiatives and track overall impact.</p>
+                    <h3 data-i18n="roles.cooperative_admin">Cooperative Society Admin</h3>
+                    <p data-i18n="roles.cooperative_admin_description">Manage your society's environmental initiatives and track overall impact.</p>
                 </div>
                 <div class="role-card">
                     <i class="fas fa-hands-helping"></i>
-                    <h3>NGOs</h3>
-                    <p>Organize events, collaborate with farmers, and expand your environmental impact.</p>
+                    <h3 data-i18n="roles.ngo">NGOs</h3>
+                    <p data-i18n="roles.ngo_description">Organize events, collaborate with farmers, and expand your environmental impact.</p>
                 </div>
                 <div class="role-card">
                     <i class="fas fa-building"></i>
-                    <h3>Companies</h3>
-                    <p>Support environmental education through carbon credits and advertising partnerships.</p>
+                    <h3 data-i18n="roles.company">Companies</h3>
+                    <p data-i18n="roles.company_description">Support environmental education through carbon credits and advertising partnerships.</p>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="contact-section">
-            <h2>Contact Us</h2>
+            <h2 data-i18n="contact.title">Contact Us</h2>
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <p>ecovators.sih@gmail.com</p>
+                        <p data-i18n="contact.email">ecovators.sih@gmail.com</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <p>+91 8141829957</p>
+                        <p data-i18n="contact.phone">+91 8141829957</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>Ahmedabad</p>
+                        <p data-i18n="contact.address">Ahmedabad</p>
                     </div>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -194,7 +197,7 @@
                     <input type="email" placeholder="Email" required>
                     <input type="text" placeholder="Subject">
                     <textarea placeholder="Message" required></textarea>
-                    <button type="submit">Send Message</button>
+                    <button type="submit" data-i18n="contact.send_message">Send Message</button>
                 </form>
             </div>
         </section>
@@ -207,37 +210,37 @@
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h3>Platform</h3>
-                        <a href="#">Features</a>
-                        <a href="#">How It Works</a>
-                        <a href="#">Pricing</a>
-                        <a href="#">FAQ</a>
+                        <h3 data-i18n="footer.platform">Platform</h3>
+                        <a href="#" data-i18n="footer.features">Features</a>
+                        <a href="#" data-i18n="footer.how_it_works">How It Works</a>
+                        <a href="#" data-i18n="footer.pricing">Pricing</a>
+                        <a href="#" data-i18n="footer.faq">FAQ</a>
                     </div>
                     <div class="footer-column">
-                        <h3>Resources</h3>
-                        <a href="#">Blog</a>
-                        <a href="#">Guides</a>
-                        <a href="#">Events</a>
-                        <a href="#">Support</a>
+                        <h3 data-i18n="footer.resources">Resources</h3>
+                        <a href="#" data-i18n="footer.blog">Blog</a>
+                        <a href="#" data-i18n="footer.guides">Guides</a>
+                        <a href="#" data-i18n="footer.events">Events</a>
+                        <a href="#" data-i18n="footer.support">Support</a>
                     </div>
                     <div class="footer-column">
-                        <h3>Company</h3>
-                        <a href="#">About Us</a>
-                        <a href="#">Careers</a>
-                        <a href="#">Partners</a>
-                        <a href="#">Contact</a>
+                        <h3 data-i18n="footer.company">Company</h3>
+                        <a href="#" data-i18n="footer.about_us">About Us</a>
+                        <a href="#" data-i18n="footer.careers">Careers</a>
+                        <a href="#" data-i18n="footer.partners">Partners</a>
+                        <a href="#" data-i18n="footer.contact">Contact</a>
                     </div>
                     <div class="footer-column">
-                        <h3>Legal</h3>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Cookie Policy</a>
-                        <a href="#">GDPR</a>
+                        <h3 data-i18n="footer.legal">Legal</h3>
+                        <a href="#" data-i18n="footer.terms_of_service">Terms of Service</a>
+                        <a href="#" data-i18n="footer.privacy_policy">Privacy Policy</a>
+                        <a href="#" data-i18n="footer.cookie_policy">Cookie Policy</a>
+                        <a href="#" data-i18n="footer.gdpr">GDPR</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 EcoVators. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 EcoVators. All rights reserved.</p>
             </div>
         </footer>
     </div>
@@ -246,38 +249,38 @@
     <div id="role-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2>Select Your Role</h2>
-            <p>Choose your role to continue to the appropriate registration page.</p>
+            <h2 data-i18n="role_modal.title">Select Your Role</h2>
+            <p data-i18n="role_modal.description">Choose your role to continue to the appropriate registration page.</p>
             <div class="role-selection">
                 <div class="role-option" data-role="student">
                     <i class="fas fa-user-graduate"></i>
-                    <h3>Farmer</h3>
-                    <p>Join challenges, earn rewards, track your environmental impact</p>
+                    <h3 data-i18n="role_modal.farmer">Farmer</h3>
+                    <p data-i18n="role_modal.farmer_description">Join challenges, earn rewards, track your environmental impact</p>
                 </div>
                 <div class="role-option" data-role="teacher">
                     <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>Agri-Expert</h3>
-                    <p>Create challenges, monitor farmer progress, facilitate learning</p>
+                    <h3 data-i18n="role_modal.agri_expert">Agri-Expert</h3>
+                    <p data-i18n="role_modal.agri_expert_description">Create challenges, monitor farmer progress, facilitate learning</p>
                 </div>
                 <div class="role-option" data-role="admin">
                     <i class="fas fa-user-shield"></i>
-                    <h3>Cooperative Society</h3>
-                    <p>Manage your society's environmental initiatives and track impact</p>
+                    <h3 data-i18n="role_modal.cooperative_admin">Cooperative Society</h3>
+                    <p data-i18n="role_modal.cooperative_admin_description">Manage your society's environmental initiatives and track impact</p>
                 </div>
                 <div class="role-option" data-role="ngo">
                     <i class="fas fa-hands-helping"></i>
-                    <h3>NGO</h3>
-                    <p>Organize events, collaborate with farmers, expand your impact</p>
+                    <h3 data-i18n="role_modal.ngo">NGO</h3>
+                    <p data-i18n="role_modal.ngo_description">Organize events, collaborate with farmers, expand your impact</p>
                 </div>
                 <div class="role-option" data-role="company">
                     <i class="fas fa-building"></i>
-                    <h3>Company</h3>
-                    <p>Support environmental sustainability through partnerships</p>
+                    <h3 data-i18n="role_modal.company">Company</h3>
+                    <p data-i18n="role_modal.company_description">Support environmental sustainability through partnerships</p>
                 </div>
                 <div class="role-option" data-role="government">
                     <i class="fas fa-landmark"></i>
-                    <h3>Government</h3>
-                    <p>Monitor environmental initiatives and regulate carbon credit programs</p>
+                    <h3 data-i18n="role_modal.government">Government</h3>
+                    <p data-i18n="role_modal.government_description">Monitor environmental initiatives and regulate carbon credit programs</p>
                 </div>
             </div>
         </div>
@@ -287,19 +290,19 @@
     <div id="login-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal" data-close="login">&times;</span>
-            <h2>Login</h2>
-            <p>Sign in with your email and password</p>
+            <h2 data-i18n="login_modal.title">Login</h2>
+            <p data-i18n="login_modal.description">Sign in with your email and password</p>
             <form id="login-form" class="contact-form" style="max-width: 520px; margin: 0 auto;">
                 <input id="login-email" type="email" placeholder="Email" required>
                 <input id="login-password" type="password" placeholder="Password" required>
                 <label style="display:flex;align-items:center;gap:8px;margin-top:-6px;">
                     <input id="remember-me" type="checkbox"> Remember me
                 </label>
-                <button type="submit">Login</button>
+                <button type="submit" data-i18n="login_modal.login_button">Login</button>
                 <div id="login-error" style="color:#EF5350;font-weight:600;display:none;"></div>
                 
                 <div style="margin-top: 20px; text-align: center;">
-                    <p style="margin-bottom: 15px; color: #666;">Or login with</p>
+                    <p style="margin-bottom: 15px; color: #666;" data-i18n="login_modal.or_login_with">Or login with</p>
                     <div style="display: flex; gap: 10px; justify-content: center;">
                         <button type="button" id="google-login-btn" style="background: #db4437; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                             <i class="fab fa-google"></i> Google
@@ -483,6 +486,7 @@
         }
 
     </script>
+    <script type="module" src="js/lang.js"></script>
     <script src="js/main.js"></script>
     <script>
         const toggleBtn = document.getElementById('menu-toggle');

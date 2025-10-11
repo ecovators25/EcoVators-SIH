@@ -10,39 +10,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <script src="../js/lang.js" defer></script>
+    <script src="../js/translate-helper.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            updateTranslations();
+        });
+    </script>
 </head>
 
 <body>
     <div class="dashboard-container">
         <nav class="navbar">
-            <div class="logo">
-                <img src="../assets/logo.webp" alt="EcoVators Logo">
-                <h1>EcoVators</h1>
-            </div>
-            <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="#dashboard">Dashboard</a>
-                <a href="#marketplace">Carbon Marketplace</a>
-                <a href="#advertisement">Advertisement</a>
-                <a href="#transactions">Transactions</a>
-                <a href="#analytics">Analytics</a>
-            </div>
-            <div class="auth-buttons">
-                <a href="../index.html" class="login-btn">Home</a>
-                <a href="../index.html" class="get-started-btn">Logout</a>
-            </div>
-        </nav>
-        <div class="mobile-nav" id="mobile-nav">
-            <a href="#dashboard">Dashboard</a>
-            <a href="#marketplace">Carbon Marketplace</a>
-            <a href="#advertisement">Advertisement</a>
-            <a href="#transactions">Transactions</a>
-            <a href="#analytics">Analytics</a>
-            <a href="../index.html" class="login-btn">Home</a>
-            <a href="../index.html" class="get-started-btn">Logout</a>
+        <div class="logo">
+          <img src="../assets/logo.webp" alt="EcoVators Logo" />
+          <h1 data-i18n="nav.title">EcoVators</h1>
         </div>
+        <button
+          class="hamburger"
+          id="menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="nav-links">
+          <a href="#dashboard" data-i18n="government.nav.dashboard">Dashboard</a>
+          <a href="#transactions" data-i18n="government.nav.transactions">Transactions</a>
+          <a href="#analytics" data-i18n="government.nav.analytics">Analytics</a>
+          <a href="#reports" data-i18n="government.nav.reports">Reports</a>
+        </div>
+        <div class="auth-buttons">
+          <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
+          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout">Logout</a>
+        </div>
+      </nav>
+      <div class="mobile-nav" id="mobile-nav">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#transactions">Transactions</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#reports">Reports</a>
+        <a href="../index.html" class="login-btn">Home</a>
+        <a href="../index.html" class="get-started-btn">Logout</a>
+      </div>
 
         <main class="company-layout">
             <aside class="sidebar">
@@ -66,22 +76,26 @@
                 </div>
 
                 <div class="card quick-actions">
-                    <h3>Quick Actions</h3>
-                    <button class="btn-primary" id="buy-credits">Buy Carbon Credits</button>
-                    <button class="btn-outline" id="create-campaign">Create Campaign</button>
-                    <button class="btn-outline" id="view-analytics">View Analytics</button>
-                    <button class="btn-outline" id="download-reports">Download Reports</button>
+                    <h3 data-i18n="company.quick_actions.title">Quick Actions</h3>
+                    <button class="btn-primary" id="buy-credits"
+                        data-i18n="company.quick_actions.buy_carbon_credits">Buy Carbon Credits</button>
+                    <button class="btn-outline" id="create-campaign"
+                        data-i18n="company.quick_actions.create_campaign">Create Campaign</button>
+                    <button class="btn-outline" id="view-analytics"
+                        data-i18n="company.quick_actions.view_analytics">View Analytics</button>
+                    <button class="btn-outline" id="download-reports"
+                        data-i18n="company.quick_actions.download_reports">Download Reports</button>
                 </div>
 
                 <div class="card impact-overview">
-                    <h3>🌿 Environmental Impact</h3>
+                    <h3 data-i18n="company.impact_overview">🌿 Environmental Impact</h3>
                     <div class="impact-stats">
                         <div class="impact-stat">
-                            <span class="stat-label">CO₂ Offset</span>
+                            <span class="stat-label" data-i18n="company.impact.co2_offset">CO₂ Offset</span>
                             <span class="stat-value">850T</span>
                         </div>
                         <div class="impact-stat">
-                            <span class="stat-label">Trees Supported</span>
+                            <span class="stat-label" data-i18n="company.impact.trees_supported">Trees Supported</span>
                             <span class="stat-value">12,500</span>
                         </div>
                     </div>
@@ -91,7 +105,8 @@
             <section class="content">
                 <section class="cards-row" id="dashboard">
                     <div class="card carbon-marketplace">
-                        <h3><i class="fas fa-leaf"></i> Featured Carbon Credits</h3>
+                        <h3 data-i18n="company.marketplace.featured_credits"><i class="fas fa-leaf"></i> Featured Carbon
+                            Credits</h3>
                         <div class="marketplace-grid">
                             <div class="marketplace-card">
                                 <div class="institution-info">
@@ -103,12 +118,14 @@
                                 </div>
                                 <div class="credits-info">
                                     <div class="credits-available">
-                                        <span class="credits-label">Available Credits</span>
+                                        <span class="credits-label"
+                                            data-i18n="company.marketplace.available_credits">Available Credits</span>
                                         <span class="credits-value">500</span>
                                     </div>
                                     <div class="price-per-credit">₹100/credit</div>
                                 </div>
-                                <button class="btn-primary">Purchase Credits</button>
+                                <button class="btn-primary" data-i18n="company.marketplace.purchase_credits">Purchase
+                                    Credits</button>
                             </div>
 
                             <div class="marketplace-card">
@@ -132,7 +149,7 @@
                     </div>
 
                     <div class="card regional-performance">
-                        <h3>Regional Performance</h3>
+                        <h3 data-i18n="company.regional_performance.title">Regional Performance</h3>
                         <div class="region-list">
                             <div class="region-item">
                                 <div class="region-info">
@@ -167,9 +184,11 @@
 
                 <section class="grid-2" id="institutions">
                     <div class="card school-directory">
-                        <h3><i class="fas fa-school"></i> Village Directory</h3>
+                        <h3 data-i18n="company.school_directory.title"><i class="fas fa-school"></i> Village Directory
+                        </h3>
                         <div class="search-filter">
-                            <input type="text" placeholder="Search villages..." class="search-input">
+                            <input type="text" placeholder="Search villages..." class="search-input"
+                                data-i18n-placeholder="company.school_directory.search_villages">
                             <select class="filter-select">
                                 <option value="all">All Regions</option>
                                 <option value="mumbai">Mumbai</option>
@@ -212,27 +231,33 @@
                     </div>
 
                     <div class="card teacher-directory">
-                        <h3><i class="fas fa-chalkboard-teacher"></i>Agri-Experts Analytics</h3>
+                        <h3 data-i18n="company.teacher_directory.title"><i
+                                class="fas fa-chalkboard-teacher"></i>Agri-Experts Analytics</h3>
                         <div class="teacher-stats">
                             <div class="teacher-stat">
                                 <div class="stat-icon">👨‍🏫</div>
                                 <div class="stat-info">
                                     <span class="stat-value">18,450</span>
-                                    <span class="stat-label">Active Agri-Experts</span>
+                                    <span class="stat-label"
+                                        data-i18n="company.teacher_directory.active_agri_experts">Active
+                                        Agri-Experts</span>
                                 </div>
                             </div>
                             <div class="teacher-stat">
                                 <div class="stat-icon">📚</div>
                                 <div class="stat-info">
                                     <span class="stat-value">85%</span>
-                                    <span class="stat-label">Participation Rate</span>
+                                    <span class="stat-label"
+                                        data-i18n="company.teacher_directory.participation_rate">Participation
+                                        Rate</span>
                                 </div>
                             </div>
                             <div class="teacher-stat">
                                 <div class="stat-icon">⭐</div>
                                 <div class="stat-info">
                                     <span class="stat-value">4.6/5</span>
-                                    <span class="stat-label">Avg Rating</span>
+                                    <span class="stat-label" data-i18n="company.teacher_directory.avg_rating">Avg
+                                        Rating</span>
                                 </div>
                             </div>
                         </div>
@@ -256,7 +281,8 @@
 
                 <section class="grid-2" id="analytics">
                     <div class="card participation-analytics">
-                        <h3><i class="fas fa-chart-line"></i> Participation Analytics</h3>
+                        <h3 data-i18n="company.participation_analytics.title"><i class="fas fa-chart-line"></i>
+                            Participation Analytics</h3>
                         <div class="analytics-timeline">
                             <div class="timeline-controls">
                                 <button class="timeline-btn active" data-period="monthly">Monthly</button>
@@ -265,15 +291,37 @@
                             </div>
                             <div class="analytics-grid">
                                 <div class="analytics-item">
-                                    <div class="analytics-label">Active Farmers</div>
+                                    <div class="analytics-label"
+                                        data-i18n="company.participation_analytics.active_farmers">Active Farmers</div>
                                     <div class="analytics-value">42/47</div>
                                     <div class="analytics-bar">
                                         <div class="bar-fill" style="width: 89%"></div>
                                     </div>
                                 </div>
                                 <div class="analytics-item">
-                                    <div class="analytics-label">Avg Completion Rate</div>
+                                    <div class="analytics-label"
+                                        data-i18n="company.participation_analytics.avg_completion_rate">Avg Completion
+                                        Rate</div>
                                     <div class="analytics-value">78%</div>
                                     <div class="analytics-bar">
                                         <div class="bar-fill" style="width: 78%"></div>
-                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+        <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (toggleBtn && mobileNav) {
+            toggleBtn.addEventListener('click', () => {
+                const isOpen = mobileNav.classList.toggle('open');
+                toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+        }
+    </script>
+    </div>
+</body>
+</html>

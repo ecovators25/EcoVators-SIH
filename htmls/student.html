@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoVators - Farmers Dashboard</title>
+    <title>EcoVators - Student Dashboard</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/student.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../js/lang.js" defer></script>
+    <script src="../js/translate-helper.js" defer></script>
 </head>
 <body>
     <div class="dashboard-container">
         <nav class="navbar">
             <div class="logo">
-                <img src="../assets/logo.webp" alt="EcoVators Logo">
-                <h1>EcoVators</h1>
+                <img src="../assets/logo.webp" alt="EcoVators Logo" />
+                <h1 data-i18n="nav.title">EcoVators</h1>
             </div>
             <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <i class="fa-solid fa-bars"></i>
             </button>
             <div class="nav-links">
-                <a href="#profile">Profile</a>
-                <a href="#challenges">Challenges</a>
-                <a href="#learning">Learning</a>
-                <a href="#community">Community</a>
-                <a href="#events">Events</a>
+                <a href="#profile" data-i18n="student.nav.profile">Profile</a>
+                <a href="#challenges" data-i18n="student.nav.challenges">Challenges</a>
+                <a href="#learning" data-i18n="student.nav.learning">Learning</a>
+                <a href="#community" data-i18n="student.nav.community">Community</a>
+                <a href="#events" data-i18n="student.nav.events">Events</a>
             </div>
             <div class="auth-buttons">
-                <a href="../index.html" class="login-btn">Home</a>
-                <a href="../index.html" class="get-started-btn">Logout</a>
+                <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
+                <a href="../index.html" class="get-started-btn" data-i18n="nav.logout">Logout</a>
             </div>
         </nav>
         <div class="mobile-nav" id="mobile-nav">
@@ -68,19 +70,19 @@
                 </div>
 
                 <div class="card quick-links">
-                    <h3>Quick Actions</h3>
-                    <button class="btn-primary" id="start-task">Start Today's Task</button>
-                    <button class="btn-outline" id="upload-proof">Upload Proof</button>
-                    <button class="btn-outline" id="download-certificate">Download Certificate</button>
+                    <h3 data-i18n="student.quick_actions">Quick Actions</h3>
+                    <button class="btn-primary" id="start-task" data-i18n="student.quick_actions.start_task">Start Today's Task</button>
+                    <button class="btn-outline" id="upload-proof" data-i18n="student.quick_actions.upload_proof">Upload Proof</button>
+                    <button class="btn-outline" id="download-certificate" data-i18n="student.quick_actions.download_certificate">Download Certificate</button>
                 </div>
 
                 <div class="card badges" id="badges">
-                    <h3><i class="fas fa-award"></i> Badges</h3>
+                    <h3 data-i18n="student.badges"><i class="fas fa-award"></i> Badges</h3>
                     <div class="badge-grid">
-                        <div class="badge earned">🌳<span>Tree Guardian</span></div>
-                        <div class="badge earned">♻️<span>Plastic-Free Hero</span></div>
-                        <div class="badge">💧<span>Water Warrior</span></div>
-                        <div class="badge earned">⚡<span>Energy Saver</span></div>
+                        <div class="badge earned">🌳<span data-i18n="student.badge.tree_guardian">Tree Guardian</span></div>
+                        <div class="badge earned">♻️<span data-i18n="student.badge.plastic_free_hero">Plastic-Free Hero</span></div>
+                        <div class="badge">💧<span data-i18n="student.badge.water_warrior">Water Warrior</span></div>
+                        <div class="badge earned">⚡<span data-i18n="student.badge.energy_saver">Energy Saver</span></div>
                     </div>
                 </div>
             </aside>
@@ -88,26 +90,26 @@
             <section class="content">
                 <section class="cards-row" id="profile">
                     <div class="card impact">
-                        <h3>Eco Impact</h3>
+                        <h3 data-i18n="student.eco_impact">Eco Impact</h3>
                         <div class="impact-list">
-                            <div class="impact-item"><span>🌳 Trees Planted</span><strong>23</strong></div>
-                            <div class="impact-item"><span>♻️ Waste Reduced</span><strong>12.5 kg</strong></div>
-                            <div class="impact-item"><span>💧 Water Saved</span><strong>450 L</strong></div>
-                            <div class="impact-item"><span>🌿 CO₂ Offset</span><strong>185 kg</strong></div>
+                            <div class="impact-item"><span data-i18n="student.trees_planted">🌳 Trees Planted</span><strong>23</strong></div>
+                            <div class="impact-item"><span data-i18n="student.waste_reduced">♻️ Waste Reduced</span><strong>12.5 kg</strong></div>
+                            <div class="impact-item"><span data-i18n="student.water_saved">💧 Water Saved</span><strong>450 L</strong></div>
+                            <div class="impact-item"><span data-i18n="student.co2_offset">🌿 CO₂ Offset</span><strong>185 kg</strong></div>
                         </div>
                     </div>
                     <div class="card goals">
-                        <h3>Weekly Goals</h3>
+                        <h3 data-i18n="student.weekly_goals">Weekly Goals</h3>
                         <div class="goal">
-                            <span>Complete 3 Challenges</span>
+                            <span data-i18n="student.goal.complete_challenges">Complete 3 Challenges</span>
                             <div class="bar small"><span style="width: 60%"></span></div>
                         </div>
                         <div class="goal">
-                            <span>Study Micro-Course 40%</span>
+                            <span data-i18n="student.goal.study_micro_course">Study Micro-Course 40%</span>
                             <div class="bar small"><span style="width: 40%"></span></div>
                         </div>
                         <div class="goal">
-                            <span>Maintain Streak</span>
+                            <span data-i18n="student.goal.maintain_streak">Maintain Streak</span>
                             <div class="bar small"><span style="width: 80%"></span></div>
                         </div>
                     </div>
@@ -115,56 +117,56 @@
 
                 <section class="grid-2" id="challenges">
                     <div class="card">
-                        <h3><i class="fas fa-tasks"></i> Active Challenges</h3>
+                        <h3 data-i18n="student.active_challenges"><i class="fas fa-tasks"></i> Active Challenges</h3>
                         <div class="challenge-list">
                             <div class="challenge">
                                 <div class="left">
                                     <div class="emoji">🌳</div>
                                     <div>
-                                        <h4>Plant a Tree Challenge</h4>
-                                        <p>Earn +50 XP and +20 carbon credits</p>
+                                        <h4 data-i18n="student.challenge.plant_tree">Plant a Tree Challenge</h4>
+                                        <p data-i18n="student.challenge.plant_tree_desc">Earn +50 XP and +20 carbon credits</p>
                                     </div>
                                 </div>
                                 <div class="right">
                                     <span class="pill xp">+50 XP</span>
                                     <span class="pill cc">+20 CC</span>
-                                    <button class="btn-primary sm">Join</button>
+                                    <button class="btn-primary sm" data-i18n="student.challenge.join">Join</button>
                                 </div>
                             </div>
                             <div class="challenge">
                                 <div class="left">
                                     <div class="emoji">💧</div>
                                     <div>
-                                        <h4>Water Conservation</h4>
-                                        <p>Save 50 liters this week</p>
+                                        <h4 data-i18n="student.challenge.water_conservation">Water Conservation</h4>
+                                        <p data-i18n="student.challenge.water_conservation_desc">Save 50 liters this week</p>
                                     </div>
                                 </div>
                                 <div class="right">
-                                    <span class="status pending">Pending</span>
-                                    <button class="btn-outline sm">Upload Proof</button>
+                                    <span class="status pending" data-i18n="student.challenge.pending">Pending</span>
+                                    <button class="btn-outline sm" data-i18n="student.challenge.upload_proof">Upload Proof</button>
                                 </div>
                             </div>
                             <div class="challenge completed">
                                 <div class="left">
                                     <div class="emoji">♻️</div>
                                     <div>
-                                        <h4>Plastic Reduction</h4>
-                                        <p>One week plastic-free</p>
+                                        <h4 data-i18n="student.challenge.plastic_reduction">Plastic Reduction</h4>
+                                        <p data-i18n="student.challenge.plastic_reduction_desc">One week plastic-free</p>
                                     </div>
                                 </div>
                                 <div class="right">
-                                    <span class="status approved">Approved</span>
+                                    <span class="status approved" data-i18n="student.challenge.approved">Approved</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="card" id="learning">
-                        <h3><i class="fas fa-book-reader"></i> Micro-Courses</h3>
+                        <h3 data-i18n="student.micro_courses"><i class="fas fa-book-reader"></i> Micro-Courses</h3>
                         <div class="course">
                             <div>
-                                <h4>Climate Basics</h4>
-                                <p>Intro to climate change and actions</p>
+                                <h4 data-i18n="student.course.climate_basics">Climate Basics</h4>
+                                <p data-i18n="student.course.climate_basics_desc">Intro to climate change and actions</p>
                             </div>
                             <div class="course-progress">
                                 <span>30%</span>
@@ -173,8 +175,8 @@
                         </div>
                         <div class="course">
                             <div>
-                                <h4>Water Conservation</h4>
-                                <p>Smart water usage</p>
+                                <h4 data-i18n="student.course.water_conservation">Water Conservation</h4>
+                                <p data-i18n="student.course.water_conservation_desc">Smart water usage</p>
                             </div>
                             <div class="course-progress">
                                 <span>40%</span>
@@ -183,23 +185,23 @@
                         </div>
                         <div class="course">
                             <div>
-                                <h4>Waste Management</h4>
-                                <p>Sorting and recycling</p>
+                                <h4 data-i18n="student.course.waste_management">Waste Management</h4>
+                                <p data-i18n="student.course.waste_management_desc">Sorting and recycling</p>
                             </div>
                             <div class="course-progress">
                                 <span>75%</span>
                                 <div class="bar tiny"><span style="width: 75%"></span></div>
                             </div>
                         </div>
-                        <button class="btn-primary full">Continue Learning</button>
+                        <button class="btn-primary full" data-i18n="student.continue_learning">Continue Learning</button>
                     </div>
                 </section>
 
                 <section class="grid-2" id="community">
                     <div class="card feed">
-                        <h3><i class="fas fa-bullhorn"></i> Hacks & News</h3>
+                        <h3 data-i18n="community.feed"><i class="fas fa-bullhorn"></i> Hacks & News</h3>
                         <div class="post composer">
-                            <input type="text" placeholder="Share a hack, photo or news...">
+                            <input type="text" placeholder="Share a hack, photo or news..." data-i18n-placeholder="community.post.composer.placeholder">
                             <div class="actions">
                                 <button class="btn-outline sm"><i class="fas fa-image"></i> Image</button>
                                 <button class="btn-outline sm"><i class="fas fa-video"></i> Video</button>
@@ -231,7 +233,7 @@
                     </div>
 
                     <div class="card chat">
-                        <h3><i class="fas fa-comments"></i> Community Chat</h3>
+                        <h3 data-i18n="community.chat"><i class="fas fa-comments"></i> Community Chat</h3>
                         <div class="chat-tabs">
                             <button class="tab active">Village</button>
                             <button class="tab">District</button>
@@ -243,7 +245,7 @@
                             <div class="msg other">Awesome! See you at 9AM.</div>
                         </div>
                         <div class="chat-input">
-                            <input type="text" placeholder="Type a message...">
+                            <input type="text" placeholder="Type a message..." data-i18n-placeholder="community.chat.input.placeholder">
                             <button class="btn-primary sm">Send</button>
                         </div>
                     </div>
@@ -269,20 +271,20 @@
                     </div>
 
                     <div class="card uploads">
-                        <h3><i class="fas fa-map-marker-alt"></i> Upload with Geotag</h3>
+                        <h3 data-i18n="events.upload.title"><i class="fas fa-map-marker-alt"></i> Upload with Geotag</h3>
                         <div class="upload-row">
                             <input type="file" id="proof-file" accept="image/*,video/*,.pdf">
-                            <button class="btn-outline sm" id="get-location"><i class="fas fa-location-arrow"></i> Get Location</button>
+                            <button class="btn-outline sm" id="get-location" data-i18n="events.upload.get_location"><i class="fas fa-location-arrow"></i> Get Location</button>
                         </div>
                         <div class="coords" id="coords">Lat: —, Lng: —</div>
-                        <button class="btn-primary full" id="submit-upload">Submit Proof</button>
-                        <div class="hint">Your Agri-Expert will review and approve/reject your proof.</div>
+                        <button class="btn-primary full" id="submit-upload" data-i18n="events.upload.submit">Submit Proof</button>
+                        <div class="hint" data-i18n="events.upload.hint">Your Agri-Expert will review and approve/reject your proof.</div>
                     </div>
                 </section>
 
                 <section class="grid-2" id="leaderboard">
                     <div class="card">
-                        <h3><i class="fas fa-trophy"></i> Leaderboard</h3>
+                        <h3 data-i18n="student.leaderboard"><i class="fas fa-trophy"></i> Leaderboard</h3>
                         <div class="leader-list">
                             <div class="leader"><span class="rank gold">1</span><span>Priya Sharma</span><strong>2450 XP</strong></div>
                             <div class="leader self"><span class="rank silver">2</span><span>Arjun Patel</span><strong>1350 XP</strong></div>
@@ -292,7 +294,7 @@
                     </div>
 
                     <div class="card notifications">
-                        <h3><i class="fas fa-bell"></i> Notifications</h3>
+                        <h3 data-i18n="student.notifications"><i class="fas fa-bell"></i> Notifications</h3>
                         <ul class="notif-list" id="notif-list">
                             <li>🎉 Quiz completed! +25 XP earned <span>10:32</span></li>
                             <li>📸 Proof uploaded! Awaiting verification <span>09:15</span></li>
@@ -311,21 +313,21 @@
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h3>Farmer</h3>
-                        <a href="#challenges">Challenges</a>
-                        <a href="#learning">Learning</a>
-                        <a href="#leaderboard">Leaderboard</a>
+                        <h3 data-i18n="footer.farmer.title">Farmer</h3>
+                        <a href="#challenges" data-i18n="footer.farmer.challenges">Challenges</a>
+                        <a href="#learning" data-i18n="footer.farmer.learning">Learning</a>
+                        <a href="#leaderboard" data-i18n="footer.farmer.leaderboard">Leaderboard</a>
                     </div>
                     <div class="footer-column">
-                        <h3>Community</h3>
-                        <a href="#community">Chat</a>
-                        <a href="#events">Events</a>
-                        <a href="#">Support</a>
+                        <h3 data-i18n="footer.community.title">Community</h3>
+                        <a href="#community" data-i18n="footer.community.chat">Chat</a>
+                        <a href="#events" data-i18n="footer.community.events">Events</a>
+                        <a href="#" data-i18n="footer.community.support">Support</a>
                     </div>
                     <div class="footer-column">
-                        <h3>Legal</h3>
-                        <a href="#">Terms</a>
-                        <a href="#">Privacy</a>
+                        <h3 data-i18n="footer.legal.title">Legal</h3>
+                        <a href="#" data-i18n="footer.legal.terms">Terms</a>
+                        <a href="#" data-i18n="footer.legal.privacy">Privacy</a>
                     </div>
                 </div>
             </div>
@@ -338,6 +340,10 @@
     <div class="toast" id="toast">🌱 Task started! Upload your proof when complete.</div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTranslations();
+        });
+
         const toggleBtn = document.getElementById('menu-toggle');
         const mobileNav = document.getElementById('mobile-nav');
         if (toggleBtn && mobileNav) {
