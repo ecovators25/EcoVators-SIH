@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EcoVators - Student Dashboard</title>
 
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/translator.css">
-    <link rel="stylesheet" href="../css/student.css">
-    <link rel="stylesheet" href="../css/minigame.css">
-    <link rel="stylesheet" href="../css/offline-indicator.css">
-    <link rel="stylesheet" href="../css/multilingual.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-</head>
-<body>
-            <!-- Google Translate widget -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/translator.css" />
+    <link rel="stylesheet" href="../css/student.css" />
+    <link rel="stylesheet" href="../css/minigame.css" />
+    <link rel="stylesheet" href="../css/offline-indicator.css" />
+    <link rel="stylesheet" href="../css/multilingual.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Google Translate widget -->
     <div id="google_translate_element"></div>
 
     <script type="text/javascript">
@@ -35,359 +40,566 @@
 
     <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
-        <nav class="navbar">
-            <div class="logo">
-                <img src="../assets/logo.webp" alt="EcoVators Logo" />
-                <h1 data-i18n="nav.title">EcoVators</h1>
-            </div>
-            <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="#profile" data-i18n="student.nav.profile">Profile</a>
-                <a href="#challenges" data-i18n="student.nav.challenges">Challenges</a>
-                <a href="#learning" data-i18n="student.nav.learning">Learning</a>
-                <a href="#community" data-i18n="student.nav.community">Community</a>
-                <a href="#events" data-i18n="student.nav.events">Events</a>
-            </div>
-            <div class="connection-indicator">
-                <span id="connection-status" class="status-online">Online</span>
-            </div>
-            <div class="auth-buttons">
-                <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
-                <a href="../index.html" class="get-started-btn" data-i18n="nav.logout">Logout</a>
-            </div>
-        </nav>
-        <div class="mobile-nav" id="mobile-nav">
-            <a href="#profile">Profile</a>
-            <a href="#challenges">Challenges</a>
-            <a href="#learning">Learning</a>
-            <a href="#community">Community</a>
-            <a href="#events">Events</a>
-            <a href="../index.html" class="login-btn">Home</a>
-            <a href="../index.html" class="get-started-btn">Logout</a>
+      <nav class="navbar">
+        <a href="../index.html">
+          <div class="logo">
+            <img src="../assets/logo.webp" alt="EcoVators Logo" />
+            <h1>EcoVators</h1>
+          </div>
+        </a>
+        <button
+          class="hamburger"
+          id="menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="nav-links">
+          <a href="#profile" data-i18n="student.nav.profile">Profile</a>
+          <a href="#challenges" data-i18n="student.nav.challenges"
+            >Challenges</a
+          >
+          <a href="#learning" data-i18n="student.nav.learning">Learning</a>
+          <a href="#community" data-i18n="student.nav.community">Community</a>
+          <a href="#events" data-i18n="student.nav.events">Events</a>
         </div>
+        <div class="connection-indicator">
+          <span id="connection-status" class="status-online">Online</span>
+        </div>
+        <div class="auth-buttons">
+          <a href="../index.html" class="login-btn" data-i18n="nav.home"
+            >Home</a
+          >
+          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout"
+            >Logout</a
+          >
+        </div>
+      </nav>
+      <div class="mobile-nav" id="mobile-nav">
+        <a href="#profile">Profile</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#learning">Learning</a>
+        <a href="#community">Community</a>
+        <a href="#events">Events</a>
+        <a href="../index.html" class="login-btn">Home</a>
+        <a href="../index.html" class="get-started-btn">Logout</a>
+      </div>
 
-        <main class="student-layout">
-            <aside class="sidebar">
-                <div class="student-card">
-                    <div class="avatar">🌟</div>
-                    <div class="student-info">
-                        <h2 id="student-name">Arjun Patel</h2>
-                        <p id="student-meta">Datrana • near Mendarda</p>
-                    </div>
-                    <div class="levels">
-                        <div class="level-pill">Level <span id="level">7</span></div>
-                        <div class="streak-pill">🔥 <span id="streak">12</span> day streak</div>
-                    </div>
-                    <div class="progress-cards">
-                        <div class="progress-card xp">
-                            <div class="value" id="xp">1350</div>
-                            <div class="label">XP Points</div>
-                            <div class="bar"><span id="xp-bar" style="width: 70%"></span></div>
-                        </div>
-                        <div class="progress-card cc">
-                            <div class="value" id="cc">285</div>
-                            <div class="label">Carbon Credits</div>
-                            <div class="sub">350/500 to next level</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card quick-links">
-                    <h3 data-i18n="student.quick_actions">Quick Actions</h3>
-                    <button class="btn-primary" id="start-task" data-i18n="student.quick_actions.start_task">Start Today's Task</button>
-                    <button class="btn-outline" id="upload-proof" data-i18n="student.quick_actions.upload_proof">Upload Proof</button>
-                    <button class="btn-outline" id="download-certificate" data-i18n="student.quick_actions.download_certificate">Download Certificate</button>
-                </div>
-
-                <div class="card badges" id="badges">
-                    <h3 data-i18n="student.badges"><i class="fas fa-award"></i> Badges</h3>
-                    <div class="badge-grid">
-                        <div class="badge earned">🌳<span data-i18n="student.badge.tree_guardian">Tree Guardian</span></div>
-                        <div class="badge earned">♻️<span data-i18n="student.badge.plastic_free_hero">Plastic-Free Hero</span></div>
-                        <div class="badge">💧<span data-i18n="student.badge.water_warrior">Water Warrior</span></div>
-                        <div class="badge earned">⚡<span data-i18n="student.badge.energy_saver">Energy Saver</span></div>
-                    </div>
-                </div>
-            </aside>
-
-            <section class="content">
-                <section class="cards-row" id="profile">
-                    <div class="card impact">
-                        <h3 data-i18n="student.eco_impact">Eco Impact</h3>
-                        <div class="impact-list">
-                            <div class="impact-item"><span data-i18n="student.trees_planted">🌳 Trees Planted</span><strong>23</strong></div>
-                            <div class="impact-item"><span data-i18n="student.waste_reduced">♻️ Waste Reduced</span><strong>12.5 kg</strong></div>
-                            <div class="impact-item"><span data-i18n="student.water_saved">💧 Water Saved</span><strong>450 L</strong></div>
-                            <div class="impact-item"><span data-i18n="student.co2_offset">🌿 CO₂ Offset</span><strong>185 kg</strong></div>
-                        </div>
-                    </div>
-                    <div class="card goals">
-                        <h3 data-i18n="student.weekly_goals">Weekly Goals</h3>
-                        <div class="goal">
-                            <span data-i18n="student.goal.complete_challenges">Complete 3 Challenges</span>
-                            <div class="bar small"><span style="width: 60%"></span></div>
-                        </div>
-                        <div class="goal">
-                            <span data-i18n="student.goal.study_micro_course">Study Micro-Course 40%</span>
-                            <div class="bar small"><span style="width: 40%"></span></div>
-                        </div>
-                        <div class="goal">
-                            <span data-i18n="student.goal.maintain_streak">Maintain Streak</span>
-                            <div class="bar small"><span style="width: 80%"></span></div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="grid-2" id="challenges">
-                    <div class="card">
-                        <h3 data-i18n="student.active_challenges"><i class="fas fa-tasks"></i> Active Challenges</h3>
-                        <div class="challenge-list">
-                            <div class="challenge">
-                                <div class="left">
-                                    <div class="emoji">🌳</div>
-                                    <div>
-                                        <h4 data-i18n="student.challenge.plant_tree">Plant a Tree Challenge</h4>
-                                        <p data-i18n="student.challenge.plant_tree_desc">Earn +50 XP and +20 carbon credits</p>
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <span class="pill xp">+50 XP</span>
-                                    <span class="pill cc">+20 CC</span>
-                                    <button class="btn-primary sm" data-i18n="student.challenge.join">Join</button>
-                                </div>
-                            </div>
-                            <div class="challenge">
-                                <div class="left">
-                                    <div class="emoji">💧</div>
-                                    <div>
-                                        <h4 data-i18n="student.challenge.water_conservation">Water Conservation</h4>
-                                        <p data-i18n="student.challenge.water_conservation_desc">Save 50 liters this week</p>
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <span class="status pending" data-i18n="student.challenge.pending">Pending</span>
-                                    <button class="btn-outline sm" data-i18n="student.challenge.upload_proof">Upload Proof</button>
-                                </div>
-                            </div>
-                            <div class="challenge completed">
-                                <div class="left">
-                                    <div class="emoji">♻️</div>
-                                    <div>
-                                        <h4 data-i18n="student.challenge.plastic_reduction">Plastic Reduction</h4>
-                                        <p data-i18n="student.challenge.plastic_reduction_desc">One week plastic-free</p>
-                                    </div>
-                                </div>
-                                <div class="right">
-                                    <span class="status approved" data-i18n="student.challenge.approved">Approved</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" id="learning">
-                        <h3 data-i18n="student.micro_courses"><i class="fas fa-book-reader"></i> Micro-Courses</h3>
-                        <div class="course">
-                            <div>
-                                <h4 data-i18n="student.course.climate_basics">Climate Basics</h4>
-                                <p data-i18n="student.course.climate_basics_desc">Intro to climate change and actions</p>
-                            </div>
-                            <div class="course-progress">
-                                <span>30%</span>
-                                <div class="bar tiny"><span style="width: 30%"></span></div>
-                            </div>
-                        </div>
-                        <div class="course">
-                            <div>
-                                <h4 data-i18n="student.course.water_conservation">Water Conservation</h4>
-                                <p data-i18n="student.course.water_conservation_desc">Smart water usage</p>
-                            </div>
-                            <div class="course-progress">
-                                <span>40%</span>
-                                <div class="bar tiny"><span style="width: 40%"></span></div>
-                            </div>
-                        </div>
-                        <div class="course">
-                            <div>
-                                <h4 data-i18n="student.course.waste_management">Waste Management</h4>
-                                <p data-i18n="student.course.waste_management_desc">Sorting and recycling</p>
-                            </div>
-                            <div class="course-progress">
-                                <span>75%</span>
-                                <div class="bar tiny"><span style="width: 75%"></span></div>
-                            </div>
-                        </div>
-                        <button class="btn-primary full" data-i18n="student.continue_learning">Continue Learning</button>
-                    </div>
-                </section>
-
-                <section class="grid-2" id="community">
-                    <div class="card feed">
-                        <h3 data-i18n="community.feed"><i class="fas fa-bullhorn"></i> Hacks & News</h3>
-                        <div class="post composer">
-                            <input type="text" placeholder="Share a hack, photo or news..." data-i18n-placeholder="community.post.composer.placeholder">
-                            <div class="actions">
-                                <button class="btn-outline sm"><i class="fas fa-image"></i> Image</button>
-                                <button class="btn-outline sm"><i class="fas fa-video"></i> Video</button>
-                                <button class="btn-primary sm">Post</button>
-                            </div>
-                        </div>
-                        <div class="post">
-                            <div class="meta">
-                                <strong>Priya Sharma</strong>
-                                <span>• 2h ago</span>
-                            </div>
-                            <p>Planted 3 saplings in our farm today! 🌱</p>
-                            <div class="post-actions">
-                                <button class="icon-btn"><i class="far fa-thumbs-up"></i> Like</button>
-                                <button class="icon-btn"><i class="far fa-comment"></i> Comment</button>
-                            </div>
-                        </div>
-                        <div class="post">
-                            <div class="meta">
-                                <strong>EcoVators</strong>
-                                <span>• 6h ago</span>
-                            </div>
-                            <p>Use organic ferilizers. Join and earn bonus XP!</p>
-                            <div class="post-actions">
-                                <button class="icon-btn"><i class="far fa-thumbs-up"></i> Like</button>
-                                <button class="icon-btn"><i class="far fa-comment"></i> Comment</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card chat">
-                        <h3 data-i18n="community.chat"><i class="fas fa-comments"></i> Community Chat</h3>
-                        <div class="chat-tabs">
-                            <button class="tab active">Village</button>
-                            <button class="tab">District</button>
-                            <button class="tab">State</button>
-                        </div>
-                        <div class="chat-window">
-                            <div class="msg other">Hey team! Ready for the tree plantation?</div>
-                            <div class="msg self">Yes! I have 2 saplings to bring 🌱</div>
-                            <div class="msg other">Awesome! See you at 9AM.</div>
-                        </div>
-                        <div class="chat-input">
-                            <input type="text" placeholder="Type a message..." data-i18n-placeholder="community.chat.input.placeholder">
-                            <button class="btn-primary sm">Send</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="grid-2" id="events">
-                    <div class="card">
-                        <h3><i class="fas fa-calendar-alt"></i> Events</h3>
-                        <div class="event">
-                            <div>
-                                <h4>Green Run Marathon</h4>
-                                <p>Eco Park • 28 Sep • 7:00 AM</p>
-                            </div>
-                            <button class="btn-outline sm">Join</button>
-                        </div>
-                        <div class="event">
-                            <div>
-                                <h4>Farm Clean-Up</h4>
-                                <p>Main Block • 30 Sep • 9:30 AM</p>
-                            </div>
-                            <button class="btn-outline sm">Join</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Mini-game Section -->
-                    <div class="card minigame-container">
-                        <h3><i class="fas fa-gamepad"></i> Sustainable Farming Mini-Game</h3>
-                        <div class="game-stats">
-                            <div class="game-score">Score: <span id="game-score">0</span></div>
-                            <div class="game-level">Level: <span id="game-level">1</span></div>
-                        </div>
-                        <div class="game-instructions">
-                            Water the plants before they wither! Click on water drops and drag them to plants.
-                        </div>
-                        <div id="game-field" class="game-field">
-                            <!-- Plants and water drops will be added here by JavaScript -->
-                        </div>
-                        <div class="game-controls">
-                            <button id="start-game" class="btn-primary sm">Start Game</button>
-                        </div>
-                        <div class="game-rewards">
-                            <h4>Rewards</h4>
-                            <div class="rewards-list">
-                                <div class="reward">XP: <span id="reward-xp" class="xp">0</span></div>
-                                <div class="reward">CC: <span id="reward-cc" class="cc">0</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card uploads">
-                        <h3 data-i18n="events.upload.title"><i class="fas fa-map-marker-alt"></i> Upload with Geotag</h3>
-                        <div class="upload-row">
-                            <input type="file" id="proof-file" accept="image/*,video/*,.pdf">
-                            <button class="btn-outline sm" id="get-location" data-i18n="events.upload.get_location"><i class="fas fa-location-arrow"></i> Get Location</button>
-                        </div>
-                        <div class="coords" id="coords">Lat: —, Lng: —</div>
-                        <button class="btn-primary full" id="submit-upload" data-i18n="events.upload.submit">Submit Proof</button>
-                        <div class="hint" data-i18n="events.upload.hint">Your Agri-Expert will review and approve/reject your proof.</div>
-                    </div>
-                </section>
-
-                <section class="grid-2" id="leaderboard">
-                    <div class="card">
-                        <h3 data-i18n="student.leaderboard"><i class="fas fa-trophy"></i> Leaderboard</h3>
-                        <div class="leader-list">
-                            <div class="leader"><span class="rank gold">1</span><span>Priya Sharma</span><strong>2450 XP</strong></div>
-                            <div class="leader self"><span class="rank silver">2</span><span>Arjun Patel</span><strong>1350 XP</strong></div>
-                            <div class="leader"><span class="rank bronze">3</span><span>Raj Kumar</span><strong>1280 XP</strong></div>
-                            <div class="leader"><span class="rank">4</span><span>Anita Singh</span><strong>1150 XP</strong></div>
-                        </div>
-                    </div>
-
-                    <div class="card notifications">
-                        <h3 data-i18n="student.notifications"><i class="fas fa-bell"></i> Notifications</h3>
-                        <ul class="notif-list" id="notif-list">
-                            <li>🎉 Quiz completed! +25 XP earned <span>10:32</span></li>
-                            <li>📸 Proof uploaded! Awaiting verification <span>09:15</span></li>
-                            <li>🔥 Streak maintained for 12 days <span>Yesterday</span></li>
-                        </ul>
-                    </div>
-                </section>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="../assets/logo.webp" alt="EcoVators Logo">
-                    <h2>EcoVators</h2>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3 data-i18n="footer.farmer.title">Farmer</h3>
-                        <a href="#challenges" data-i18n="footer.farmer.challenges">Challenges</a>
-                        <a href="#learning" data-i18n="footer.farmer.learning">Learning</a>
-                        <a href="#leaderboard" data-i18n="footer.farmer.leaderboard">Leaderboard</a>
-                    </div>
-                    <div class="footer-column">
-                        <h3 data-i18n="footer.community.title">Community</h3>
-                        <a href="#community" data-i18n="footer.community.chat">Chat</a>
-                        <a href="#events" data-i18n="footer.community.events">Events</a>
-                        <a href="#" data-i18n="footer.community.support">Support</a>
-                    </div>
-                    <div class="footer-column">
-                        <h3 data-i18n="footer.legal.title">Legal</h3>
-                        <a href="#" data-i18n="footer.legal.terms">Terms</a>
-                        <a href="#" data-i18n="footer.legal.privacy">Privacy</a>
-                    </div>
-                </div>
+      <main class="student-layout">
+        <aside class="sidebar">
+          <div class="student-card">
+            <div class="avatar">🌟</div>
+            <div class="student-info">
+              <h2 id="student-name">Arjun Patel</h2>
+              <p id="student-meta">Datrana • near Mendarda</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EcoVators. All rights reserved.</p>
+            <div class="levels">
+              <div class="level-pill">Level <span id="level">7</span></div>
+              <div class="streak-pill">
+                🔥 <span id="streak">12</span> day streak
+              </div>
             </div>
-        </footer>
+            <div class="progress-cards">
+              <div class="progress-card xp">
+                <div class="value" id="xp">1350</div>
+                <div class="label">XP Points</div>
+                <div class="bar">
+                  <span id="xp-bar" style="width: 70%"></span>
+                </div>
+              </div>
+              <div class="progress-card cc">
+                <div class="value" id="cc">285</div>
+                <div class="label">Carbon Credits</div>
+                <div class="sub">350/500 to next level</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card quick-links">
+            <h3 data-i18n="student.quick_actions">Quick Actions</h3>
+            <button
+              class="btn-primary"
+              id="start-task"
+              data-i18n="student.quick_actions.start_task"
+            >
+              Start Today's Task
+            </button>
+            <button
+              class="btn-outline"
+              id="upload-proof"
+              data-i18n="student.quick_actions.upload_proof"
+            >
+              Upload Proof
+            </button>
+            <button
+              class="btn-outline"
+              id="download-certificate"
+              data-i18n="student.quick_actions.download_certificate"
+            >
+              Download Certificate
+            </button>
+          </div>
+
+          <div class="card badges" id="badges">
+            <h3 data-i18n="student.badges">
+              <i class="fas fa-award"></i> Badges
+            </h3>
+            <div class="badge-grid">
+              <div class="badge earned">
+                🌳<span data-i18n="student.badge.tree_guardian"
+                  >Tree Guardian</span
+                >
+              </div>
+              <div class="badge earned">
+                ♻️<span data-i18n="student.badge.plastic_free_hero"
+                  >Plastic-Free Hero</span
+                >
+              </div>
+              <div class="badge">
+                💧<span data-i18n="student.badge.water_warrior"
+                  >Water Warrior</span
+                >
+              </div>
+              <div class="badge earned">
+                ⚡<span data-i18n="student.badge.energy_saver"
+                  >Energy Saver</span
+                >
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="content">
+          <section class="cards-row" id="profile">
+            <div class="card impact">
+              <h3 data-i18n="student.eco_impact">Eco Impact</h3>
+              <div class="impact-list">
+                <div class="impact-item">
+                  <span data-i18n="student.trees_planted">🌳 Trees Planted</span
+                  ><strong>23</strong>
+                </div>
+                <div class="impact-item">
+                  <span data-i18n="student.waste_reduced">♻️ Waste Reduced</span
+                  ><strong>12.5 kg</strong>
+                </div>
+                <div class="impact-item">
+                  <span data-i18n="student.water_saved">💧 Water Saved</span
+                  ><strong>450 L</strong>
+                </div>
+                <div class="impact-item">
+                  <span data-i18n="student.co2_offset">🌿 CO₂ Offset</span
+                  ><strong>185 kg</strong>
+                </div>
+              </div>
+            </div>
+            <div class="card goals">
+              <h3 data-i18n="student.weekly_goals">Weekly Goals</h3>
+              <div class="goal">
+                <span data-i18n="student.goal.complete_challenges"
+                  >Complete 3 Challenges</span
+                >
+                <div class="bar small"><span style="width: 60%"></span></div>
+              </div>
+              <div class="goal">
+                <span data-i18n="student.goal.study_micro_course"
+                  >Study Micro-Course 40%</span
+                >
+                <div class="bar small"><span style="width: 40%"></span></div>
+              </div>
+              <div class="goal">
+                <span data-i18n="student.goal.maintain_streak"
+                  >Maintain Streak</span
+                >
+                <div class="bar small"><span style="width: 80%"></span></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="grid-2" id="challenges">
+            <div class="card">
+              <h3 data-i18n="student.active_challenges">
+                <i class="fas fa-tasks"></i> Active Challenges
+              </h3>
+              <div class="challenge-list">
+                <div class="challenge">
+                  <div class="left">
+                    <div class="emoji">🌳</div>
+                    <div>
+                      <h4 data-i18n="student.challenge.plant_tree">
+                        Plant a Tree Challenge
+                      </h4>
+                      <p data-i18n="student.challenge.plant_tree_desc">
+                        Earn +50 XP and +20 carbon credits
+                      </p>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <span class="pill xp">+50 XP</span>
+                    <span class="pill cc">+20 CC</span>
+                    <button
+                      class="btn-primary sm"
+                      data-i18n="student.challenge.join"
+                    >
+                      Join
+                    </button>
+                  </div>
+                </div>
+                <div class="challenge">
+                  <div class="left">
+                    <div class="emoji">💧</div>
+                    <div>
+                      <h4 data-i18n="student.challenge.water_conservation">
+                        Water Conservation
+                      </h4>
+                      <p data-i18n="student.challenge.water_conservation_desc">
+                        Save 50 liters this week
+                      </p>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <span
+                      class="status pending"
+                      data-i18n="student.challenge.pending"
+                      >Pending</span
+                    >
+                    <button
+                      class="btn-outline sm"
+                      data-i18n="student.challenge.upload_proof"
+                    >
+                      Upload Proof
+                    </button>
+                  </div>
+                </div>
+                <div class="challenge completed">
+                  <div class="left">
+                    <div class="emoji">♻️</div>
+                    <div>
+                      <h4 data-i18n="student.challenge.plastic_reduction">
+                        Plastic Reduction
+                      </h4>
+                      <p data-i18n="student.challenge.plastic_reduction_desc">
+                        One week plastic-free
+                      </p>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <span
+                      class="status approved"
+                      data-i18n="student.challenge.approved"
+                      >Approved</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="learning">
+              <h3 data-i18n="student.micro_courses">
+                <i class="fas fa-book-reader"></i> Micro-Courses
+              </h3>
+              <div class="course">
+                <div>
+                  <h4 data-i18n="student.course.climate_basics">
+                    Climate Basics
+                  </h4>
+                  <p data-i18n="student.course.climate_basics_desc">
+                    Intro to climate change and actions
+                  </p>
+                </div>
+                <div class="course-progress">
+                  <span>30%</span>
+                  <div class="bar tiny"><span style="width: 30%"></span></div>
+                </div>
+              </div>
+              <div class="course">
+                <div>
+                  <h4 data-i18n="student.course.water_conservation">
+                    Water Conservation
+                  </h4>
+                  <p data-i18n="student.course.water_conservation_desc">
+                    Smart water usage
+                  </p>
+                </div>
+                <div class="course-progress">
+                  <span>40%</span>
+                  <div class="bar tiny"><span style="width: 40%"></span></div>
+                </div>
+              </div>
+              <div class="course">
+                <div>
+                  <h4 data-i18n="student.course.waste_management">
+                    Waste Management
+                  </h4>
+                  <p data-i18n="student.course.waste_management_desc">
+                    Sorting and recycling
+                  </p>
+                </div>
+                <div class="course-progress">
+                  <span>75%</span>
+                  <div class="bar tiny"><span style="width: 75%"></span></div>
+                </div>
+              </div>
+              <button
+                class="btn-primary full"
+                data-i18n="student.continue_learning"
+              >
+                Continue Learning
+              </button>
+            </div>
+          </section>
+
+          <section class="grid-2" id="community">
+            <div class="card feed">
+              <h3 data-i18n="community.feed">
+                <i class="fas fa-bullhorn"></i> Hacks & News
+              </h3>
+              <div class="post composer">
+                <input
+                  type="text"
+                  placeholder="Share a hack, photo or news..."
+                  data-i18n-placeholder="community.post.composer.placeholder"
+                />
+                <div class="actions">
+                  <button class="btn-outline sm">
+                    <i class="fas fa-image"></i> Image
+                  </button>
+                  <button class="btn-outline sm">
+                    <i class="fas fa-video"></i> Video
+                  </button>
+                  <button class="btn-primary sm">Post</button>
+                </div>
+              </div>
+              <div class="post">
+                <div class="meta">
+                  <strong>Priya Sharma</strong>
+                  <span>• 2h ago</span>
+                </div>
+                <p>Planted 3 saplings in our farm today! 🌱</p>
+                <div class="post-actions">
+                  <button class="icon-btn">
+                    <i class="far fa-thumbs-up"></i> Like
+                  </button>
+                  <button class="icon-btn">
+                    <i class="far fa-comment"></i> Comment
+                  </button>
+                </div>
+              </div>
+              <div class="post">
+                <div class="meta">
+                  <strong>EcoVators</strong>
+                  <span>• 6h ago</span>
+                </div>
+                <p>Use organic ferilizers. Join and earn bonus XP!</p>
+                <div class="post-actions">
+                  <button class="icon-btn">
+                    <i class="far fa-thumbs-up"></i> Like
+                  </button>
+                  <button class="icon-btn">
+                    <i class="far fa-comment"></i> Comment
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card chat">
+              <h3 data-i18n="community.chat">
+                <i class="fas fa-comments"></i> Community Chat
+              </h3>
+              <div class="chat-tabs">
+                <button class="tab active">Village</button>
+                <button class="tab">District</button>
+                <button class="tab">State</button>
+              </div>
+              <div class="chat-window">
+                <div class="msg other">
+                  Hey team! Ready for the tree plantation?
+                </div>
+                <div class="msg self">Yes! I have 2 saplings to bring 🌱</div>
+                <div class="msg other">Awesome! See you at 9AM.</div>
+              </div>
+              <div class="chat-input">
+                <input
+                  type="text"
+                  placeholder="Type a message..."
+                  data-i18n-placeholder="community.chat.input.placeholder"
+                />
+                <button class="btn-primary sm">Send</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="grid-2" id="events">
+            <div class="card">
+              <h3><i class="fas fa-calendar-alt"></i> Events</h3>
+              <div class="event">
+                <div>
+                  <h4>Green Run Marathon</h4>
+                  <p>Eco Park • 28 Sep • 7:00 AM</p>
+                </div>
+                <button class="btn-outline sm">Join</button>
+              </div>
+              <div class="event">
+                <div>
+                  <h4>Farm Clean-Up</h4>
+                  <p>Main Block • 30 Sep • 9:30 AM</p>
+                </div>
+                <button class="btn-outline sm">Join</button>
+              </div>
+            </div>
+
+            <!-- Mini-game Section -->
+            <div class="card minigame-container">
+              <h3>
+                <i class="fas fa-gamepad"></i> Sustainable Farming Mini-Game
+              </h3>
+              <div class="game-stats">
+                <div class="game-score">
+                  Score: <span id="game-score">0</span>
+                </div>
+                <div class="game-level">
+                  Level: <span id="game-level">1</span>
+                </div>
+              </div>
+              <div class="game-instructions">
+                Water the plants before they wither! Click on water drops and
+                drag them to plants.
+              </div>
+              <div id="game-field" class="game-field">
+                <!-- Plants and water drops will be added here by JavaScript -->
+              </div>
+              <div class="game-controls">
+                <button id="start-game" class="btn-primary sm">
+                  Start Game
+                </button>
+              </div>
+              <div class="game-rewards">
+                <h4>Rewards</h4>
+                <div class="rewards-list">
+                  <div class="reward">
+                    XP: <span id="reward-xp" class="xp">0</span>
+                  </div>
+                  <div class="reward">
+                    CC: <span id="reward-cc" class="cc">0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card uploads">
+              <h3 data-i18n="events.upload.title">
+                <i class="fas fa-map-marker-alt"></i> Upload with Geotag
+              </h3>
+              <div class="upload-row">
+                <input
+                  type="file"
+                  id="proof-file"
+                  accept="image/*,video/*,.pdf"
+                />
+                <button
+                  class="btn-outline sm"
+                  id="get-location"
+                  data-i18n="events.upload.get_location"
+                >
+                  <i class="fas fa-location-arrow"></i> Get Location
+                </button>
+              </div>
+              <div class="coords" id="coords">Lat: —, Lng: —</div>
+              <button
+                class="btn-primary full"
+                id="submit-upload"
+                data-i18n="events.upload.submit"
+              >
+                Submit Proof
+              </button>
+              <div class="hint" data-i18n="events.upload.hint">
+                Your Agri-Expert will review and approve/reject your proof.
+              </div>
+            </div>
+          </section>
+
+          <section class="grid-2" id="leaderboard">
+            <div class="card">
+              <h3 data-i18n="student.leaderboard">
+                <i class="fas fa-trophy"></i> Leaderboard
+              </h3>
+              <div class="leader-list">
+                <div class="leader">
+                  <span class="rank gold">1</span><span>Priya Sharma</span
+                  ><strong>2450 XP</strong>
+                </div>
+                <div class="leader self">
+                  <span class="rank silver">2</span><span>Arjun Patel</span
+                  ><strong>1350 XP</strong>
+                </div>
+                <div class="leader">
+                  <span class="rank bronze">3</span><span>Raj Kumar</span
+                  ><strong>1280 XP</strong>
+                </div>
+                <div class="leader">
+                  <span class="rank">4</span><span>Anita Singh</span
+                  ><strong>1150 XP</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="card notifications">
+              <h3 data-i18n="student.notifications">
+                <i class="fas fa-bell"></i> Notifications
+              </h3>
+              <ul class="notif-list" id="notif-list">
+                <li>🎉 Quiz completed! +25 XP earned <span>10:32</span></li>
+                <li>
+                  📸 Proof uploaded! Awaiting verification <span>09:15</span>
+                </li>
+                <li>🔥 Streak maintained for 12 days <span>Yesterday</span></li>
+              </ul>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="../assets/logo.webp" alt="EcoVators Logo" />
+            <h2>EcoVators</h2>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3 data-i18n="footer.farmer.title">Farmer</h3>
+              <a href="#challenges" data-i18n="footer.farmer.challenges"
+                >Challenges</a
+              >
+              <a href="#learning" data-i18n="footer.farmer.learning"
+                >Learning</a
+              >
+              <a href="#leaderboard" data-i18n="footer.farmer.leaderboard"
+                >Leaderboard</a
+              >
+            </div>
+            <div class="footer-column">
+              <h3 data-i18n="footer.community.title">Community</h3>
+              <a href="#community" data-i18n="footer.community.chat">Chat</a>
+              <a href="#events" data-i18n="footer.community.events">Events</a>
+              <a href="#" data-i18n="footer.community.support">Support</a>
+            </div>
+            <div class="footer-column">
+              <h3 data-i18n="footer.legal.title">Legal</h3>
+              <a href="#" data-i18n="footer.legal.terms">Terms</a>
+              <a href="#" data-i18n="footer.legal.privacy">Privacy</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 EcoVators. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
 
-    <div class="toast" id="toast">🌱 Task started! Upload your proof when complete.</div>
+    <div class="toast" id="toast">
+      🌱 Task started! Upload your proof when complete.
+    </div>
     <script src="../js/minigame.js" defer></script>
     <script src="../js/offline-sync.js" defer></script>
     <script src="../js/minigame.js" defer></script>
@@ -397,67 +609,74 @@
     <script src="../js/data-visualization.js" defer></script>
     <script src="../js/multilingual.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            updateTranslations();
+      document.addEventListener("DOMContentLoaded", function () {
+        updateTranslations();
+      });
+
+      const toggleBtn = document.getElementById("menu-toggle");
+      const mobileNav = document.getElementById("mobile-nav");
+      if (toggleBtn && mobileNav) {
+        toggleBtn.addEventListener("click", () => {
+          const isOpen = mobileNav.classList.toggle("open");
+          toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      }
+
+      const toast = document.getElementById("toast");
+      const showToast = (msg) => {
+        toast.textContent = msg;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2500);
+      };
+
+      document.getElementById("start-task").addEventListener("click", () => {
+        showToast("🌱 Task started! Upload your proof when complete.");
+      });
+
+      document.getElementById("upload-proof").addEventListener("click", () => {
+        showToast("📸 Select a file and submit proof.");
+      });
+
+      document
+        .getElementById("download-certificate")
+        .addEventListener("click", () => {
+          showToast("📜 Certificate generation coming soon.");
         });
 
-        const toggleBtn = document.getElementById('menu-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
-        if (toggleBtn && mobileNav) {
-            toggleBtn.addEventListener('click', () => {
-                const isOpen = mobileNav.classList.toggle('open');
-                toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            });
+      document.getElementById("get-location").addEventListener("click", () => {
+        if (!navigator.geolocation) {
+          showToast("⚠️ Geolocation not supported.");
+          return;
         }
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const { latitude, longitude } = pos.coords;
+            document.getElementById(
+              "coords"
+            ).textContent = `Lat: ${latitude.toFixed(
+              5
+            )}, Lng: ${longitude.toFixed(5)}`;
+            showToast("📍 Location captured");
+          },
+          () => showToast("❌ Unable to fetch location")
+        );
+      });
 
-        const toast = document.getElementById('toast');
-        const showToast = (msg) => {
-            toast.textContent = msg;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
-        };
-
-        document.getElementById('start-task').addEventListener('click', () => {
-            showToast('🌱 Task started! Upload your proof when complete.');
-        });
-
-        document.getElementById('upload-proof').addEventListener('click', () => {
-            showToast('📸 Select a file and submit proof.');
-        });
-
-        document.getElementById('download-certificate').addEventListener('click', () => {
-            showToast('📜 Certificate generation coming soon.');
-        });
-
-        document.getElementById('get-location').addEventListener('click', () => {
-            if (!navigator.geolocation) {
-                showToast('⚠️ Geolocation not supported.');
-                return;
-            }
-            navigator.geolocation.getCurrentPosition((pos) => {
-                const { latitude, longitude } = pos.coords;
-                document.getElementById('coords').textContent = `Lat: ${latitude.toFixed(5)}, Lng: ${longitude.toFixed(5)}`;
-                showToast('📍 Location captured');
-            }, () => showToast('❌ Unable to fetch location'));
-        });
-
-        document.getElementById('submit-upload').addEventListener('click', () => {
-            const file = document.getElementById('proof-file').files[0];
-            if (!file) {
-                showToast('⚠️ Please select a file first.');
-                return;
-            }
-            showToast('✅ Proof submitted! Awaiting review.');
-            const list = document.getElementById('notif-list');
-            const li = document.createElement('li');
-            li.textContent = '📤 Proof submitted!';
-            const time = document.createElement('span');
-            time.textContent = 'Just now';
-            li.appendChild(time);
-            list.prepend(li);
-        });
+      document.getElementById("submit-upload").addEventListener("click", () => {
+        const file = document.getElementById("proof-file").files[0];
+        if (!file) {
+          showToast("⚠️ Please select a file first.");
+          return;
+        }
+        showToast("✅ Proof submitted! Awaiting review.");
+        const list = document.getElementById("notif-list");
+        const li = document.createElement("li");
+        li.textContent = "📤 Proof submitted!";
+        const time = document.createElement("span");
+        time.textContent = "Just now";
+        li.appendChild(time);
+        list.prepend(li);
+      });
     </script>
-</body>
+  </body>
 </html>
-
-
