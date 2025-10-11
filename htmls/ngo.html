@@ -1,540 +1,694 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EcoVators - NGO Dashboard</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/ngo.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="../js/lang.js" defer></script>
-    <script src="../js/translate-helper.js" defer></script>
+    
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/translator.css" />
+    <link rel="stylesheet" href="../css/ngo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/offline-indicator.css" />
+    <script src="../js/offline-sync.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize language system
-            updateTranslations();
-            
-            // Create language selector in navbar if it doesn't exist
-            if (!document.getElementById('lang-selector')) {
-                const navbar = document.querySelector('.navbar');
-                if (navbar) {
-                    const langDiv = document.createElement('div');
-                    langDiv.className = 'lang-selector-container';
-                    langDiv.innerHTML = `
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize language system
+        updateTranslations();
+
+        // Create language selector in navbar if it doesn't exist
+        if (!document.getElementById("lang-selector")) {
+          const navbar = document.querySelector(".navbar");
+          if (navbar) {
+            const langDiv = document.createElement("div");
+            langDiv.className = "lang-selector-container";
+            langDiv.innerHTML = `
                         <select id="lang-selector">
                             <option value="en">English</option>
                             <option value="hi">हिन्दी</option>
                         </select>
                     `;
-                    navbar.appendChild(langDiv);
-                    
-                    // Set initial value
-                    const langSelector = document.getElementById('lang-selector');
-                    langSelector.value = getSavedLanguage();
-                    
-                    // Add event listener
-                    langSelector.addEventListener('change', function() {
-                        setLanguage(this.value);
-                    });
-                }
-            }
-        });
+            navbar.appendChild(langDiv);
+
+            // Set initial value
+            const langSelector = document.getElementById("lang-selector");
+            langSelector.value = getSavedLanguage();
+
+            // Add event listener
+            langSelector.addEventListener("change", function () {
+              setLanguage(this.value);
+            });
+          }
+        }
+      });
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
+    <!-- Google Translate widget -->
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function loadGoogleTranslate() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+            autoDisplay: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
-        <nav class="navbar">
-            <div class="logo">
-                <img src="../assets/logo.webp" alt="EcoVators Logo" />
-                <h1 data-i18n="nav.title">EcoVators</h1>
-            </div>
-            <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="#dashboard" data-i18n="ngo.nav.dashboard">Dashboard</a>
-                <a href="#events" data-i18n="ngo.nav.events">Events</a>
-                <a href="#schools" data-i18n="ngo.nav.schools">Villages</a>
-                <a href="#impact" data-i18n="ngo.nav.impact">Impact</a>
-            </div>
-            <div class="auth-buttons">
-                <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
-                <a href="../index.html" class="get-started-btn" data-i18n="nav.logout">Logout</a>
-            </div>
-        </nav>
-        <div class="mobile-nav" id="mobile-nav">
-            <a href="#dashboard">Dashboard</a>
-            <a href="#events">Events</a>
-            <a href="#schools">Schools</a>
-            <a href="#impact">Impact</a>
-            <a href="../index.html" class="login-btn">Home</a>
-            <a href="../index.html" class="get-started-btn">Logout</a>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="../assets/logo.webp" alt="EcoVators Logo" />
+          <h1 data-i18n="nav.title">EcoVators</h1>
         </div>
+        <button
+          class="hamburger"
+          id="menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="nav-links">
+          <a href="#dashboard" data-i18n="ngo.nav.dashboard">Dashboard</a>
+          <a href="#events" data-i18n="ngo.nav.events">Events</a>
+          <a href="#schools" data-i18n="ngo.nav.schools">Villages</a>
+          <a href="#impact" data-i18n="ngo.nav.impact">Impact</a>
+        </div>
+        <div class="connection-indicator">
+          <span id="connection-status" class="status-online">Online</span>
+        </div>
+        <div class="auth-buttons">
+          <a href="../index.html" class="login-btn" data-i18n="nav.home"
+            >Home</a
+          >
+          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout"
+            >Logout</a
+          >
+        </div>
+      </nav>
+      <div class="mobile-nav" id="mobile-nav">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#events">Events</a>
+        <a href="#schools">Schools</a>
+        <a href="#impact">Impact</a>
+        <a href="../index.html" class="login-btn">Home</a>
+        <a href="../index.html" class="get-started-btn">Logout</a>
+      </div>
 
-        <main class="main-content">
-            <aside class="sidebar">
-                <!-- NGO Profile Card -->
-                <div class="card ngo-card">
-                    <div class="ngo-logo">🌿</div>
-                    <div class="ngo-info">
-                        <h2 id="ngo-name">Green Earth Foundation</h2>
-                        <p id="ngo-location">Mumbai, Maharashtra</p>
-                        <p id="ngo-email">contact@greenearthfoundation.org</p>
-                        <p id="ngo-phone">+91 9876543210</p>
-                    </div>
-                    <button class="edit-profile-btn">Edit Profile</button>
+      <main class="main-content">
+        <aside class="sidebar">
+          <!-- NGO Profile Card -->
+          <div class="card ngo-card">
+            <div class="ngo-logo">🌿</div>
+            <div class="ngo-info">
+              <h2 id="ngo-name">Green Earth Foundation</h2>
+              <p id="ngo-location">Mumbai, Maharashtra</p>
+              <p id="ngo-email">contact@greenearthfoundation.org</p>
+              <p id="ngo-phone">+91 9876543210</p>
+            </div>
+            <button class="edit-profile-btn">Edit Profile</button>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="card quick-actions">
+            <h3 data-i18n="ngo.quick_actions">Quick Actions</h3>
+            <div class="action-buttons">
+              <button
+                class="action-btn create-event"
+                data-i18n="ngo.quick_actions.create_event"
+              >
+                <i class="fas fa-calendar-plus"></i>
+                <span>Create Event</span>
+              </button>
+              <button
+                class="action-btn contact-schools"
+                data-i18n="ngo.quick_actions.contact_villages"
+              >
+                <i class="fas fa-school"></i>
+                <span>Contact Villages</span>
+              </button>
+              <button
+                class="action-btn generate-report"
+                data-i18n="ngo.quick_actions.generate_report"
+              >
+                <i class="fas fa-file-alt"></i>
+                <span>Generate Report</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Impact Summary -->
+          <div class="card impact-summary">
+            <h3 data-i18n="ngo.impact_summary">Impact Summary</h3>
+            <div class="impact-stats">
+              <div class="impact-stat">
+                <span class="stat-value">24</span>
+                <span class="stat-label" data-i18n="ngo.impact.events_organized"
+                  >Events Organized</span
+                >
+              </div>
+              <div class="impact-stat">
+                <span class="stat-value">18</span>
+                <span
+                  class="stat-label"
+                  data-i18n="ngo.impact.villages_partnered"
+                  >Villages Partnered</span
+                >
+              </div>
+              <div class="impact-stat">
+                <span class="stat-value">5,280</span>
+                <span class="stat-label" data-i18n="ngo.impact.farmers_reached"
+                  >Farmers Reached</span
+                >
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="content-area">
+          <!-- Dashboard Overview -->
+          <div class="card dashboard-overview" id="dashboard">
+            <div class="section-header">
+              <h2 data-i18n="ngo.dashboard.overview">Dashboard Overview</h2>
+              <div class="date-filter">
+                <button class="date-btn active">This Month</button>
+                <button class="date-btn">Last 3 Months</button>
+                <button class="date-btn">This Year</button>
+                <button class="date-btn">All Time</button>
+              </div>
+            </div>
+
+            <div class="overview-cards">
+              <div class="overview-card">
+                <div class="overview-icon">
+                  <i class="fas fa-calendar-check"></i>
                 </div>
-
-                <!-- Quick Actions -->
-                <div class="card quick-actions">
-                    <h3 data-i18n="ngo.quick_actions">Quick Actions</h3>
-                    <div class="action-buttons">
-                        <button class="action-btn create-event" data-i18n="ngo.quick_actions.create_event">
-                            <i class="fas fa-calendar-plus"></i>
-                            <span>Create Event</span>
-                        </button>
-                        <button class="action-btn contact-schools" data-i18n="ngo.quick_actions.contact_villages">
-                            <i class="fas fa-school"></i>
-                            <span>Contact Villages</span>
-                        </button>
-                        <button class="action-btn generate-report" data-i18n="ngo.quick_actions.generate_report">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Generate Report</span>
-                        </button>
-                    </div>
+                <div class="overview-details">
+                  <h3>Upcoming Events</h3>
+                  <p class="overview-value">8</p>
+                  <p class="overview-change positive">+2 from last month</p>
                 </div>
+              </div>
 
-                <!-- Impact Summary -->
-                <div class="card impact-summary">
-                    <h3 data-i18n="ngo.impact_summary">Impact Summary</h3>
-                    <div class="impact-stats">
-                        <div class="impact-stat">
-                            <span class="stat-value">24</span>
-                            <span class="stat-label" data-i18n="ngo.impact.events_organized">Events Organized</span>
-                        </div>
-                        <div class="impact-stat">
-                            <span class="stat-value">18</span>
-                            <span class="stat-label" data-i18n="ngo.impact.villages_partnered">Villages Partnered</span>
-                        </div>
-                        <div class="impact-stat">
-                            <span class="stat-value">5,280</span>
-                            <span class="stat-label" data-i18n="ngo.impact.farmers_reached">Farmers Reached</span>
-                        </div>
-                    </div>
+              <div class="overview-card">
+                <div class="overview-icon">
+                  <i class="fas fa-users"></i>
                 </div>
-            </aside>
-
-            <section class="content-area">
-                <!-- Dashboard Overview -->
-                <div class="card dashboard-overview" id="dashboard">
-                    <div class="section-header">
-                        <h2 data-i18n="ngo.dashboard.overview">Dashboard Overview</h2>
-                        <div class="date-filter">
-                            <button class="date-btn active">This Month</button>
-                            <button class="date-btn">Last 3 Months</button>
-                            <button class="date-btn">This Year</button>
-                            <button class="date-btn">All Time</button>
-                        </div>
-                    </div>
-
-                    <div class="overview-cards">
-                        <div class="overview-card">
-                            <div class="overview-icon">
-                                <i class="fas fa-calendar-check"></i>
-                            </div>
-                            <div class="overview-details">
-                                <h3>Upcoming Events</h3>
-                                <p class="overview-value">8</p>
-                                <p class="overview-change positive">+2 from last month</p>
-                            </div>
-                        </div>
-
-                        <div class="overview-card">
-                            <div class="overview-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="overview-details">
-                                <h3>Participants</h3>
-                                <p class="overview-value">1,245</p>
-                                <p class="overview-change positive">+18% from last month</p>
-                            </div>
-                        </div>
-
-                        <div class="overview-card">
-                            <div class="overview-icon">
-                                <i class="fas fa-tree"></i>
-                            </div>
-                            <div class="overview-details">
-                                <h3>Trees Planted</h3>
-                                <p class="overview-value">350</p>
-                                <p class="overview-change positive">+50 from last month</p>
-                            </div>
-                        </div>
-
-                        <div class="overview-card">
-                            <div class="overview-icon">
-                                <i class="fas fa-recycle"></i>
-                            </div>
-                            <div class="overview-details">
-                                <h3>Waste Recycled</h3>
-                                <p class="overview-value">2.8 tons</p>
-                                <p class="overview-change positive">+0.5 tons from last month</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="overview-details">
+                  <h3>Participants</h3>
+                  <p class="overview-value">1,245</p>
+                  <p class="overview-change positive">+18% from last month</p>
                 </div>
+              </div>
 
-                <!-- Event Management -->
-                <div class="card event-management" id="events">
-                    <div class="section-header">
-                        <h2 data-i18n="ngo.event_management">Event Management</h2>
-                        <button class="primary-btn" data-i18n="ngo.event_management.add_event">
-                            <i class="fas fa-plus"></i> Add New Event
-                        </button>
-                    </div>
-
-                    <div class="event-tabs">
-                        <button class="event-tab active" data-i18n="ngo.event_management.upcoming">Upcoming</button>
-                        <button class="event-tab" data-i18n="ngo.event_management.past">Past</button>
-                        <button class="event-tab" data-i18n="ngo.event_management.draft">Draft</button>
-                    </div>
-
-                    <div class="event-list">
-                        <div class="event-item">
-                            <div class="event-date">
-                                <span class="day">15</span>
-                                <span class="month">Jun</span>
-                            </div>
-                            <div class="event-details">
-                                <h3>Organic Farming Awareness</h3>
-                                <p class="event-location">
-                                    <i class="fas fa-map-marker-alt"></i> Kuttanad, Alappuzha
-                                </p>
-                                <p class="event-time">
-                                    <i class="fas fa-clock"></i> 9:00 AM - 12:00 PM
-                                </p>
-                                <p class="event-participants">
-                                    <i class="fas fa-users"></i> 120 Participants
-                                </p>
-                            </div>
-                            <div class="event-actions">
-                                <button class="action-btn edit">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="action-btn delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                                <button class="action-btn view">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="event-item">
-                            <div class="event-date">
-                                <span class="day">22</span>
-                                <span class="month">Jun</span>
-                            </div>
-                            <div class="event-details">
-                                <h3>Training on Bio-Pesticide</h3>
-                                <p class="event-location">
-                                    <i class="fas fa-map-marker-alt"></i> Meenangadi, Wayanad
-                                </p>
-                                <p class="event-time">
-                                    <i class="fas fa-clock"></i> 2:00 PM - 4:00 PM
-                                </p>
-                                <p class="event-participants">
-                                    <i class="fas fa-users"></i> 85 Participants
-                                </p>
-                            </div>
-                            <div class="event-actions">
-                                <button class="action-btn edit">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="action-btn delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                                <button class="action-btn view">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="event-item">
-                            <div class="event-date">
-                                <span class="day">30</span>
-                                <span class="month">Jun</span>
-                            </div>
-                            <div class="event-details">
-                                <h3>Workshop on Soil Health</h3>
-                                <p class="event-location">
-                                    <i class="fas fa-map-marker-alt"></i> Pallichal, Thiruvanthapuram
-                                </p>
-                                <p class="event-time">
-                                    <i class="fas fa-clock"></i> 10:00 AM - 1:00 PM
-                                </p>
-                                <p class="event-participants">
-                                    <i class="fas fa-users"></i> 150 Participants
-                                </p>
-                            </div>
-                            <div class="event-actions">
-                                <button class="action-btn edit">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="action-btn delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                                <button class="action-btn view">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pagination">
-                        <button class="pagination-btn prev">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="pagination-btn active">1</button>
-                        <button class="pagination-btn">2</button>
-                        <button class="pagination-btn">3</button>
-                        <button class="pagination-btn next">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
+              <div class="overview-card">
+                <div class="overview-icon">
+                  <i class="fas fa-tree"></i>
                 </div>
-
-                <!-- Schools & Colleges Section -->
-                <div class="card schools-section" id="schools">
-                    <div class="section-header">
-                        <h2 data-i18n="ngo.schools_section">Partner Villages & Societies</h2>
-                        <div class="search-filter">
-                            <input type="text" placeholder="Search villages..." class="search-input" data-i18n-placeholder="ngo.schools_section.search_villages">
-                            <select class="filter-select">
-                                <option value="all">All Regions</option>
-                                <option value="mumbai">Mumbai</option>
-                                <option value="thane">Thane</option>
-                                <option value="pune">Pune</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="schools-grid">
-                        <div class="school-card">
-                            <div class="school-header">
-                                <h3>Rameshwar Farm</h3>
-                                <span class="school-badge active" data-i18n="ngo.schools_section.active">Active</span>
-                            </div>
-                            <p class="school-location">Perambra, Kozhikode</p>
-                            <div class="school-stats">
-                                <div class="school-stat">
-                                    <span class="stat-value">5</span>
-                                    <span class="stat-label">Events</span>
-                                </div>
-                                <div class="school-stat">
-                                    <span class="stat-value">320</span>
-                                    <span class="stat-label">Farmers</span>
-                                </div>
-                            </div>
-                            <button class="secondary-btn" data-i18n="ngo.schools_section.contact">Contact</button>
-                        </div>
-
-                        <div class="school-card">
-                            <div class="school-header">
-                                <h3>Reddy Farm</h3>
-                                <span class="school-badge active" data-i18n="ngo.schools_section.active">Active</span>
-                            </div>
-                            <p class="school-location">Maranchery, Malappuram</p>
-                            <div class="school-stats">
-                                <div class="school-stat">
-                                    <span class="stat-value">3</span>
-                                    <span class="stat-label">Events</span>
-                                </div>
-                                <div class="school-stat">
-                                    <span class="stat-value">450</span>
-                                    <span class="stat-label">Farmers</span>
-                                </div>
-                            </div>
-                            <button class="secondary-btn" data-i18n="ngo.schools_section.contact">Contact</button>
-                        </div>
-
-                        <div class="school-card">
-                            <div class="school-header">
-                                <h3>Gupta Farm</h3>
-                                <span class="school-badge active" data-i18n="ngo.schools_section.active">Active</span>
-                            </div>
-                            <p class="school-location">Nedumangad, Thiruvanthapuram</p>
-                            <div class="school-stats">
-                                <div class="school-stat">
-                                    <span class="stat-value">4</span>
-                                    <span class="stat-label">Events</span>
-                                </div>
-                                <div class="school-stat">
-                                    <span class="stat-value">280</span>
-                                    <span class="stat-label">Farmers</span>
-                                </div>
-                            </div>
-                            <button class="secondary-btn" data-i18n="ngo.schools_section.contact">Contact</button>
-                        </div>
-
-                        <div class="school-card">
-                            <div class="school-header">
-                                <h3>Patel Farm</h3>
-                                <span class="school-badge pending" data-i18n="ngo.schools_section.pending">Pending</span>
-                            </div>
-                            <p class="school-location">Pune, Maharashtra</p>
-                            <div class="school-stats">
-                                <div class="school-stat">
-                                    <span class="stat-value">0</span>
-                                    <span class="stat-label">Events</span>
-                                </div>
-                                <div class="school-stat">
-                                    <span class="stat-value">350</span>
-                                    <span class="stat-label">Farmers</span>
-                                </div>
-                            </div>
-                            <button class="secondary-btn" data-i18n="ngo.schools_section.contact">Contact</button>
-                        </div>
-                    </div>
+                <div class="overview-details">
+                  <h3>Trees Planted</h3>
+                  <p class="overview-value">350</p>
+                  <p class="overview-change positive">+50 from last month</p>
                 </div>
+              </div>
 
-                <!-- Environmental Impact Analytics -->
-                <div class="card impact-analytics" id="impact">
-                    <div class="section-header">
-                        <h2 data-i18n="ngo.impact_analytics">Environmental Impact Analytics</h2>
-                        <div class="time-filter">
-                            <button class="time-btn active" data-i18n="ngo.impact_analytics.monthly">Monthly</button>
-                            <button class="time-btn" data-i18n="ngo.impact_analytics.yearly">Yearly</button>
-                            <button class="time-btn" data-i18n="ngo.impact_analytics.all_time">All Time</button>
-                        </div>
-                    </div>
-
-                    <div class="analytics-grid">
-                        <div class="analytics-card full-width">
-                            <h3 data-i18n="ngo.impact_analytics.overall_impact">Overall Environmental Impact</h3>
-                            <div class="chart-container">
-                                <!-- Chart would be rendered here with JavaScript -->
-                                <div class="placeholder-chart">
-                                    <div class="chart-bar" style="height: 30%;"></div>
-                                    <div class="chart-bar" style="height: 45%;"></div>
-                                    <div class="chart-bar" style="height: 60%;"></div>
-                                    <div class="chart-bar" style="height: 75%;"></div>
-                                    <div class="chart-bar" style="height: 90%;"></div>
-                                    <div class="chart-bar" style="height: 65%;"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="analytics-card">
-                            <h3 data-i18n="ngo.impact_analytics.carbon_footprint">Carbon Footprint Reduction</h3>
-                            <div class="metric-display">
-                                <span class="metric-value">12.5</span>
-                                <span class="metric-unit">tons CO₂</span>
-                            </div>
-                            <div class="metric-progress">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                            </div>
-                            <p class="metric-target">Target: 15 tons</p>
-                        </div>
-
-                        <div class="analytics-card">
-                            <h3 data-i18n="ngo.impact_analytics.waste_management">Waste Management</h3>
-                            <div class="metric-display">
-                                <span class="metric-value">8.2</span>
-                                <span class="metric-unit">tons</span>
-                            </div>
-                            <div class="metric-progress">
-                                <div class="progress-bar" style="width: 82%;"></div>
-                            </div>
-                            <p class="metric-target">Target: 10 tons</p>
-                        </div>
-
-                        <div class="analytics-card">
-                            <h3 data-i18n="ngo.impact_analytics.water_conservation">Water Conservation</h3>
-                            <div class="metric-display">
-                                <span class="metric-value">15,000</span>
-                                <span class="metric-unit">liters</span>
-                            </div>
-                            <div class="metric-progress">
-                                <div class="progress-bar" style="width: 60%;"></div>
-                            </div>
-                            <p class="metric-target">Target: 25,000 liters</p>
-                        </div>
-
-                        <div class="analytics-card">
-                            <h3 data-i18n="ngo.impact_analytics.trees_planted">Trees Planted</h3>
-                            <div class="metric-display">
-                                <span class="metric-value">850</span>
-                                <span class="metric-unit">trees</span>
-                            </div>
-                            <div class="metric-progress">
-                                <div class="progress-bar" style="width: 85%;"></div>
-                            </div>
-                            <p class="metric-target">Target: 1,000 trees</p>
-                        </div>
-                    </div>
-
-                    <div class="export-section">
-                        <h3 data-i18n="ngo.impact_analytics.export">Export Reports</h3>
-                        <div class="export-options">
-                            <button class="export-btn" data-i18n="ngo.impact_analytics.export_pdf">
-                                <i class="fas fa-file-pdf"></i> PDF Report
-                            </button>
-                            <button class="export-btn" data-i18n="ngo.impact_analytics.export_excel">
-                                <i class="fas fa-file-excel"></i> Excel Data
-                            </button>
-                            <button class="export-btn" data-i18n="ngo.impact_analytics.export_image">
-                                <i class="fas fa-file-image"></i> Infographics
-                            </button>
-                        </div>
-                    </div>
+              <div class="overview-card">
+                <div class="overview-icon">
+                  <i class="fas fa-recycle"></i>
                 </div>
-            </section>
-        </main>
+                <div class="overview-details">
+                  <h3>Waste Recycled</h3>
+                  <p class="overview-value">2.8 tons</p>
+                  <p class="overview-change positive">
+                    +0.5 tons from last month
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Management -->
+          <div class="card event-management" id="events">
+            <div class="section-header">
+              <h2 data-i18n="ngo.event_management">Event Management</h2>
+              <button
+                class="primary-btn"
+                data-i18n="ngo.event_management.add_event"
+              >
+                <i class="fas fa-plus"></i> Add New Event
+              </button>
+            </div>
+
+            <div class="event-tabs">
+              <button
+                class="event-tab active"
+                data-i18n="ngo.event_management.upcoming"
+              >
+                Upcoming
+              </button>
+              <button class="event-tab" data-i18n="ngo.event_management.past">
+                Past
+              </button>
+              <button class="event-tab" data-i18n="ngo.event_management.draft">
+                Draft
+              </button>
+            </div>
+
+            <div class="event-list">
+              <div class="event-item">
+                <div class="event-date">
+                  <span class="day">15</span>
+                  <span class="month">Jun</span>
+                </div>
+                <div class="event-details">
+                  <h3>Organic Farming Awareness</h3>
+                  <p class="event-location">
+                    <i class="fas fa-map-marker-alt"></i> Kuttanad, Alappuzha
+                  </p>
+                  <p class="event-time">
+                    <i class="fas fa-clock"></i> 9:00 AM - 12:00 PM
+                  </p>
+                  <p class="event-participants">
+                    <i class="fas fa-users"></i> 120 Participants
+                  </p>
+                </div>
+                <div class="event-actions">
+                  <button class="action-btn edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="action-btn delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  <button class="action-btn view">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="event-item">
+                <div class="event-date">
+                  <span class="day">22</span>
+                  <span class="month">Jun</span>
+                </div>
+                <div class="event-details">
+                  <h3>Training on Bio-Pesticide</h3>
+                  <p class="event-location">
+                    <i class="fas fa-map-marker-alt"></i> Meenangadi, Wayanad
+                  </p>
+                  <p class="event-time">
+                    <i class="fas fa-clock"></i> 2:00 PM - 4:00 PM
+                  </p>
+                  <p class="event-participants">
+                    <i class="fas fa-users"></i> 85 Participants
+                  </p>
+                </div>
+                <div class="event-actions">
+                  <button class="action-btn edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="action-btn delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  <button class="action-btn view">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="event-item">
+                <div class="event-date">
+                  <span class="day">30</span>
+                  <span class="month">Jun</span>
+                </div>
+                <div class="event-details">
+                  <h3>Workshop on Soil Health</h3>
+                  <p class="event-location">
+                    <i class="fas fa-map-marker-alt"></i> Pallichal,
+                    Thiruvanthapuram
+                  </p>
+                  <p class="event-time">
+                    <i class="fas fa-clock"></i> 10:00 AM - 1:00 PM
+                  </p>
+                  <p class="event-participants">
+                    <i class="fas fa-users"></i> 150 Participants
+                  </p>
+                </div>
+                <div class="event-actions">
+                  <button class="action-btn edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="action-btn delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  <button class="action-btn view">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pagination">
+              <button class="pagination-btn prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="pagination-btn active">1</button>
+              <button class="pagination-btn">2</button>
+              <button class="pagination-btn">3</button>
+              <button class="pagination-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Schools & Colleges Section -->
+          <div class="card schools-section" id="schools">
+            <div class="section-header">
+              <h2 data-i18n="ngo.schools_section">
+                Partner Villages & Societies
+              </h2>
+              <div class="search-filter">
+                <input
+                  type="text"
+                  placeholder="Search villages..."
+                  class="search-input"
+                  data-i18n-placeholder="ngo.schools_section.search_villages"
+                />
+                <select class="filter-select">
+                  <option value="all">All Regions</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="thane">Thane</option>
+                  <option value="pune">Pune</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="schools-grid">
+              <div class="school-card">
+                <div class="school-header">
+                  <h3>Rameshwar Farm</h3>
+                  <span
+                    class="school-badge active"
+                    data-i18n="ngo.schools_section.active"
+                    >Active</span
+                  >
+                </div>
+                <p class="school-location">Perambra, Kozhikode</p>
+                <div class="school-stats">
+                  <div class="school-stat">
+                    <span class="stat-value">5</span>
+                    <span class="stat-label">Events</span>
+                  </div>
+                  <div class="school-stat">
+                    <span class="stat-value">320</span>
+                    <span class="stat-label">Farmers</span>
+                  </div>
+                </div>
+                <button
+                  class="secondary-btn"
+                  data-i18n="ngo.schools_section.contact"
+                >
+                  Contact
+                </button>
+              </div>
+
+              <div class="school-card">
+                <div class="school-header">
+                  <h3>Reddy Farm</h3>
+                  <span
+                    class="school-badge active"
+                    data-i18n="ngo.schools_section.active"
+                    >Active</span
+                  >
+                </div>
+                <p class="school-location">Maranchery, Malappuram</p>
+                <div class="school-stats">
+                  <div class="school-stat">
+                    <span class="stat-value">3</span>
+                    <span class="stat-label">Events</span>
+                  </div>
+                  <div class="school-stat">
+                    <span class="stat-value">450</span>
+                    <span class="stat-label">Farmers</span>
+                  </div>
+                </div>
+                <button
+                  class="secondary-btn"
+                  data-i18n="ngo.schools_section.contact"
+                >
+                  Contact
+                </button>
+              </div>
+
+              <div class="school-card">
+                <div class="school-header">
+                  <h3>Gupta Farm</h3>
+                  <span
+                    class="school-badge active"
+                    data-i18n="ngo.schools_section.active"
+                    >Active</span
+                  >
+                </div>
+                <p class="school-location">Nedumangad, Thiruvanthapuram</p>
+                <div class="school-stats">
+                  <div class="school-stat">
+                    <span class="stat-value">4</span>
+                    <span class="stat-label">Events</span>
+                  </div>
+                  <div class="school-stat">
+                    <span class="stat-value">280</span>
+                    <span class="stat-label">Farmers</span>
+                  </div>
+                </div>
+                <button
+                  class="secondary-btn"
+                  data-i18n="ngo.schools_section.contact"
+                >
+                  Contact
+                </button>
+              </div>
+
+              <div class="school-card">
+                <div class="school-header">
+                  <h3>Patel Farm</h3>
+                  <span
+                    class="school-badge pending"
+                    data-i18n="ngo.schools_section.pending"
+                    >Pending</span
+                  >
+                </div>
+                <p class="school-location">Pune, Maharashtra</p>
+                <div class="school-stats">
+                  <div class="school-stat">
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Events</span>
+                  </div>
+                  <div class="school-stat">
+                    <span class="stat-value">350</span>
+                    <span class="stat-label">Farmers</span>
+                  </div>
+                </div>
+                <button
+                  class="secondary-btn"
+                  data-i18n="ngo.schools_section.contact"
+                >
+                  Contact
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Environmental Impact Analytics -->
+          <div class="card impact-analytics" id="impact">
+            <div class="section-header">
+              <h2 data-i18n="ngo.impact_analytics">
+                Environmental Impact Analytics
+              </h2>
+              <div class="time-filter">
+                <button
+                  class="time-btn active"
+                  data-i18n="ngo.impact_analytics.monthly"
+                >
+                  Monthly
+                </button>
+                <button
+                  class="time-btn"
+                  data-i18n="ngo.impact_analytics.yearly"
+                >
+                  Yearly
+                </button>
+                <button
+                  class="time-btn"
+                  data-i18n="ngo.impact_analytics.all_time"
+                >
+                  All Time
+                </button>
+              </div>
+            </div>
+
+            <div class="analytics-grid">
+              <div class="analytics-card full-width">
+                <h3 data-i18n="ngo.impact_analytics.overall_impact">
+                  Overall Environmental Impact
+                </h3>
+                <div class="chart-container">
+                  <!-- Chart would be rendered here with JavaScript -->
+                  <div class="placeholder-chart">
+                    <div class="chart-bar" style="height: 30%"></div>
+                    <div class="chart-bar" style="height: 45%"></div>
+                    <div class="chart-bar" style="height: 60%"></div>
+                    <div class="chart-bar" style="height: 75%"></div>
+                    <div class="chart-bar" style="height: 90%"></div>
+                    <div class="chart-bar" style="height: 65%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="analytics-card">
+                <h3 data-i18n="ngo.impact_analytics.carbon_footprint">
+                  Carbon Footprint Reduction
+                </h3>
+                <div class="metric-display">
+                  <span class="metric-value">12.5</span>
+                  <span class="metric-unit">tons CO₂</span>
+                </div>
+                <div class="metric-progress">
+                  <div class="progress-bar" style="width: 75%"></div>
+                </div>
+                <p class="metric-target">Target: 15 tons</p>
+              </div>
+
+              <div class="analytics-card">
+                <h3 data-i18n="ngo.impact_analytics.waste_management">
+                  Waste Management
+                </h3>
+                <div class="metric-display">
+                  <span class="metric-value">8.2</span>
+                  <span class="metric-unit">tons</span>
+                </div>
+                <div class="metric-progress">
+                  <div class="progress-bar" style="width: 82%"></div>
+                </div>
+                <p class="metric-target">Target: 10 tons</p>
+              </div>
+
+              <div class="analytics-card">
+                <h3 data-i18n="ngo.impact_analytics.water_conservation">
+                  Water Conservation
+                </h3>
+                <div class="metric-display">
+                  <span class="metric-value">15,000</span>
+                  <span class="metric-unit">liters</span>
+                </div>
+                <div class="metric-progress">
+                  <div class="progress-bar" style="width: 60%"></div>
+                </div>
+                <p class="metric-target">Target: 25,000 liters</p>
+              </div>
+
+              <div class="analytics-card">
+                <h3 data-i18n="ngo.impact_analytics.trees_planted">
+                  Trees Planted
+                </h3>
+                <div class="metric-display">
+                  <span class="metric-value">850</span>
+                  <span class="metric-unit">trees</span>
+                </div>
+                <div class="metric-progress">
+                  <div class="progress-bar" style="width: 85%"></div>
+                </div>
+                <p class="metric-target">Target: 1,000 trees</p>
+              </div>
+            </div>
+
+            <div class="export-section">
+              <h3 data-i18n="ngo.impact_analytics.export">Export Reports</h3>
+              <div class="export-options">
+                <button
+                  class="export-btn"
+                  data-i18n="ngo.impact_analytics.export_pdf"
+                >
+                  <i class="fas fa-file-pdf"></i> PDF Report
+                </button>
+                <button
+                  class="export-btn"
+                  data-i18n="ngo.impact_analytics.export_excel"
+                >
+                  <i class="fas fa-file-excel"></i> Excel Data
+                </button>
+                <button
+                  class="export-btn"
+                  data-i18n="ngo.impact_analytics.export_image"
+                >
+                  <i class="fas fa-file-image"></i> Infographics
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
 
     <script src="../js/main.js"></script>
+    <script src="../js/ai-chatbot.js"></script>
+
     <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const mobileNav = document.getElementById('mobile-nav');
-            mobileNav.classList.toggle('active');
-            this.setAttribute('aria-expanded', mobileNav.classList.contains('active'));
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const mobileNav = document.getElementById("mobile-nav");
+          mobileNav.classList.toggle("active");
+          this.setAttribute(
+            "aria-expanded",
+            mobileNav.classList.contains("active")
+          );
         });
 
-        // Event tabs functionality
-        const eventTabs = document.querySelectorAll('.event-tab');
-        eventTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                eventTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                // Here you would normally load different event data
-            });
+      // Event tabs functionality
+      const eventTabs = document.querySelectorAll(".event-tab");
+      eventTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          eventTabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          // Here you would normally load different event data
         });
+      });
 
-        // Date filter functionality
-        const dateButtons = document.querySelectorAll('.date-btn');
-        dateButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                dateButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                // Here you would normally update the dashboard data
-            });
+      // Date filter functionality
+      const dateButtons = document.querySelectorAll(".date-btn");
+      dateButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          dateButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          // Here you would normally update the dashboard data
         });
+      });
 
-        // Time filter functionality for analytics
-        const timeButtons = document.querySelectorAll('.time-btn');
-        timeButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                timeButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                // Here you would normally update the analytics data
-            });
+      // Time filter functionality for analytics
+      const timeButtons = document.querySelectorAll(".time-btn");
+      timeButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          timeButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          // Here you would normally update the analytics data
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>

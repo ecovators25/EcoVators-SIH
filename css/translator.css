@@ -1,0 +1,95 @@
+/* translator.css */
+/* ==========================
+   Google Translate Widget Styling
+   ========================== */
+
+#google_translate_element {
+    position: fixed;
+    top: 5rem;
+    right: 12px;
+    z-index: 9999;
+    background: var(--text-light);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    padding: 8px 12px;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Subtle hover effect */
+#google_translate_element:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Dropdown container inside widget */
+.goog-te-gadget {
+    font-size: 0.9rem !important;
+    color: var(--text-dark) !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.goog-te-gadget span {
+    display: none !important; /* hides "Powered by Google" text */
+}
+
+/* Dropdown select styling */
+.goog-te-combo {
+    background: var(--primary-light);
+    color: var(--text-dark);
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 140px;
+}
+
+/* Hover/Focus styles for dropdown */
+.goog-te-combo:hover,
+.goog-te-combo:focus {
+    border-color: var(--primary-dark);
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Hide the ugly default Google banner on top */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
+
+/* Hide the tooltip bottom logo */
+.goog-logo-link {
+    display: none !important;
+}
+
+/* Remove underline from translated links */
+.goog-te-gadget a {
+    text-decoration: none !important;
+}
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+    #google_translate_element {
+        top: auto;
+        bottom: 20px;
+        right: 10px;
+        padding: 6px 10px;
+        border-radius: 10px;
+        background: var(--text-light);
+    }
+
+    .goog-te-combo {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
+}

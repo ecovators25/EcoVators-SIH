@@ -5,6 +5,7 @@
     <meta name="viewport" cnt="width=device-width, initial-scale=1.0" />
     <title>EcoVators - Government Dashboard</title>
     <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/translator.css" />
     <link rel="stylesheet" href="../css/government.css" />
     <link
       rel="stylesheet"
@@ -14,16 +15,34 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="../js/lang.js" defer></script>
-    <script src="../js/translate-helper.js" defer></script>
+    <link rel="stylesheet" href="../css/offline-indicator.css" />
+    <script src="../js/offline-sync.js" defer></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize language system
-            updateTranslations();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize language system
+        updateTranslations();
+      });
     </script>
   </head>
   <body>
+    <!-- Google Translate widget -->
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function loadGoogleTranslate() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+            autoDisplay: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
       <nav class="navbar">
         <div class="logo">
@@ -39,14 +58,27 @@
           <i class="fa-solid fa-bars"></i>
         </button>
         <div class="nav-links">
-          <a href="#dashboard" data-i18n="government.nav.dashboard">Dashboard</a>
-          <a href="#transactions" data-i18n="government.nav.transactions">Transactions</a>
-          <a href="#analytics" data-i18n="government.nav.analytics">Analytics</a>
+          <a href="#dashboard" data-i18n="government.nav.dashboard"
+            >Dashboard</a
+          >
+          <a href="#transactions" data-i18n="government.nav.transactions"
+            >Transactions</a
+          >
+          <a href="#analytics" data-i18n="government.nav.analytics"
+            >Analytics</a
+          >
           <a href="#reports" data-i18n="government.nav.reports">Reports</a>
         </div>
+        <div class="connection-indicator">
+          <span id="connection-status" class="status-online">Online</span>
+        </div>
         <div class="auth-buttons">
-          <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
-          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout">Logout</a>
+          <a href="../index.html" class="login-btn" data-i18n="nav.home"
+            >Home</a
+          >
+          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout"
+            >Logout</a
+          >
         </div>
       </nav>
       <div class="mobile-nav" id="mobile-nav">
@@ -72,28 +104,60 @@
 
           <div class="card quick-links">
             <h3 data-i18n="government.quick_actions.title">Quick Actions</h3>
-            <button class="btn-primary" id="view-reports" data-i18n="government.quick_actions.view_reports">View Reports</button>
-            <button class="btn-outline" id="download-data" data-i18n="government.quick_actions.download_data">Download Data</button>
-            <button class="btn-outline" id="export-analytics" data-i18n="government.quick_actions.export_analytics">Export Analytics</button>
+            <button
+              class="btn-primary"
+              id="view-reports"
+              data-i18n="government.quick_actions.view_reports"
+            >
+              View Reports
+            </button>
+            <button
+              class="btn-outline"
+              id="download-data"
+              data-i18n="government.quick_actions.download_data"
+            >
+              Download Data
+            </button>
+            <button
+              class="btn-outline"
+              id="export-analytics"
+              data-i18n="government.quick_actions.export_analytics"
+            >
+              Export Analytics
+            </button>
           </div>
 
           <div class="card overview">
-            <h3 data-i18n="government.overview"><i class="fas fa-chart-line"></i> Overview</h3>
+            <h3 data-i18n="government.overview">
+              <i class="fas fa-chart-line"></i> Overview
+            </h3>
             <div class="overview-stats">
               <div class="stat">
-                <span class="label" data-i18n="government.overview.villages">Villages</span>
+                <span class="label" data-i18n="government.overview.villages"
+                  >Villages</span
+                >
                 <span class="value">1,250</span>
               </div>
               <div class="stat">
-                <span class="label" data-i18n="government.overview.active_farmers">Active Farmers</span>
+                <span
+                  class="label"
+                  data-i18n="government.overview.active_farmers"
+                  >Active Farmers</span
+                >
                 <span class="value">125,000</span>
               </div>
               <div class="stat">
-                <span class="label" data-i18n="government.overview.active_agri_experts">Active Agri-Experts</span>
+                <span
+                  class="label"
+                  data-i18n="government.overview.active_agri_experts"
+                  >Active Agri-Experts</span
+                >
                 <span class="value">8,500</span>
               </div>
               <div class="stat">
-                <span class="label" data-i18n="government.overview.ngo_partners">NGO Partners</span>
+                <span class="label" data-i18n="government.overview.ngo_partners"
+                  >NGO Partners</span
+                >
                 <span class="value">350</span>
               </div>
             </div>
@@ -103,7 +167,9 @@
         <section class="content">
           <section class="cards-row" id="dashboard">
             <div class="card regional-performance">
-              <h3 data-i18n="government.regional_performance.title">Regional Performance Overview</h3>
+              <h3 data-i18n="government.regional_performance.title">
+                Regional Performance Overview
+              </h3>
               <div class="region-map">
                 <div class="map-placeholder">
                   <img src="../assets/regional_map.jpg" alt="Regional Map" />
@@ -143,14 +209,22 @@
           </section>
 
           <section class="section-container" id="transactions">
-            <h2 class="section-title" data-i18n="government.transactions.title">Transactions</h2>
+            <h2 class="section-title" data-i18n="government.transactions.title">
+              Transactions
+            </h2>
             <div class="card transactions">
               <div class="filters">
                 <input type="text" placeholder="Search transactions..." />
                 <select>
-                  <option data-i18n="government.transactions.all_transactions">All Transactions</option>
-                  <option data-i18n="government.transactions.data_purchases">Data Purchases</option>
-                  <option data-i18n="government.transactions.research_funding">Research Funding</option>
+                  <option data-i18n="government.transactions.all_transactions">
+                    All Transactions
+                  </option>
+                  <option data-i18n="government.transactions.data_purchases">
+                    Data Purchases
+                  </option>
+                  <option data-i18n="government.transactions.research_funding">
+                    Research Funding
+                  </option>
                 </select>
                 <input type="date" placeholder="From Date" />
                 <input type="date" placeholder="To Date" />
@@ -159,11 +233,19 @@
                 <table>
                   <thead>
                     <tr>
-                      <th data-i18n="government.transactions.date_time">Date & Time</th>
-                      <th data-i18n="government.transactions.villages">Villages</th>
-                      <th data-i18n="government.transactions.data_type">Data Type</th>
+                      <th data-i18n="government.transactions.date_time">
+                        Date & Time
+                      </th>
+                      <th data-i18n="government.transactions.villages">
+                        Villages
+                      </th>
+                      <th data-i18n="government.transactions.data_type">
+                        Data Type
+                      </th>
                       <th data-i18n="government.transactions.amount">Amount</th>
-                      <th data-i18n="government.transactions.actions">Actions</th>
+                      <th data-i18n="government.transactions.actions">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -205,36 +287,58 @@
               </div>
               <div class="pagination">
                 <button><i class="fas fa-chevron-left"></i></button>
-                <span data-i18n="government.transactions.page">Page 1 of 5</span>
+                <span data-i18n="government.transactions.page"
+                  >Page 1 of 5</span
+                >
                 <button><i class="fas fa-chevron-right"></i></button>
               </div>
             </div>
           </section>
 
           <section class="section-container" id="analytics">
-            <h2 class="section-title" data-i18n="government.analytics.title">Analytics</h2>
+            <h2 class="section-title" data-i18n="government.analytics.title">
+              Analytics
+            </h2>
             <div class="analytics-grid">
               <div class="card analytics-card">
-                <h3 data-i18n="government.analytics.national_participation_change">National Participation Change</h3>
+                <h3
+                  data-i18n="government.analytics.national_participation_change"
+                >
+                  National Participation Change
+                </h3>
                 <div class="chart-container">
                   <!-- Chart visualization would go here -->
                   <!-- <div class="chart-placeholder">Participation Trend Chart</div> -->
-                  <img src="../assets/participation.png" alt="Participation" class="chart-placeholder"/>
+                  <img
+                    src="../assets/participation.png"
+                    alt="Participation"
+                    class="chart-placeholder"
+                  />
                 </div>
                 <div class="time-filters">
                   <button class="active">Monthly</button>
-                  <button data-i18n="government.analytics.yearly">Yearly</button>
-                  <button data-i18n="government.analytics.all_time">All Time</button>
+                  <button data-i18n="government.analytics.yearly">
+                    Yearly
+                  </button>
+                  <button data-i18n="government.analytics.all_time">
+                    All Time
+                  </button>
                 </div>
               </div>
               <div class="card analytics-card">
-                <h3 data-i18n="government.analytics.environmental_impact">Environmental Impact</h3>
+                <h3 data-i18n="government.analytics.environmental_impact">
+                  Environmental Impact
+                </h3>
                 <div class="chart-container">
                   <!-- Chart visualization would go here -->
                   <!-- <div class="chart-placeholder">
                     Environmental Impact Chart
                   </div> -->
-                  <img src="../assets/enm.jpeg" alt="Participation" class="chart-placeholder" />
+                  <img
+                    src="../assets/enm.jpeg"
+                    alt="Participation"
+                    class="chart-placeholder"
+                  />
                 </div>
                 <div class="impact-metrics">
                   <div class="metric">
@@ -252,11 +356,17 @@
                 </div>
               </div>
               <div class="card analytics-card">
-                <h3 data-i18n="government.analytics.budget_utilization">Budget Utilization</h3>
+                <h3 data-i18n="government.analytics.budget_utilization">
+                  Budget Utilization
+                </h3>
                 <div class="chart-container">
                   <!-- Chart visualization would go here -->
                   <!-- <div class="chart-placeholder">Budget Utilization Chart</div> -->
-                   <img src="../assets/budget.jpeg" alt="Participation" class="chart-placeholder" />
+                  <img
+                    src="../assets/budget.jpeg"
+                    alt="Participation"
+                    class="chart-placeholder"
+                  />
                 </div>
                 <div class="budget-breakdown">
                   <div class="budget-item">
@@ -286,34 +396,66 @@
           </section>
 
           <section class="section-container" id="reports">
-            <h2 class="section-title" data-i18n="government.reports.title">Reports</h2>
+            <h2 class="section-title" data-i18n="government.reports.title">
+              Reports
+            </h2>
             <div class="card reports">
               <div class="report-options">
-                <h3 data-i18n="government.reports.download_customized_reports">Download Customized Reports</h3>
+                <h3 data-i18n="government.reports.download_customized_reports">
+                  Download Customized Reports
+                </h3>
                 <div class="report-form">
                   <div class="form-group">
-                    <label data-i18n="government.reports.report_type">Report Type</label>
+                    <label data-i18n="government.reports.report_type"
+                      >Report Type</label
+                    >
                     <select>
-                      <option data-i18n="government.reports.environmental_impact">Environmental Impact</option>
-                      <option data-i18n="government.reports.participation_metrics">Participation Metrics</option>
-                      <option data-i18n="government.reports.budget_allocation">Budget Allocation</option>
-                      <option data-i18n="government.reports.regional_performance">Regional Performance</option>
+                      <option
+                        data-i18n="government.reports.environmental_impact"
+                      >
+                        Environmental Impact
+                      </option>
+                      <option
+                        data-i18n="government.reports.participation_metrics"
+                      >
+                        Participation Metrics
+                      </option>
+                      <option data-i18n="government.reports.budget_allocation">
+                        Budget Allocation
+                      </option>
+                      <option
+                        data-i18n="government.reports.regional_performance"
+                      >
+                        Regional Performance
+                      </option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label data-i18n="government.reports.time_period">Time Period</label>
+                    <label data-i18n="government.reports.time_period"
+                      >Time Period</label
+                    >
                     <select>
-                      <option data-i18n="government.reports.monthly">Monthly</option>
-                      <option data-i18n="government.reports.quarterly">Quarterly</option>
-                      <option data-i18n="government.reports.yearly">Yearly</option>
-                      <option data-i18n="government.reports.custom_range">Custom Range</option>
+                      <option data-i18n="government.reports.monthly">
+                        Monthly
+                      </option>
+                      <option data-i18n="government.reports.quarterly">
+                        Quarterly
+                      </option>
+                      <option data-i18n="government.reports.yearly">
+                        Yearly
+                      </option>
+                      <option data-i18n="government.reports.custom_range">
+                        Custom Range
+                      </option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label data-i18n="government.reports.format">Format</label>
                     <select>
                       <option data-i18n="government.reports.pdf">PDF</option>
-                      <option data-i18n="government.reports.excel">Excel</option>
+                      <option data-i18n="government.reports.excel">
+                        Excel
+                      </option>
                       <option data-i18n="government.reports.csv">CSV</option>
                     </select>
                   </div>
@@ -321,7 +463,9 @@
                 </div>
               </div>
               <div class="recent-reports">
-                <h3 data-i18n="government.reports.recent_reports">Recent Reports</h3>
+                <h3 data-i18n="government.reports.recent_reports">
+                  Recent Reports
+                </h3>
                 <div class="report-list">
                   <div class="report-item">
                     <i class="fas fa-file-pdf"></i>
@@ -360,9 +504,8 @@
         </section>
       </main>
     </div>
+    <script src="../js/ai-chatbot.js"></script>
 
     <script src="../js/main.js"></script>
   </body>
 </html>
-
-

@@ -6,6 +6,7 @@
     <title>EcoVators - Teacher Dashboard</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/teacher.css" />
+    <link rel="stylesheet" href="../css/translator.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -14,13 +15,30 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="modulepreload" href="../js/lang-en.js" />
-    <link rel="modulepreload" href="../js/lang-hi.js" />
-    <script src="../js/lang.js" defer></script>
-    <script src="../js/translate-helper.js" defer></script>
+    <link rel="stylesheet" href="../css/offline-indicator.css" />
+    <script src="../js/offline-sync.js" defer></script>
   </head>
 
   <body>
+    <!-- Google Translate widget -->
+    <!-- Google Translate widget -->
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function loadGoogleTranslate() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+            autoDisplay: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
       <nav class="navbar">
         <div class="logo">
@@ -38,13 +56,22 @@
         <div class="nav-links">
           <a href="#dashboard" data-i18n="teacher.nav.dashboard">Dashboard</a>
           <a href="#farmers" data-i18n="teacher.nav.farmers">Farmers</a>
-          <a href="#challenges" data-i18n="teacher.nav.challenges">Challenges</a>
+          <a href="#challenges" data-i18n="teacher.nav.challenges"
+            >Challenges</a
+          >
           <a href="#content" data-i18n="teacher.nav.content">Content</a>
           <a href="#analytics" data-i18n="teacher.nav.analytics">Analytics</a>
         </div>
+        <div class="connection-indicator">
+          <span id="connection-status" class="status-online">Online</span>
+        </div>
         <div class="auth-buttons">
-          <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
-          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout">Logout</a>
+          <a href="../index.html" class="login-btn" data-i18n="nav.home"
+            >Home</a
+          >
+          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout"
+            >Logout</a
+          >
         </div>
       </nav>
       <div class="mobile-nav" id="mobile-nav">
@@ -66,18 +93,52 @@
           <div class="teacher-card">
             <div class="avatar">👨‍🏫</div>
             <div class="teacher-info">
-              <h2 id="teacher-name" data-i18n="teacher.profile.name">Dr. Sarah Johnson</h2>
-              <p id="teacher-meta" data-i18n="teacher.profile.meta">Environmental Science • PHD in Science</p>
-              <p id="teacher-location" data-i18n="teacher.profile.location">Eranakulam, Kerala</p>
+              <h2 id="teacher-name" data-i18n="teacher.profile.name">
+                Dr. Sarah Johnson
+              </h2>
+              <p id="teacher-meta" data-i18n="teacher.profile.meta">
+                Environmental Science • PHD in Science
+              </p>
+              <p id="teacher-location" data-i18n="teacher.profile.location">
+                Eranakulam, Kerala
+              </p>
             </div>
             <div class="class-selector">
-              <label for="class-select" data-i18n="teacher.profile.select_crop">Select Crop:</label>
+              <label for="class-select" data-i18n="teacher.profile.select_crop"
+                >Select Crop:</label
+              >
               <select id="class-select">
-                <option value="class-8" data-i18n="teacher.profile.crops.cereals">Cereals</option>
-                <option value="class-9" selected data-i18n="teacher.profile.crops.pulses">Pulses</option>
-                <option value="class-10" data-i18n="teacher.profile.crops.vegetables">Vegetables</option>
-                <option value="class-11" data-i18n="teacher.profile.crops.fruits">Fruits</option>
-                <option value="class-12" data-i18n="teacher.profile.crops.cash_crops">Cash crops</option>
+                <option
+                  value="class-8"
+                  data-i18n="teacher.profile.crops.cereals"
+                >
+                  Cereals
+                </option>
+                <option
+                  value="class-9"
+                  selected
+                  data-i18n="teacher.profile.crops.pulses"
+                >
+                  Pulses
+                </option>
+                <option
+                  value="class-10"
+                  data-i18n="teacher.profile.crops.vegetables"
+                >
+                  Vegetables
+                </option>
+                <option
+                  value="class-11"
+                  data-i18n="teacher.profile.crops.fruits"
+                >
+                  Fruits
+                </option>
+                <option
+                  value="class-12"
+                  data-i18n="teacher.profile.crops.cash_crops"
+                >
+                  Cash crops
+                </option>
               </select>
             </div>
           </div>
@@ -86,30 +147,58 @@
             <h3 data-i18n="teacher.stats.title">Quick Stats</h3>
             <div class="stat-item">
               <span class="stat-value" id="total-students">47</span>
-              <span class="stat-label" data-i18n="teacher.stats.total_farmers">Total Farmers</span>
+              <span class="stat-label" data-i18n="teacher.stats.total_farmers"
+                >Total Farmers</span
+              >
             </div>
             <div class="stat-item">
               <span class="stat-value" id="active-students">42</span>
-              <span class="stat-label" data-i18n="teacher.stats.active_farmers">Active Farmers</span>
+              <span class="stat-label" data-i18n="teacher.stats.active_farmers"
+                >Active Farmers</span
+              >
             </div>
             <div class="stat-item">
               <span class="stat-value" id="pending-reviews">8</span>
-              <span class="stat-label" data-i18n="teacher.stats.pending_reviews">Pending Reviews</span>
+              <span class="stat-label" data-i18n="teacher.stats.pending_reviews"
+                >Pending Reviews</span
+              >
             </div>
             <div class="stat-item">
               <span class="stat-value" id="avg-completion">78%</span>
-              <span class="stat-label" data-i18n="teacher.stats.avg_completion">Avg Completion</span>
+              <span class="stat-label" data-i18n="teacher.stats.avg_completion"
+                >Avg Completion</span
+              >
             </div>
           </div>
 
           <div class="card quick-actions">
             <h3 data-i18n="teacher.actions.title">Quick Actions</h3>
-            <button class="btn-primary" id="create-challenge" data-i18n="teacher.actions.create_challenge">
+            <button
+              class="btn-primary"
+              id="create-challenge"
+              data-i18n="teacher.actions.create_challenge"
+            >
               Create Challenge
             </button>
-            <button class="btn-outline" id="add-news" data-i18n="teacher.actions.add_news">Add News</button>
-            <button class="btn-outline" id="create-event" data-i18n="teacher.actions.create_event">Create Event</button>
-            <button class="btn-outline" id="add-microcourse" data-i18n="teacher.actions.add_microcourse">
+            <button
+              class="btn-outline"
+              id="add-news"
+              data-i18n="teacher.actions.add_news"
+            >
+              Add News
+            </button>
+            <button
+              class="btn-outline"
+              id="create-event"
+              data-i18n="teacher.actions.create_event"
+            >
+              Create Event
+            </button>
+            <button
+              class="btn-outline"
+              id="add-microcourse"
+              data-i18n="teacher.actions.add_microcourse"
+            >
               Add Micro-Course
             </button>
           </div>
@@ -118,41 +207,61 @@
         <section class="content">
           <section class="cards-row" id="dashboard">
             <div class="card overview">
-              <h3 data-i18n="teacher.dashboard.impact_overview">Environmental Impact Overview</h3>
+              <h3 data-i18n="teacher.dashboard.impact_overview">
+                Environmental Impact Overview
+              </h3>
               <div class="impact-grid">
                 <div class="impact-metric">
                   <div class="metric-icon">🌳</div>
                   <div class="metric-info">
                     <span class="metric-value">156</span>
-                    <span class="metric-label" data-i18n="teacher.dashboard.trees_planted">Trees Planted</span>
+                    <span
+                      class="metric-label"
+                      data-i18n="teacher.dashboard.trees_planted"
+                      >Trees Planted</span
+                    >
                   </div>
                 </div>
                 <div class="impact-metric">
                   <div class="metric-icon">♻️</div>
                   <div class="metric-info">
                     <span class="metric-value">89.5</span>
-                    <span class="metric-label" data-i18n="teacher.dashboard.waste_reduced">Waste Reduced (kg)</span>
+                    <span
+                      class="metric-label"
+                      data-i18n="teacher.dashboard.waste_reduced"
+                      >Waste Reduced (kg)</span
+                    >
                   </div>
                 </div>
                 <div class="impact-metric">
                   <div class="metric-icon">💧</div>
                   <div class="metric-info">
                     <span class="metric-value">2,340</span>
-                    <span class="metric-label" data-i18n="teacher.dashboard.water_saved">Water Saved (L)</span>
+                    <span
+                      class="metric-label"
+                      data-i18n="teacher.dashboard.water_saved"
+                      >Water Saved (L)</span
+                    >
                   </div>
                 </div>
                 <div class="impact-metric">
                   <div class="metric-icon">🌿</div>
                   <div class="metric-info">
                     <span class="metric-value">1,245</span>
-                    <span class="metric-label" data-i18n="teacher.dashboard.co2_offset">CO₂ Offset (kg)</span>
+                    <span
+                      class="metric-label"
+                      data-i18n="teacher.dashboard.co2_offset"
+                      >CO₂ Offset (kg)</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="card recent-activity">
-              <h3 data-i18n="teacher.dashboard.recent_activity">Recent Activity</h3>
+              <h3 data-i18n="teacher.dashboard.recent_activity">
+                Recent Activity
+              </h3>
               <div class="activity-list">
                 <div class="activity-item">
                   <div class="activity-icon">✅</div>
@@ -657,9 +766,9 @@
     </div>
 
     <div class="toast" id="toast">✅ Challenge created successfully!</div>
-
+    <script src="../js/ai-chatbot.js" defer></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         updateTranslations();
       });
 
@@ -671,29 +780,31 @@
           toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
         });
       }
-      
+
       // Language selector functionality
-      document.addEventListener('DOMContentLoaded', () => {
-        const langSelector = document.getElementById('lang-selector');
-        const mobileLangSelector = document.getElementById('mobile-lang-selector');
-        
+      document.addEventListener("DOMContentLoaded", () => {
+        const langSelector = document.getElementById("lang-selector");
+        const mobileLangSelector = document.getElementById(
+          "mobile-lang-selector"
+        );
+
         // Set initial language from localStorage
-        const savedLang = localStorage.getItem('lang') || 'en';
+        const savedLang = localStorage.getItem("lang") || "en";
         if (langSelector) langSelector.value = savedLang;
         if (mobileLangSelector) mobileLangSelector.value = savedLang;
-        
+
         // Add event listeners for language change
         if (langSelector) {
-          langSelector.addEventListener('change', (e) => {
-            localStorage.setItem('lang', e.target.value);
+          langSelector.addEventListener("change", (e) => {
+            localStorage.setItem("lang", e.target.value);
             updateTranslations(e.target.value);
             if (mobileLangSelector) mobileLangSelector.value = e.target.value;
           });
         }
-        
+
         if (mobileLangSelector) {
-          mobileLangSelector.addEventListener('change', (e) => {
-            localStorage.setItem('lang', e.target.value);
+          mobileLangSelector.addEventListener("change", (e) => {
+            localStorage.setItem("lang", e.target.value);
             updateTranslations(e.target.value);
             if (langSelector) langSelector.value = e.target.value;
           });

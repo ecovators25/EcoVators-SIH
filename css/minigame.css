@@ -1,0 +1,173 @@
+/* Mini-game Styles */
+.minigame-container {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.game-header h3 {
+    margin: 0;
+    color: #2e7d32;
+}
+
+.game-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.game-score, .game-level {
+    font-weight: 600;
+    color: #333;
+}
+
+.game-instructions {
+    background-color: #e8f5e9;
+    border-left: 4px solid #2e7d32;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+}
+
+.game-field {
+    position: relative;
+    height: 300px;
+    background-color: #e8f5e9;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border: 2px solid #81c784;
+}
+
+.plant {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.plant-visual {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.plant-health-bar {
+    width: 40px;
+    height: 5px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.plant-health {
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.3s ease;
+}
+
+.plant.healthy .plant-health {
+    background-color: #4caf50;
+}
+
+.plant.warning .plant-health {
+    background-color: #ff9800;
+}
+
+.plant.danger .plant-health {
+    background-color: #f44336;
+}
+
+.water-drop {
+    position: absolute;
+    font-size: 24px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    animation: bounce 1s infinite alternate;
+    z-index: 10;
+}
+
+@keyframes bounce {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.game-rewards {
+    background-color: #fff8e1;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.game-rewards h4 {
+    margin-top: 0;
+    color: #ff8f00;
+}
+
+.rewards-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.reward {
+    font-weight: 600;
+}
+
+.reward .xp {
+    color: #7b1fa2;
+}
+
+.reward .cc {
+    color: #00796b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .game-field {
+        height: 250px;
+    }
+    
+    .plant {
+        width: 50px;
+        height: 70px;
+    }
+    
+    .plant-visual {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .game-field {
+        height: 200px;
+    }
+}

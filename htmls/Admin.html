@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EcoVators - Cooperative Society Dashboard</title>
     <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/translator.css" />
     <link rel="stylesheet" href="../css/admin.css" />
     <link
       rel="stylesheet"
@@ -14,10 +15,28 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="../js/lang.js" defer></script>
-    <script src="../js/translate-helper.js" defer></script>
+  <link rel="stylesheet" href="../css/offline-indicator.css">
+  <script src="../js/offline-sync.js" defer></script>
   </head>
   <body>
+        <!-- Google Translate widget -->
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function loadGoogleTranslate() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+            autoDisplay: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
       <nav class="navbar">
         <div class="logo">
@@ -38,6 +57,9 @@
           <a href="#transactions" data-i18n="admin.nav.transactions">Transactions</a>
           <a href="#management" data-i18n="admin.nav.management">Management</a>
           <a href="#approvals" data-i18n="admin.nav.approvals">Approvals</a>
+        </div>
+        <div class="connection-indicator">
+          <span id="connection-status" class="status-online">Online</span>
         </div>
         <div class="auth-buttons">
           <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
@@ -753,6 +775,7 @@
     <div class="toast" id="toast">✅ Action completed successfully!</div>
 
     <script src="../js/auth.js"></script>
+    <script src="../js/ai-chatbot.js" defer></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         updateTranslations();

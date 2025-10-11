@@ -7,19 +7,38 @@
     <title>EcoVators - Company Dashboard</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/company.css">
+    <link rel="stylesheet" href="../css/translator.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="../js/lang.js" defer></script>
-    <script src="../js/translate-helper.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            updateTranslations();
+     <link rel="stylesheet" href="../css/offline-indicator.css">
+     <script src="../js/offline-sync.js" defer></script>
+     <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              updateTranslations();
         });
     </script>
 </head>
 
 <body>
+            <!-- Google Translate widget -->
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function loadGoogleTranslate() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+            autoDisplay: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
         <nav class="navbar">
         <div class="logo">
@@ -39,6 +58,9 @@
           <a href="#transactions" data-i18n="government.nav.transactions">Transactions</a>
           <a href="#analytics" data-i18n="government.nav.analytics">Analytics</a>
           <a href="#reports" data-i18n="government.nav.reports">Reports</a>
+        </div>
+        <div class="connection-indicator">
+            <span id="connection-status" class="status-online">Online</span>
         </div>
         <div class="auth-buttons">
           <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
@@ -312,6 +334,7 @@
                 </section>
             </section>
         </main>
+        <script src="../js/ai-chatbot.js"></script>
         <script>
         const toggleBtn = document.getElementById('menu-toggle');
         const mobileNav = document.getElementById('mobile-nav');

@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoVators - Student Dashboard</title>
+
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/translator.css">
     <link rel="stylesheet" href="../css/student.css">
+    <link rel="stylesheet" href="../css/minigame.css">
+    <link rel="stylesheet" href="../css/offline-indicator.css">
+    <link rel="stylesheet" href="../css/multilingual.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="../js/lang.js" defer></script>
-    <script src="../js/translate-helper.js" defer></script>
+    
 </head>
 <body>
+            <!-- Google Translate widget -->
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function loadGoogleTranslate() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+            autoDisplay: true,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
         <nav class="navbar">
             <div class="logo">
@@ -27,6 +49,9 @@
                 <a href="#learning" data-i18n="student.nav.learning">Learning</a>
                 <a href="#community" data-i18n="student.nav.community">Community</a>
                 <a href="#events" data-i18n="student.nav.events">Events</a>
+            </div>
+            <div class="connection-indicator">
+                <span id="connection-status" class="status-online">Online</span>
             </div>
             <div class="auth-buttons">
                 <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
@@ -269,6 +294,31 @@
                             <button class="btn-outline sm">Join</button>
                         </div>
                     </div>
+                    
+                    <!-- Mini-game Section -->
+                    <div class="card minigame-container">
+                        <h3><i class="fas fa-gamepad"></i> Sustainable Farming Mini-Game</h3>
+                        <div class="game-stats">
+                            <div class="game-score">Score: <span id="game-score">0</span></div>
+                            <div class="game-level">Level: <span id="game-level">1</span></div>
+                        </div>
+                        <div class="game-instructions">
+                            Water the plants before they wither! Click on water drops and drag them to plants.
+                        </div>
+                        <div id="game-field" class="game-field">
+                            <!-- Plants and water drops will be added here by JavaScript -->
+                        </div>
+                        <div class="game-controls">
+                            <button id="start-game" class="btn-primary sm">Start Game</button>
+                        </div>
+                        <div class="game-rewards">
+                            <h4>Rewards</h4>
+                            <div class="rewards-list">
+                                <div class="reward">XP: <span id="reward-xp" class="xp">0</span></div>
+                                <div class="reward">CC: <span id="reward-cc" class="cc">0</span></div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="card uploads">
                         <h3 data-i18n="events.upload.title"><i class="fas fa-map-marker-alt"></i> Upload with Geotag</h3>
@@ -338,7 +388,14 @@
     </div>
 
     <div class="toast" id="toast">🌱 Task started! Upload your proof when complete.</div>
-
+    <script src="../js/minigame.js" defer></script>
+    <script src="../js/offline-sync.js" defer></script>
+    <script src="../js/minigame.js" defer></script>
+    <script src="../js/offline-sync.js" defer></script>
+    <script src="../js/ai-chatbot.js" defer></script>
+    <script src="../js/geo-verification.js" defer></script>
+    <script src="../js/data-visualization.js" defer></script>
+    <script src="../js/multilingual.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             updateTranslations();
