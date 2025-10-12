@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = 'htmls/teacher.html';
                 break;
             case 'admin':
-                window.location.href = 'htmls/CooperativeSociety.html';
+                window.location.href = 'htmls/Admin.html';
                 break;
             case 'company':
                 window.location.href = 'htmls/Company.html';
