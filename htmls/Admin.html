@@ -15,50 +15,53 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-  <link rel="stylesheet" href="../css/offline-indicator.css">
-  <script src="../js/offline-sync.js" defer></script>
+    <link rel="stylesheet" href="../css/offline-indicator.css" />
+    <script src="../js/offline-sync.js" defer></script>
   </head>
   <body>
-       <!-- Google Translate Widget -->
-<div id="google_translate_element"></div>
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
 
-<script type="text/javascript">
-  function loadGoogleTranslate() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: "en",
-        includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
-        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-        autoDisplay: false,
-      },
-      "google_translate_element"
-    );
-  }
+    <script type="text/javascript">
+      function loadGoogleTranslate() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+            autoDisplay: false,
+          },
+          "google_translate_element"
+        );
+      }
 
-  function toggleTranslator() {
-    const element = document.getElementById('google_translate_element');
-    element.classList.toggle('show');
-  }
+      function toggleTranslator() {
+        const element = document.getElementById("google_translate_element");
+        element.classList.toggle("show");
+      }
 
-  // Close translator when clicking outside
-  document.addEventListener('click', function(event) {
-    const translator = document.getElementById('google_translate_element');
-    const icon = document.querySelector('.translator-icon');
-    
-    if (!translator.contains(event.target) && !icon.contains(event.target)) {
-      translator.classList.remove('show');
-    }
-  });
-</script>
+      // Close translator when clicking outside
+      document.addEventListener("click", function (event) {
+        const translator = document.getElementById("google_translate_element");
+        const icon = document.querySelector(".translator-icon");
 
-<script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+        if (
+          !translator.contains(event.target) &&
+          !icon.contains(event.target)
+        ) {
+          translator.classList.remove("show");
+        }
+      });
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
       <nav class="navbar">
         <a href="../index.html">
-        <div class="logo" >
-          <img src="../assets/logo.webp" alt="EcoVators Logo" />
-          <h1>EcoVators</h1>
-        </div>
+          <div class="logo">
+            <img src="../assets/logo.webp" alt="EcoVators Logo" />
+            <h1>EcoVators</h1>
+          </div>
         </a>
         <button
           class="hamburger"
@@ -71,7 +74,9 @@
         <div class="nav-links">
           <a href="#dashboard" data-i18n="admin.nav.dashboard">Dashboard</a>
           <a href="#analytics" data-i18n="admin.nav.analytics">Analytics</a>
-          <a href="#transactions" data-i18n="admin.nav.transactions">Transactions</a>
+          <a href="#transactions" data-i18n="admin.nav.transactions"
+            >Transactions</a
+          >
           <a href="#management" data-i18n="admin.nav.management">Management</a>
           <a href="#approvals" data-i18n="admin.nav.approvals">Approvals</a>
         </div>
@@ -79,8 +84,12 @@
           <span id="connection-status" class="status-online">Online</span>
         </div>
         <div class="auth-buttons">
-          <a href="../index.html" class="login-btn" data-i18n="nav.home">Home</a>
-          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout">Logout</a>
+          <a href="../index.html" class="login-btn" data-i18n="nav.home"
+            >Home</a
+          >
+          <a href="../index.html" class="get-started-btn" data-i18n="nav.logout"
+            >Logout</a
+          >
         </div>
       </nav>
       <div class="mobile-nav" id="mobile-nav">
@@ -121,16 +130,50 @@
           </div>
 
           <div class="card quick-actions">
-            <h3 data-i18n="admin.quick_actions"><i class="fas fa-bolt"></i> Quick Actions</h3>
-            <button class="btn-primary full" id="carbon-calculator" data-i18n="admin.quick_actions.carbon_calculator">Carbon Calculator</button>
-            <button class="btn-outline full" id="export-data" data-i18n="admin.quick_actions.export_data">Export Data (PDF)</button>
-            <button class="btn-outline full" id="add-teacher" data-i18n="admin.quick_actions.add_agri_expert">Add Agri-Expert</button>
-            <button class="btn-outline full" id="add-student" data-i18n="admin.quick_actions.add_farmer">Add Farmer</button>
-            <button class="btn-outline full" id="manage-content" data-i18n="admin.quick_actions.manage_content">Manage Content</button>
+            <h3 data-i18n="admin.quick_actions">
+              <i class="fas fa-bolt"></i> Quick Actions
+            </h3>
+            <button
+              class="btn-primary full"
+              id="carbon-calculator"
+              data-i18n="admin.quick_actions.carbon_calculator"
+            >
+              Carbon Calculator
+            </button>
+            <button
+              class="btn-outline full"
+              id="export-data"
+              data-i18n="admin.quick_actions.export_data"
+            >
+              Export Data (PDF)
+            </button>
+            <button
+              class="btn-outline full"
+              id="add-teacher"
+              data-i18n="admin.quick_actions.add_agri_expert"
+            >
+              Add Agri-Expert
+            </button>
+            <button
+              class="btn-outline full"
+              id="add-student"
+              data-i18n="admin.quick_actions.add_farmer"
+            >
+              Add Farmer
+            </button>
+            <button
+              class="btn-outline full"
+              id="manage-content"
+              data-i18n="admin.quick_actions.manage_content"
+            >
+              Manage Content
+            </button>
           </div>
 
           <div class="card recent-achievements">
-            <h3 data-i18n="admin.recent_achievements"><i class="fas fa-trophy"></i> Recent Achievements</h3>
+            <h3 data-i18n="admin.recent_achievements">
+              <i class="fas fa-trophy"></i> Recent Achievements
+            </h3>
             <div class="achievement-list">
               <div class="achievement">
                 🏆 Village of the Month - Environmental Impact
@@ -147,60 +190,98 @@
         <section class="content">
           <section class="cards-row" id="dashboard">
             <div class="card overview">
-              <h3 data-i18n="admin.overview"><i class="fas fa-chart-pie"></i> Organization Overview</h3>
+              <h3 data-i18n="admin.overview">
+                <i class="fas fa-chart-pie"></i> Organization Overview
+              </h3>
               <div class="stats-grid">
                 <div class="stat-card">
                   <div class="stat-number">1,250</div>
-                  <div class="stat-label" data-i18n="admin.stats.total_farmers">Total Farmers</div>
+                  <div class="stat-label" data-i18n="admin.stats.total_farmers">
+                    Total Farmers
+                  </div>
                   <div class="stat-change positive">+5.2%</div>
                 </div>
                 <div class="stat-card">
                   <div class="stat-number">85</div>
-                  <div class="stat-label" data-i18n="admin.stats.active_agri_experts">Active Agri-Experts</div>
+                  <div
+                    class="stat-label"
+                    data-i18n="admin.stats.active_agri_experts"
+                  >
+                    Active Agri-Experts
+                  </div>
                   <div class="stat-change positive">+2.1%</div>
                 </div>
                 <div class="stat-card">
                   <div class="stat-number">15</div>
-                  <div class="stat-label" data-i18n="admin.stats.departments">Departments</div>
+                  <div class="stat-label" data-i18n="admin.stats.departments">
+                    Departments
+                  </div>
                   <div class="stat-change">0%</div>
                 </div>
                 <div class="stat-card">
                   <div class="stat-number">92%</div>
-                  <div class="stat-label" data-i18n="admin.stats.engagement_rate">Engagement Rate</div>
+                  <div
+                    class="stat-label"
+                    data-i18n="admin.stats.engagement_rate"
+                  >
+                    Engagement Rate
+                  </div>
                   <div class="stat-change positive">+3.8%</div>
                 </div>
               </div>
             </div>
 
             <div class="card environmental-impact">
-              <h3 data-i18n="admin.environmental_impact"><i class="fas fa-leaf"></i> Environmental Impact</h3>
+              <h3 data-i18n="admin.environmental_impact">
+                <i class="fas fa-leaf"></i> Environmental Impact
+              </h3>
               <div class="impact-metrics">
                 <div class="impact-item">
                   <div class="impact-icon">🌳</div>
                   <div>
                     <div class="impact-value">2,450</div>
-                    <div class="impact-label" data-i18n="admin.impact.trees_planted">Trees Planted</div>
+                    <div
+                      class="impact-label"
+                      data-i18n="admin.impact.trees_planted"
+                    >
+                      Trees Planted
+                    </div>
                   </div>
                 </div>
                 <div class="impact-item">
                   <div class="impact-icon">♻️</div>
                   <div>
                     <div class="impact-value">1,850</div>
-                    <div class="impact-label" data-i18n="admin.impact.waste_reduced">Waste Reduced (kg)</div>
+                    <div
+                      class="impact-label"
+                      data-i18n="admin.impact.waste_reduced"
+                    >
+                      Waste Reduced (kg)
+                    </div>
                   </div>
                 </div>
                 <div class="impact-item">
                   <div class="impact-icon">💧</div>
                   <div>
                     <div class="impact-value">45,200</div>
-                    <div class="impact-label" data-i18n="admin.impact.water_saved">Water Saved (L)</div>
+                    <div
+                      class="impact-label"
+                      data-i18n="admin.impact.water_saved"
+                    >
+                      Water Saved (L)
+                    </div>
                   </div>
                 </div>
                 <div class="impact-item">
                   <div class="impact-icon">🌿</div>
                   <div>
                     <div class="impact-value">12,500</div>
-                    <div class="impact-label" data-i18n="admin.impact.co2_offset">CO₂ Offset (kg)</div>
+                    <div
+                      class="impact-label"
+                      data-i18n="admin.impact.co2_offset"
+                    >
+                      CO₂ Offset (kg)
+                    </div>
                   </div>
                 </div>
               </div>
@@ -209,7 +290,9 @@
 
           <section class="grid-2" id="analytics">
             <div class="card department-performance">
-              <h3 data-i18n="admin.department_performance"><i class="fas fa-building"></i> Crop Performance</h3>
+              <h3 data-i18n="admin.department_performance">
+                <i class="fas fa-building"></i> Crop Performance
+              </h3>
               <div class="dept-list">
                 <div class="dept-item">
                   <div class="dept-info">
@@ -243,23 +326,45 @@
             </div>
 
             <div class="card analytics-overview">
-              <h3 data-i18n="admin.analytics_overview"><i class="fas fa-chart-line"></i> Analytics Overview</h3>
+              <h3 data-i18n="admin.analytics_overview">
+                <i class="fas fa-chart-line"></i> Analytics Overview
+              </h3>
               <div class="analytics-grid">
                 <div class="analytic-card">
                   <div class="analytic-value">1,180</div>
-                  <div class="analytic-label" data-i18n="admin.analytics.active_farmers">Active Farmers</div>
+                  <div
+                    class="analytic-label"
+                    data-i18n="admin.analytics.active_farmers"
+                  >
+                    Active Farmers
+                  </div>
                 </div>
                 <div class="analytic-card">
                   <div class="analytic-value">78%</div>
-                  <div class="analytic-label" data-i18n="admin.analytics.avg_completion">Avg Completion</div>
+                  <div
+                    class="analytic-label"
+                    data-i18n="admin.analytics.avg_completion"
+                  >
+                    Avg Completion
+                  </div>
                 </div>
                 <div class="analytic-card">
                   <div class="analytic-value">45 min</div>
-                  <div class="analytic-label" data-i18n="admin.analytics.avg_time_spent">Avg Time Spent</div>
+                  <div
+                    class="analytic-label"
+                    data-i18n="admin.analytics.avg_time_spent"
+                  >
+                    Avg Time Spent
+                  </div>
                 </div>
                 <div class="analytic-card">
                   <div class="analytic-value">156</div>
-                  <div class="analytic-label" data-i18n="admin.analytics.submissions">Submissions</div>
+                  <div
+                    class="analytic-label"
+                    data-i18n="admin.analytics.submissions"
+                  >
+                    Submissions
+                  </div>
                 </div>
               </div>
               <div class="analytics-filters">
@@ -272,7 +377,9 @@
 
           <section class="grid-2" id="transactions">
             <div class="card company-transactions">
-              <h3 data-i18n="admin.company_transactions"><i class="fas fa-building"></i> Company Transactions</h3>
+              <h3 data-i18n="admin.company_transactions">
+                <i class="fas fa-building"></i> Company Transactions
+              </h3>
               <div class="transaction-filters">
                 <select class="class-filter">
                   <option>All Companies</option>
@@ -332,7 +439,9 @@
             </div>
 
             <div class="card government-transactions">
-              <h3 data-i18n="admin.government_transactions"><i class="fas fa-landmark"></i> Government Transactions</h3>
+              <h3 data-i18n="admin.government_transactions">
+                <i class="fas fa-landmark"></i> Government Transactions
+              </h3>
               <div class="transaction-filters">
                 <select class="class-filter">
                   <option>All Departments</option>
@@ -378,7 +487,9 @@
 
           <section class="grid-2" id="management">
             <div class="card teacher-management">
-              <h3 data-i18n="admin.teacher_management"><i class="fas fa-chalkboard-teacher"></i>Agri-Expert Management</h3>
+              <h3 data-i18n="admin.teacher_management">
+                <i class="fas fa-chalkboard-teacher"></i>Agri-Expert Management
+              </h3>
               <div class="search-bar">
                 <input type="text" placeholder="Search agri-experts..." />
                 <select class="class-filter">
@@ -427,7 +538,9 @@
             </div>
 
             <div class="card student-management">
-              <h3 data-i18n="admin.farmer_management"><i class="fas fa-user-graduate"></i> Farmer Management</h3>
+              <h3 data-i18n="admin.farmer_management">
+                <i class="fas fa-user-graduate"></i> Farmer Management
+              </h3>
               <div class="search-bar">
                 <input type="text" placeholder="Search farmers..." />
                 <select class="class-filter">
@@ -479,7 +592,9 @@
 
           <section class="grid-2" id="content-management">
             <div class="card content-management">
-              <h3 data-i18n="admin.content_management"><i class="fas fa-cogs"></i> Content Management</h3>
+              <h3 data-i18n="admin.content_management">
+                <i class="fas fa-cogs"></i> Content Management
+              </h3>
               <div class="content-tabs">
                 <button class="tab active" data-content="news">News</button>
                 <button class="tab" data-content="events">Events</button>
@@ -556,7 +671,9 @@
             </div>
 
             <div class="card notifications">
-              <h3 data-i18n="admin.notifications"><i class="fas fa-bell"></i> Notifications</h3>
+              <h3 data-i18n="admin.notifications">
+                <i class="fas fa-bell"></i> Notifications
+              </h3>
               <div class="notification-tabs">
                 <button class="tab active" data-notif="all">All</button>
                 <button class="tab" data-notif="government">Government</button>
@@ -590,7 +707,9 @@
 
           <section class="grid-2" id="approvals">
             <div class="card ngo-approvals">
-              <h3 data-i18n="admin.ngo_event_approvals"><i class="fas fa-hands-helping"></i> NGO Event Approvals</h3>
+              <h3 data-i18n="admin.ngo_event_approvals">
+                <i class="fas fa-hands-helping"></i> NGO Event Approvals
+              </h3>
               <div class="approval-list">
                 <div class="approval-item">
                   <div class="approval-info">
@@ -794,7 +913,7 @@
     <script src="../js/auth.js"></script>
     <script src="../js/ai-chatbot.js" defer></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         updateTranslations();
       });
     </script>
@@ -1018,4 +1137,3 @@
     </script>
   </body>
 </html>
-
