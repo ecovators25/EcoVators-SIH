@@ -19,24 +19,39 @@
   <script src="../js/offline-sync.js" defer></script>
   </head>
   <body>
-        <!-- Google Translate widget -->
-    <div id="google_translate_element"></div>
+        <!-- Google Translate Widget -->
+<div id="google_translate_element"></div>
 
-    <script type="text/javascript">
-      function loadGoogleTranslate() {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
-            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-            autoDisplay: true,
-          },
-          "google_translate_element"
-        );
-      }
-    </script>
+<script type="text/javascript">
+  function loadGoogleTranslate() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+        autoDisplay: false,
+      },
+      "google_translate_element"
+    );
+  }
 
-    <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+  function toggleTranslator() {
+    const element = document.getElementById('google_translate_element');
+    element.classList.toggle('show');
+  }
+
+  // Close translator when clicking outside
+  document.addEventListener('click', function(event) {
+    const translator = document.getElementById('google_translate_element');
+    const icon = document.querySelector('.translator-icon');
+    
+    if (!translator.contains(event.target) && !icon.contains(event.target)) {
+      translator.classList.remove('show');
+    }
+  });
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
       <nav class="navbar">
         <a href="../index.html">
