@@ -1,438 +1,4 @@
-/* Government Dashboard Styles */
-/* .government-layout {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.sidebar {
-    flex: 0 0 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.government-card {
-    background: linear-gradient(135deg, #1a5276, #2874a6);
-    color: white;
-    border-radius: 10px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.government-card .avatar {
-    width: 80px;
-    height: 80px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.government-info h2 {
-    margin: 0 0 5px;
-    font-size: 1.5rem;
-}
-
-.government-info p {
-    margin: 0;
-    opacity: 0.8;
-    font-size: 0.9rem;
-}
-
-.card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.quick-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.quick-links h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.btn-primary {
-    background-color: #2874a6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: #1a5276;
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: #2874a6;
-    border: 1px solid #2874a6;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn-outline:hover {
-    background-color: #2874a6;
-    color: white;
-}
-
-.btn-small {
-    background-color: #f1f1f1;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-small:hover {
-    background-color: #e0e0e0;
-}
-
-.overview h3 {
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.overview-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat .label {
-    font-size: 0.85rem;
-    color: #666;
-}
-
-.stat .value {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2874a6;
-}
-
-.section-container {
-    margin-bottom: 30px;
-}
-
-.section-title {
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #333;
-    font-size: 1.5rem;
-}
-
-.regional-performance {
-    padding-bottom: 20px;
-}
-
-.map-placeholder {
-    background-color: #f5f5f5;
-    height: 250px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
-    margin-bottom: 20px;
-}
-
-.region-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.region-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.region-name {
-    flex: 0 0 100px;
-    font-size: 0.9rem;
-}
-
-.region-bar {
-    flex: 1;
-    height: 8px;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.bar-fill {
-    height: 100%;
-    background-color: #2874a6;
-}
-
-.region-value {
-    flex: 0 0 40px;
-    text-align: right;
-    font-weight: 500;
-}
-
-.filters {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
-}
-
-.filters input, .filters select {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-
-.transactions-table {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-th {
-    background-color: #f9f9f9;
-    font-weight: 600;
-}
-
-.pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 15px;
-}
-
-.pagination button {
-    background-color: #f1f1f1;
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.analytics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.analytics-card {
-    display: flex;
-    flex-direction: column;
-}
-
-.analytics-card h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.chart-container {
-    flex: 1;
-    min-height: 200px;
-}
-
-.chart-placeholder {
-    background-color: #f5f5f5;
-    height: 200px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
-}
-
-.time-filters {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.time-filters button {
-    background-color: #f1f1f1;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    cursor: pointer;
-}
-
-.time-filters button.active {
-    background-color: #2874a6;
-    color: white;
-}
-
-.impact-metrics, .budget-breakdown {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.metric {
-    display: flex;
-    justify-content: space-between;
-}
-
-.budget-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.budget-bar {
-    flex: 1;
-    height: 8px;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.report-options {
-    margin-bottom: 30px;
-}
-
-.report-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.form-group label {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.form-group select {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-
-.report-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.report-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-.report-item i {
-    font-size: 1.5rem;
-    color: #2874a6;
-}
-
-.report-info {
-    flex: 1;
-}
-
-.report-info h4 {
-    margin: 0 0 5px;
-}
-
-.report-info p {
-    margin: 0;
-    font-size: 0.8rem;
-    color: #777;
-}
-
-@media (max-width: 992px) {
-    .government-layout {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        flex: none;
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .analytics-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .filters {
-        flex-direction: column;
-    }
-    
-    .filters input, .filters select {
-        width: 100%;
-    }
-    
-    .report-form {
-        grid-template-columns: 1fr;
-    }
-} */
-
-/* Government Dashboard Styles - follows index.html theme */
+/* Government Dashboard Styles - Fully Responsive */
 :root {
     --primary-color: #4CAF50;
     --primary-dark: #388E3C;
@@ -452,20 +18,30 @@ th {
     --transition: all 0.25s ease;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+/* Base body and container settings to prevent global horizontal scroll */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
 .dashboard-container {
     width: 100%;
     max-width: 100%;
     background: var(--background-light);
-    box-sizing: border-box;
 }
 
-/* Force hamburger icon to black on government dashboard */
-.hamburger span {
-    background: #000 !important;
-}
-
-/* Hide hamburger on desktop and tablet, show only on mobile */
-@media (min-width: 769px) {
+/* NAV BAR Specifics */
+/* Hide hamburger on desktop, show on mobile */
+@media (min-width: 1101px) {
     .hamburger { 
         display: none !important; 
     }
@@ -474,6 +50,16 @@ th {
     }
 }
 
+@media (max-width: 1100px) {
+    .nav-links, .auth-buttons {
+        display: none;
+    }
+    .hamburger { 
+        display: block; 
+    }
+}
+
+/* MAIN LAYOUT (DESKTOP FIRST) */
 .government-layout {
     display: flex;
     gap: 2rem;
@@ -484,19 +70,24 @@ th {
 }
 
 .sidebar {
+    /* Fixed width sidebar on large screens */
     flex: 0 0 320px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-width: 0;
 }
 
 .content {
+    /* Main content takes remaining space */
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-width: 0;
 }
 
+/* GOVERNMENT CARD (SIDEBAR PROFILE) */
 .government-card {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: var(--text-light);
@@ -510,56 +101,71 @@ th {
 }
 
 .government-card .avatar {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .government-info h2 {
-    margin: 0 0 0.25rem;
-    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    word-wrap: break-word;
+    width: 100%;
 }
 
 .government-info p {
     margin: 0;
     opacity: 0.9;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    word-wrap: break-word;
+    width: 100%;
 }
 
+/* UTILITY CARD STYLES */
 .card {
     background-color: var(--text-light);
     border-radius: var(--card-radius);
     box-shadow: var(--box-shadow);
-    padding: 1.25rem;
+    padding: 1.5rem;
+    overflow: hidden; /* Important for containing children like tables */
 }
 
 .quick-links {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.8rem;
 }
 
 .quick-links h3 {
     margin-top: 0;
-    margin-bottom: 0.9rem;
+    margin-bottom: 1rem;
     color: var(--text-dark);
+    font-size: 1.2rem;
+}
+
+/* BUTTONS */
+.btn-primary, .btn-outline {
+    border-radius: 10px;
+    padding: 0.9rem 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+    white-space: nowrap;
+    text-align: center;
+    display: block; /* Ensure they take full width in quick links */
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--text-light);
     border: none;
-    border-radius: 10px;
-    padding: 0.7rem 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
 }
 
 .btn-primary:hover {
@@ -571,11 +177,6 @@ th {
     background-color: transparent;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    padding: 0.7rem 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
 }
 
 .btn-outline:hover {
@@ -585,23 +186,27 @@ th {
 .btn-small {
     background-color: #f1f1f1;
     border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 0.8rem;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    white-space: nowrap;
 }
 
 .btn-small:hover {
     background-color: #e0e0e0;
 }
 
+/* OVERVIEW STATS */
 .overview h3 {
     margin-top: 0;
     display: flex;
     align-items: center;
     gap: 10px;
     color: var(--text-dark);
+    flex-wrap: wrap;
+    font-size: 1.2rem;
 }
 
 .overview-stats {
@@ -616,31 +221,26 @@ th {
 }
 
 .stat .label {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: #666;
+    word-wrap: break-word;
 }
 
 .stat .value {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--primary-color);
-}
-
-.section-container {
-    margin-bottom: 30px;
 }
 
 .section-title {
     margin-top: 0;
     margin-bottom: 15px;
     color: var(--text-dark);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    word-wrap: break-word;
 }
 
-.regional-performance {
-    padding-bottom: 20px;
-}
-
+/* REGIONAL PERFORMANCE */
 .region-map {
     width: 100%;
     position: relative;
@@ -656,7 +256,6 @@ th {
     height: 100%;
     border-radius: var(--card-radius);
     overflow: hidden;
-    background-color: #f5f5f5;
 }
 
 .map-placeholder img {
@@ -678,19 +277,22 @@ th {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: nowrap;
 }
 
 .region-name {
-    flex: 0 0 100px;
-    font-size: 0.9rem;
+    flex: 0 0 110px; /* Increased minimum width for region name */
+    font-size: 1rem;
+    white-space: nowrap;
 }
 
 .region-bar {
     flex: 1;
-    height: 8px;
+    height: 10px;
     background-color: #e0e0e0;
-    border-radius: 4px;
+    border-radius: 5px;
     overflow: hidden;
+    min-width: 50px; /* Ensure bar has minimum visible width */
 }
 
 .bar-fill {
@@ -702,8 +304,11 @@ th {
     flex: 0 0 40px;
     text-align: right;
     font-weight: 500;
+    white-space: nowrap;
+    font-size: 1rem;
 }
 
+/* TRANSACTIONS */
 .filters {
     display: flex;
     gap: 10px;
@@ -712,25 +317,33 @@ th {
 }
 
 .filters input, .filters select {
-    padding: 8px 12px;
+    padding: 10px 14px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    min-width: 0;
 }
 
 .transactions-table {
+    /* Fix for horizontal scroll on mobile */
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -1.5rem; /* Use negative margin to pull table out of card padding */
+    padding: 0 1.5rem;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 700px; /* Ensure table is wide enough to scroll on mobile */
 }
 
 th, td {
-    padding: 12px 15px;
+    padding: 14px 16px;
     text-align: left;
     border-bottom: 1px solid #eee;
+    white-space: nowrap;
+    font-size: 1rem;
 }
 
 th {
@@ -744,23 +357,28 @@ th {
     justify-content: center;
     margin-top: 20px;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .pagination button {
     background-color: #f1f1f1;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    flex-shrink: 0;
+    font-size: 1rem;
 }
 
+/* ANALYTICS */
 .analytics-grid {
+    /* Use grid for analytics cards */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
 }
 
@@ -773,36 +391,42 @@ th {
     margin-top: 0;
     margin-bottom: 15px;
     color: var(--text-dark);
+    word-wrap: break-word;
+    font-size: 1.3rem;
 }
 
 .chart-container {
     flex: 1;
-    min-height: 200px;
+    min-height: 220px;
 }
 
 .chart-placeholder {
-    background-color: #f5f5f5;
-    height: 200px;
+    height: 220px;
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
+    overflow: hidden;
+}
+
+.chart-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .time-filters {
     display: flex;
     gap: 10px;
     margin-top: 15px;
+    flex-wrap: wrap;
 }
 
 .time-filters button {
     background-color: #f1f1f1;
     border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    font-size: 0.8rem;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 0.95rem;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .time-filters button.active {
@@ -814,30 +438,46 @@ th {
     margin-top: 15px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .metric {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 1rem;
 }
 
 .budget-item {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.budget-item .label {
+    flex: 0 0 auto;
+    min-width: 140px;
+    font-size: 1rem;
 }
 
 .budget-bar {
     flex: 1;
-    height: 8px;
+    height: 10px;
     background-color: #e0e0e0;
-    border-radius: 4px;
+    border-radius: 5px;
     overflow: hidden;
+    min-width: 50px;
 }
 
+/* REPORTS */
 .report-options {
     margin-bottom: 30px;
+}
+
+.report-options h3 {
+    font-size: 1.3rem;
 }
 
 .report-form {
@@ -850,114 +490,729 @@ th {
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-}
-
-.form-group label {
-    font-size: 0.9rem;
-    color: #666;
+    gap: 8px;
 }
 
 .form-group select {
-    padding: 8px 12px;
+    padding: 10px 14px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-
-.report-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    border-radius: 6px;
+    font-size: 1rem;
+    min-width: 0;
 }
 
 .report-item {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 15px;
+    border-radius: 10px;
     background-color: #f9f9f9;
+    flex-wrap: nowrap; /* Prevent wrapping in desktop view */
 }
 
 .report-item i {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
+    flex-shrink: 0;
 }
 
 .report-info {
     flex: 1;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .report-info h4 {
     margin: 0 0 5px;
+    white-space: normal; /* Allow title to wrap */
+    font-size: 1.1rem;
 }
 
 .report-info p {
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     color: #777;
+    white-space: normal;
 }
 
-/* Responsive styles */
-@media (max-width: 1200px) {
-    .government-layout {
-        padding: 1.5rem 3%;
-    }
-}
+/* --- RESPONSIVE BREAKPOINTS --- */
 
+/* Tablet and Smaller Desktop (1100px down to 769px) */
 @media (max-width: 1100px) {
     .government-layout {
         flex-direction: column;
+        padding: 1.5rem 3%;
     }
     
     .sidebar {
         flex: none;
         width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .government-layout {
-        padding: 1rem 3%;
-        gap: 1rem;
-    }
-    
-    .analytics-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .filters {
-        flex-direction: column;
-    }
-    
-    .filters input, .filters select {
-        width: 100%;
-    }
-    
-    .report-form {
-        grid-template-columns: 1fr;
-    }
-    
-    .sidebar {
-        order: 2;
+        order: 2; /* Put sidebar after content on small screens */
     }
     
     .content {
         order: 1;
     }
+    
+    .analytics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted min-width for flexibility */
+    }
 }
 
+/* Mobile (768px and down) */
+@media (max-width: 768px) {
+    .government-layout {
+        padding: 1.5rem 4%;
+        gap: 1.5rem;
+    }
+    
+    /* Enhanced Card Styling */
+    .card {
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+    }
+    
+    /* Government Card Enhancements */
+    .government-card {
+        padding: 2rem 1.5rem;
+        background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+        box-shadow: 0 8px 24px rgba(76, 175, 80, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .government-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(20px); }
+    }
+    
+    .government-card .avatar {
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        font-size: 3rem;
+        transition: transform 0.3s ease;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+    
+    .government-card .avatar:hover {
+        transform: scale(1.1);
+    }
+    
+    .government-info h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .government-info p {
+        font-size: 0.95rem;
+        opacity: 0.95;
+        font-weight: 500;
+    }
+    
+    /* Quick Links Enhancement */
+    .quick-links h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .btn-primary, .btn-outline {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #4CAF50, #388E3C);
+        color: white;
+        border: none;
+    }
+    
+    .btn-primary:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #388E3C, #2E7D32);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+    }
+    
+    .btn-outline {
+        background: white;
+        border: 2px solid #4CAF50;
+        color: #4CAF50;
+    }
+    
+    .btn-outline:hover {
+        background: #A5D6A7;
+        border-color: #388E3C;
+        color: #388E3C;
+        transform: translateY(-2px);
+    }
+    
+    /* Overview Stats */
+    .overview {
+        padding: 1.5rem;
+    }
+    
+    .overview h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+    }
+    
+    .overview-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .stat {
+        padding: 1rem;
+        background: linear-gradient(135deg, #f5f5f5, #efefef);
+        border-radius: 12px;
+        border-left: 4px solid #4CAF50;
+        transition: all 0.3s ease;
+    }
+    
+    .stat:hover {
+        background: linear-gradient(135deg, #efefef, #e0e0e0);
+        transform: translateX(4px);
+    }
+    
+    .stat .label {
+        font-size: 0.9rem;
+        color: #666;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat .value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #4CAF50;
+    }
+    
+    /* Analytics Grid */
+    .analytics-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .analytics-card {
+        padding: 1.5rem;
+    }
+    
+    .analytics-card h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #333;
+    }
+    
+    .chart-container {
+        min-height: 250px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        background: #f9f9f9;
+    }
+    
+    .chart-placeholder {
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    .time-filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+    }
+    
+    .time-filters button {
+        padding: 10px 16px;
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+        background: white;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1 1 auto;
+        min-width: 80px;
+    }
+    
+    .time-filters button:active {
+        transform: scale(0.95);
+    }
+    
+    .time-filters button.active {
+        background: linear-gradient(135deg, #4CAF50, #388E3C);
+        color: white;
+        border-color: #4CAF50;
+        box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    }
+    
+    .impact-metrics, .budget-breakdown {
+        margin-top: 1.5rem;
+        gap: 12px;
+    }
+    
+    .metric, .budget-item {
+        padding: 1rem;
+        background: #f9f9f9;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .metric:hover, .budget-item:hover {
+        background: #f0f0f0;
+        transform: translateX(4px);
+    }
+    
+    .budget-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .budget-item .label {
+        flex: 0 0 100%;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+    }
+    
+    .budget-bar {
+        width: 100%;
+        height: 12px;
+        background: #e0e0e0;
+        border-radius: 6px;
+        overflow: hidden;
+        margin: 0;
+    }
+    
+    .bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #4CAF50, #66BB6A);
+        border-radius: 6px;
+        transition: width 0.4s ease;
+    }
+    
+    /* Filters */
+    .filters {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .filters input, .filters select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: white;
+    }
+    
+    .filters input:focus, .filters select:focus {
+        outline: none;
+        border-color: #4CAF50;
+        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        transform: scale(1.01);
+    }
+    
+    .filters input::placeholder {
+        color: #999;
+    }
+    
+    /* Transactions Table */
+    .transactions-table {
+        margin: 0 -1.5rem;
+        padding: 0 1.5rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+        min-width: 700px;
+    }
+    
+    th, td {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+    
+    th {
+        background: linear-gradient(135deg, #f9f9f9, #efefef);
+        font-weight: 700;
+        color: #333;
+        border-bottom: 2px solid #e0e0e0;
+    }
+    
+    tr:hover {
+        background: #f9f9f9;
+    }
+    
+    td {
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .btn-small {
+        padding: 8px 12px;
+        background: linear-gradient(135deg, #f1f1f1, #e8e8e8);
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+    
+    .btn-small:hover {
+        background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-small:active {
+        transform: translateY(0);
+    }
+    
+    /* Pagination */
+    .pagination {
+        display: flex;
+        gap: 12px;
+        margin-top: 1.5rem;
+        justify-content: center;
+    }
+    
+    .pagination button {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+        background: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .pagination button:hover {
+        border-color: #4CAF50;
+        color: #4CAF50;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+    }
+    
+    .pagination button:active {
+        transform: translateY(0);
+    }
+    
+    /* Section Title */
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #333;
+        padding: 0 0.5rem;
+    }
+    
+    /* Regional Performance */
+    .region-name {
+        flex: 0 0 100px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+    }
+    
+    .region-item {
+        padding: 1rem;
+        background: #f9f9f9;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .region-item:hover {
+        background: #f0f0f0;
+        transform: translateX(4px);
+    }
+    
+    /* Report Items */
+    .report-item {
+        padding: 1.2rem;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #f9f9f9, #f5f5f5);
+        flex-wrap: wrap;
+        transition: all 0.3s ease;
+        margin-bottom: 1rem;
+        border-left: 4px solid #4CAF50;
+    }
+    
+    .report-item:hover {
+        background: linear-gradient(135deg, #f0f0f0, #efefef);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .report-item i {
+        font-size: 2rem;
+        color: #4CAF50;
+        flex-shrink: 0;
+    }
+    
+    .report-info {
+        flex: 1 1 100%;
+        margin-left: 0;
+        margin-top: 0.8rem;
+    }
+    
+    .report-info h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0 0 0.3rem;
+        color: #333;
+    }
+    
+    .report-info p {
+        font-size: 0.9rem;
+        color: #777;
+        margin: 0;
+    }
+    
+    /* Report Form */
+    .report-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 1.5rem;
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .form-group label {
+        font-weight: 700;
+        color: #333;
+        font-size: 0.95rem;
+    }
+    
+    .form-group select {
+        padding: 12px 16px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .form-group select:focus {
+        outline: none;
+        border-color: #4CAF50;
+        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+    }
+    
+    /* Mobile Nav Enhancement */
+    .mobile-nav {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: white;
+        border-top: 1px solid #e0e0e0;
+    }
+    
+    .mobile-nav.open {
+        max-height: 400px;
+        animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Small Mobile (480px and down) */
 @media (max-width: 480px) {
     .government-layout {
-        padding: 0.5rem 2%;
+        padding: 1rem 3%;
     }
     
     .card {
-        padding: 1rem;
+        padding: 1.2rem;
+        border-radius: 14px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
     }
     
     .government-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .government-card .avatar {
+        width: 90px;
+        height: 90px;
+        font-size: 2.5rem;
+    }
+    
+    .government-info h2 {
+        font-size: 1.5rem;
+    }
+    
+    .government-info p {
+        font-size: 0.9rem;
+    }
+    
+    .btn-primary, .btn-outline {
+        padding: 0.9rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .quick-links h3, .overview h3 {
+        font-size: 1.1rem;
+    }
+    
+    .stat {
+        padding: 0.8rem;
+    }
+    
+    .stat .value {
+        font-size: 1.5rem;
+    }
+    
+    .analytics-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .chart-container {
+        min-height: 220px;
+    }
+    
+    .filters input, .filters select {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    
+    th, td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .btn-small {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .report-item {
         padding: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .report-item i {
+        font-size: 1.6rem;
+    }
+    
+    .report-info {
+        margin-top: 0.6rem;
+    }
+    
+    .report-info h4 {
+        font-size: 1rem;
+    }
+    
+    .report-info p {
+        font-size: 0.85rem;
+    }
+    
+    .time-filters button {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .pagination button {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+    
+    .region-item {
+        padding: 0.8rem;
+    }
+    
+    .region-name {
+        flex: 0 0 80px;
+        font-size: 0.95rem;
+    }
+    
+    .metric {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .budget-item {
+        padding: 0.8rem;
+    }
+    
+    .budget-item .label {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+    
+    .budget-bar {
+        height: 10px;
+    }
+    
+    .impact-metrics, .budget-breakdown {
+        gap: 10px;
     }
 }

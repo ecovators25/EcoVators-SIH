@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" cnt="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EcoVators - Government Dashboard</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/translator.css" />
@@ -25,24 +25,46 @@
     </script>
   </head>
   <body>
-    <!-- Google Translate widget -->
-    <div id="google_translate_element"></div>
+    <!-- Translator Icon -->
+<div class="translator-icon" onclick="toggleTranslator()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+    </svg>
+</div>
 
-    <script type="text/javascript">
-      function loadGoogleTranslate() {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
-            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-            autoDisplay: true,
-          },
-          "google_translate_element"
-        );
-      }
-    </script>
+<!-- Google Translate Widget -->
+<div id="google_translate_element"></div>
 
-    <script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script type="text/javascript">
+  function loadGoogleTranslate() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        includedLanguages: "en,hi,fr,de,es,ta,te,bn,ml,kn",
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+        autoDisplay: false,
+      },
+      "google_translate_element"
+    );
+  }
+
+  function toggleTranslator() {
+    const element = document.getElementById('google_translate_element');
+    element.classList.toggle('show');
+  }
+
+  // Close translator when clicking outside
+  document.addEventListener('click', function(event) {
+    const translator = document.getElementById('google_translate_element');
+    const icon = document.querySelector('.translator-icon');
+    
+    if (!translator.contains(event.target) && !icon.contains(event.target)) {
+      translator.classList.remove('show');
+    }
+  });
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <div class="dashboard-container">
       <nav class="navbar">
         <a href="../index.html">
@@ -309,8 +331,6 @@
                   National Participation Change
                 </h3>
                 <div class="chart-container">
-                  <!-- Chart visualization would go here -->
-                  <!-- <div class="chart-placeholder">Participation Trend Chart</div> -->
                   <img
                     src="../assets/participation.png"
                     alt="Participation"
@@ -332,10 +352,6 @@
                   Environmental Impact
                 </h3>
                 <div class="chart-container">
-                  <!-- Chart visualization would go here -->
-                  <!-- <div class="chart-placeholder">
-                    Environmental Impact Chart
-                  </div> -->
                   <img
                     src="../assets/enm.jpeg"
                     alt="Participation"
@@ -362,8 +378,6 @@
                   Budget Utilization
                 </h3>
                 <div class="chart-container">
-                  <!-- Chart visualization would go here -->
-                  <!-- <div class="chart-placeholder">Budget Utilization Chart</div> -->
                   <img
                     src="../assets/budget.jpeg"
                     alt="Participation"
@@ -509,5 +523,15 @@
     <script src="../js/ai-chatbot.js"></script>
 
     <script src="../js/main.js"></script>
+    <script>
+      const toggleBtn = document.getElementById("menu-toggle");
+      const mobileNav = document.getElementById("mobile-nav");
+      if (toggleBtn && mobileNav) {
+        toggleBtn.addEventListener("click", () => {
+          const isOpen = mobileNav.classList.toggle("open");
+          toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+      }
+    </script>
   </body>
 </html>
