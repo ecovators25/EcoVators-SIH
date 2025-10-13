@@ -121,7 +121,7 @@ By combining digital innovation, community engagement, and behavioral science, E
 ## Live Prototype
 
 Access the deployed platform:
-https://ecovators25.github.io/EcoVators-SIH25/
+(https://ecovators25.github.io/EcoVators-SIH/)
 
 ---
 
